@@ -1262,6 +1262,243 @@
 
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+        /* ===== LAPTOP ANIMATION ===== */
+        .laptop-scene {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            perspective: 1400px;
+            perspective-origin: 50% 15%;
+            overflow: visible;
+            padding-bottom: 40px;
+        }
+        .laptop-wrap {
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(12deg) rotateY(-6deg);
+            width: 360px;
+            flex-shrink: 0;
+        }
+        /* BASE */
+        .lb-base {
+            width: 360px;
+            height: 236px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .lb-base-top {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, #d6d6d6 0%, #bebebe 60%, #c6c6c6 100%);
+            border-radius: 8px 8px 14px 14px;
+            box-shadow: 0 2px 0 #a8a8a8, 0 24px 64px rgba(0,0,0,0.22);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 14px 16px 12px;
+            gap: 10px;
+        }
+        .lb-keyboard {
+            flex: 1;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 2px;
+            background: #1c1c1e;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .lb-key {
+            background: linear-gradient(160deg, #2e2e30, #252527);
+            border-radius: 2px;
+            box-shadow: 0 1px 0 #111;
+        }
+        .lb-trackpad {
+            width: 108px;
+            height: 40px;
+            background: linear-gradient(180deg, #c2c2c2, #b6b6b6);
+            border-radius: 6px;
+            border: 1px solid #aaa;
+            box-shadow: inset 0 1px 2px rgba(255,255,255,0.5), 0 1px 0 #999;
+            flex-shrink: 0;
+        }
+        .lb-base-front {
+            position: absolute;
+            bottom: -10px;
+            left: 4px;
+            right: 4px;
+            height: 10px;
+            background: linear-gradient(180deg, #b2b2b2, #a2a2a2);
+            border-radius: 0 0 10px 10px;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        /* LID */
+        .lb-lid {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            width: 360px;
+            height: 226px;
+            transform-origin: bottom center;
+            transform: rotateX(-30deg);
+            transform-style: preserve-3d;
+        }
+        .lb-lid-back {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, #d4d4d4 0%, #bebebe 50%, #c6c6c6 100%);
+            border-radius: 14px 14px 6px 6px;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 -2px 16px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .lb-logo-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #939393;
+            letter-spacing: -0.03em;
+            position: relative;
+            z-index: 1;
+        }
+        .lb-logo-text em { font-style: normal; color: var(--sage); opacity: 0.85; }
+        .lb-glow-line {
+            position: absolute;
+            bottom: 0;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: var(--sage);
+            border-radius: 2px;
+            filter: blur(4px);
+            opacity: 0.25;
+        }
+        .lb-glow-halo {
+            position: absolute;
+            bottom: -6px;
+            left: 20%;
+            right: 20%;
+            height: 20px;
+            background: var(--sage);
+            filter: blur(16px);
+            opacity: 0.15;
+            border-radius: 50%;
+        }
+        /* SCREEN FACE */
+        .lb-lid-screen {
+            position: absolute;
+            inset: 0;
+            transform: rotateX(180deg);
+            backface-visibility: hidden;
+            background: #1a1a1a;
+            border-radius: 14px 14px 6px 6px;
+            padding: 10px;
+        }
+        .lb-bezel {
+            width: 100%;
+            height: 100%;
+            background: #0d0d0d;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .lb-screen-bar {
+            height: 16px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            padding: 0 6px;
+            gap: 3px;
+            flex-shrink: 0;
+        }
+        .lb-screen-bar .lsd { width: 5px; height: 5px; border-radius: 50%; }
+        .lb-screen-bar .lsd.r { background: #ff5f57; }
+        .lb-screen-bar .lsd.y { background: #ffbd2e; }
+        .lb-screen-bar .lsd.g { background: #28c840; }
+        .lb-url-bar { margin-left: 8px; font-size: 0.38rem; color: #aaa; font-family: 'Inter', sans-serif; }
+        .lb-screen-body {
+            flex: 1;
+            background: white;
+            padding: 8px 10px;
+            overflow: hidden;
+        }
+        .lb-sb-toprow { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 7px; }
+        .lb-sb-title { font-size: 0.42rem; font-weight: 800; color: #1a1d1e; font-family: 'Inter', sans-serif; line-height: 1.3; }
+        .lb-sb-badge { font-size: 0.33rem; background: var(--sage); color: white; padding: 1px 5px; border-radius: 10px; font-family: 'Inter', sans-serif; font-weight: 700; flex-shrink: 0; }
+        .lb-sb-line { height: 2px; background: #f0f0f0; border-radius: 1px; margin-bottom: 3px; }
+        .lb-sb-line.sage { background: linear-gradient(90deg, var(--sage), var(--sage-light)); width: 65%; }
+        .lb-sb-line.short { width: 42%; }
+        .lb-sb-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 7px; }
+        .lb-sb-card { height: 22px; background: #f5f5f5; border-radius: 2px; border-left: 2px solid var(--sage); }
+
+        /* FLOATING ELEMENTS */
+        .fe {
+            position: absolute;
+            opacity: 0;
+            transform: translateY(24px);
+            pointer-events: none;
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.06);
+            z-index: 20;
+        }
+        /* IG Card */
+        .fe-ig { width: 112px; top: 24px; right: -16px; overflow: hidden; }
+        .fe-ig-head { display: flex; align-items: center; gap: 5px; padding: 6px 7px; }
+        .fe-ig-av {
+            width: 18px; height: 18px; border-radius: 50%;
+            background: linear-gradient(135deg,#405de6,#833ab4,#fd1d1d,#f77737);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.42rem; font-weight: 800; color: white; font-family: 'Inter', sans-serif;
+        }
+        .fe-ig-name { font-size: 0.44rem; font-weight: 700; color: #1a1d1e; font-family: 'Inter', sans-serif; }
+        .fe-ig-img {
+            width: 100%; height: 70px;
+            background: linear-gradient(135deg,#1a1d1e 0%,#2a3a25 50%,var(--sage) 100%);
+            position: relative; overflow: hidden;
+        }
+        .fe-ig-img::before { content: ''; position: absolute; width: 40px; height: 40px; border-radius: 50%; background: rgba(107,127,94,0.3); top: 6px; right: -10px; }
+        .fe-ig-stat { position: absolute; bottom: 6px; left: 7px; color: white; }
+        .fe-ig-stat-n { font-size: 0.78rem; font-weight: 800; line-height: 1; font-family: 'Inter', sans-serif; }
+        .fe-ig-stat-l { font-size: 0.32rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.06em; font-family: 'Inter', sans-serif; }
+        .fe-ig-bottom { padding: 4px 7px 6px; display: flex; align-items: center; gap: 4px; }
+        .fe-ig-likes { font-size: 0.4rem; font-weight: 700; color: #1a1d1e; font-family: 'Inter', sans-serif; }
+        /* Analytics */
+        .fe-analytics { width: 110px; top: 18px; left: -14px; padding: 10px 12px; }
+        .fe-a-label { font-size: 0.42rem; font-weight: 700; color: var(--sage); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; font-family: 'Inter', sans-serif; }
+        .fe-a-num { font-size: 1.3rem; font-weight: 800; color: #1a1d1e; line-height: 1; letter-spacing: -0.04em; font-family: 'Inter', sans-serif; }
+        .fe-a-sub { font-size: 0.38rem; color: #8d9296; margin-bottom: 6px; font-family: 'Inter', sans-serif; }
+        /* Social cluster */
+        .fe-social { top: 155px; right: -32px; padding: 9px 10px; display: flex; flex-direction: column; gap: 5px; border-radius: 14px; }
+        .fe-soc-row { display: flex; gap: 5px; }
+        .fe-soc-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        /* Notification */
+        .fe-notif { padding: 7px 14px; display: flex; align-items: center; gap: 8px; white-space: nowrap; border-radius: 50px !important; top: -10px; left: 80px; }
+        .fe-notif-icon { font-size: 0.9rem; }
+        .fe-notif-t { font-size: 0.5rem; font-weight: 700; color: #1a1d1e; font-family: 'Inter', sans-serif; }
+        .fe-notif-s { font-size: 0.42rem; color: #8d9296; font-family: 'Inter', sans-serif; }
+        /* Meta Ads */
+        .fe-meta { width: 120px; bottom: 55px; right: -28px; padding: 10px 12px; }
+        .fe-meta-label { font-size: 0.4rem; font-weight: 700; color: #1877f2; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; font-family: 'Inter', sans-serif; }
+        .fe-meta-title { font-size: 0.52rem; font-weight: 700; color: #1a1d1e; margin-bottom: 7px; font-family: 'Inter', sans-serif; }
+        .fe-meta-stats { display: flex; justify-content: space-between; gap: 4px; }
+        .fe-meta-stat-n { font-size: 0.62rem; font-weight: 800; color: var(--sage); font-family: 'Inter', sans-serif; }
+        .fe-meta-stat-l { font-size: 0.35rem; color: #8d9296; font-family: 'Inter', sans-serif; }
+        /* Particles */
+        .fe-particles { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+        .particle { position: absolute; font-size: 0.85rem; opacity: 0; }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -1343,78 +1580,116 @@
                         <a href="#servicos" class="btn btn-outline">Ver Servi&ccedil;os</a>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <!-- CSS Phone Mockup -->
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="phone-notch"></div>
-                            <!-- IG Post 1 -->
-                            <div class="ig-header">
-                                <div class="ig-header-user">
-                                    <div class="ig-avatar">A</div>
-                                    <span class="ig-username">auto_algarve</span>
-                                    <span class="ig-verified"></span>
+                <div class="hero-visual" style="overflow:visible;">
+                    <div class="laptop-scene">
+                        <div class="laptop-wrap">
+                            <!-- BASE -->
+                            <div class="lb-base">
+                                <div class="lb-base-top">
+                                    <div class="lb-keyboard" id="lbKeyboard"></div>
+                                    <div class="lb-trackpad"></div>
                                 </div>
+                                <div class="lb-base-front"></div>
                             </div>
-                            <div class="ig-post-img">
-                                <div class="ig-post-overlay">
-                                    <div class="ig-stat-big">+540%</div>
-                                    <div class="ig-stat-label">Alcance este m&ecirc;s</div>
+                            <!-- LID -->
+                            <div class="lb-lid" id="lbLid">
+                                <div class="lb-lid-back">
+                                    <div class="lb-logo-text">postual<em>.</em></div>
+                                    <div class="lb-glow-line" id="lbGlowLine"></div>
+                                    <div class="lb-glow-halo" id="lbGlowHalo"></div>
                                 </div>
-                            </div>
-                            <div class="ig-actions">
-                                <div class="ig-action-icon liked"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-                                <div class="ig-action-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-                                <div class="ig-action-icon"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
-                            </div>
-                            <div class="ig-likes">847 gostaram</div>
-                            <div class="ig-caption"><strong>auto_algarve</strong> O melhor SUV para a sua fam&iacute;lia est&aacute; aqui. Venha conhecer... <span style="color:#8e8e8e">mais</span></div>
-                            <!-- IG Post 2 preview -->
-                            <div class="ig-post-2">
-                                <div class="ig-header">
-                                    <div class="ig-header-user">
-                                        <div class="ig-avatar" style="background:linear-gradient(135deg,#e8834a,#d4543a);">M</div>
-                                        <span class="ig-username">motos_faro</span>
-                                        <span class="ig-verified"></span>
+                                <div class="lb-lid-screen">
+                                    <div class="lb-bezel">
+                                        <div class="lb-screen-bar">
+                                            <div class="lsd r"></div>
+                                            <div class="lsd y"></div>
+                                            <div class="lsd g"></div>
+                                            <span class="lb-url-bar">postual.com</span>
+                                        </div>
+                                        <div class="lb-screen-body">
+                                            <div class="lb-sb-toprow">
+                                                <div class="lb-sb-title">Mais clientes.<br>Mais vendas.</div>
+                                                <div class="lb-sb-badge">Live</div>
+                                            </div>
+                                            <div class="lb-sb-line sage"></div>
+                                            <div class="lb-sb-line"></div>
+                                            <div class="lb-sb-line short"></div>
+                                            <div class="lb-sb-cards">
+                                                <div class="lb-sb-card"></div>
+                                                <div class="lb-sb-card"></div>
+                                                <div class="lb-sb-card"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="ig-post-2-img"></div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Floating stat cards -->
-                    <div class="hero-float-card hero-float-1">
-                        <div style="display:flex;align-items:center;gap:10px;">
-                            <div class="float-icon green">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        <!-- FLOATING ELEMENTS -->
+                        <!-- IG Card -->
+                        <div class="fe fe-ig" id="fe1">
+                            <div class="fe-ig-head">
+                                <div class="fe-ig-av">A</div>
+                                <span class="fe-ig-name">auto_algarve</span>
                             </div>
-                            <div>
-                                <div class="float-text">+340% visitas</div>
-                                <div class="float-subtext">Este m&ecirc;s</div>
+                            <div class="fe-ig-img">
+                                <div class="fe-ig-stat">
+                                    <div class="fe-ig-stat-n">+540%</div>
+                                    <div class="fe-ig-stat-l">Alcance</div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="hero-float-card hero-float-2">
-                        <div style="display:flex;align-items:center;gap:10px;">
-                            <div class="float-icon red">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                            </div>
-                            <div>
-                                <div class="float-text">+89 seguidores</div>
-                                <div class="float-subtext">Esta semana</div>
+                            <div class="fe-ig-bottom">
+                                <svg width="9" height="9" viewBox="0 0 24 24" fill="#ed4956" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                <span class="fe-ig-likes">847 gostaram</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="hero-float-card hero-float-3">
-                        <div style="display:flex;align-items:center;gap:10px;">
-                            <div class="float-icon blue">
-                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <!-- Analytics -->
+                        <div class="fe fe-analytics" id="fe2">
+                            <div class="fe-a-label">Crescimento</div>
+                            <div class="fe-a-num">+340%</div>
+                            <div class="fe-a-sub">visitas este m&ecirc;s</div>
+                            <svg viewBox="0 0 80 28" fill="none" style="width:100%;height:24px;"><polyline points="0,26 15,20 30,16 45,10 60,5 80,1" stroke="var(--sage)" stroke-width="1.5" fill="none" stroke-linecap="round"/><polyline points="0,26 15,20 30,16 45,10 60,5 80,1 80,28 0,28" fill="rgba(107,127,94,0.1)"/></svg>
+                        </div>
+                        <!-- Social icons -->
+                        <div class="fe fe-social" id="fe3">
+                            <div class="fe-soc-row">
+                                <div class="fe-soc-icon" style="background:linear-gradient(135deg,#405de6,#833ab4,#fd1d1d,#f77737);">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                </div>
+                                <div class="fe-soc-icon" style="background:#1877f2;">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                                </div>
+                                <div class="fe-soc-icon" style="background:#25D366;">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </div>
                             </div>
+                            <div style="text-align:center;font-size:0.38rem;color:#8d9296;font-family:'Inter',sans-serif;">+3 plataformas</div>
+                        </div>
+                        <!-- Notification -->
+                        <div class="fe fe-notif" id="fe4">
+                            <span class="fe-notif-icon">💬</span>
                             <div>
-                                <div class="float-text">12 mensagens</div>
-                                <div class="float-subtext">Novos clientes</div>
+                                <div class="fe-notif-t">Nova mensagem</div>
+                                <div class="fe-notif-s">Tenho interesse no carro...</div>
                             </div>
+                        </div>
+                        <!-- Meta Ads -->
+                        <div class="fe fe-meta" id="fe5">
+                            <div class="fe-meta-label">Meta Ads</div>
+                            <div class="fe-meta-title">Campanha Activa ✓</div>
+                            <div class="fe-meta-stats">
+                                <div style="text-align:center;"><div class="fe-meta-stat-n">2.4k</div><div class="fe-meta-stat-l">Alcance</div></div>
+                                <div style="text-align:center;"><div class="fe-meta-stat-n">€0.32</div><div class="fe-meta-stat-l">CPC</div></div>
+                                <div style="text-align:center;"><div class="fe-meta-stat-n">8.2%</div><div class="fe-meta-stat-l">CTR</div></div>
+                            </div>
+                        </div>
+                        <!-- Particles -->
+                        <div class="fe-particles">
+                            <span class="particle" style="left:62%;top:28%;">❤️</span>
+                            <span class="particle" style="left:75%;top:18%;">✨</span>
+                            <span class="particle" style="left:30%;top:22%;">👍</span>
+                            <span class="particle" style="left:82%;top:38%;">❤️</span>
+                            <span class="particle" style="left:18%;top:32%;">✨</span>
                         </div>
                     </div>
                 </div>
@@ -1835,6 +2110,64 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+        // Generate keyboard keys
+        const kb = document.getElementById('lbKeyboard');
+        if (kb) { for (let i = 0; i < 65; i++) { const k = document.createElement('div'); k.className = 'lb-key'; kb.appendChild(k); } }
+
+        // LAPTOP OPENING ANIMATION
+        const laptopTl = gsap.timeline({ delay: 0.4 });
+
+        // Open lid 30deg → 120deg
+        laptopTl.to('#lbLid', {
+            rotateX: -120,
+            duration: 1.3,
+            ease: 'power2.inOut'
+        }, 0)
+        // Intensify sage glow as lid opens
+        .to(['#lbGlowLine', '#lbGlowHalo'], {
+            opacity: 0.9,
+            duration: 0.9,
+            ease: 'power2.in'
+        }, 0.25)
+        // IG card
+        .to('#fe1', { opacity: 1, y: 0, duration: 0.55, ease: 'back.out(1.7)' }, 0.85)
+        // Analytics
+        .to('#fe2', { opacity: 1, y: 0, duration: 0.55, ease: 'back.out(1.7)' }, 1.1)
+        // Social icons
+        .to('#fe3', { opacity: 1, y: 0, duration: 0.55, ease: 'back.out(1.7)' }, 1.35)
+        // Notification
+        .to('#fe4', { opacity: 1, y: 0, duration: 0.5,  ease: 'back.out(1.7)' }, 1.6)
+        // Meta Ads
+        .to('#fe5', { opacity: 1, y: 0, duration: 0.55, ease: 'back.out(1.7)' }, 1.85)
+        // Particles
+        .to('.particle', { opacity: 1, stagger: 0.1, duration: 0.35, ease: 'power2.out' }, 1.8);
+
+        // Continuous float after animation settles
+        gsap.to('#fe1, #fe2, #fe3, #fe4, #fe5', {
+            y: '-=9',
+            duration: 2.4,
+            ease: 'sine.inOut',
+            yoyo: true,
+            repeat: -1,
+            stagger: { each: 0.45, from: 'random' },
+            delay: 3.0
+        });
+
+        // Particles float upward and fade
+        document.querySelectorAll('.particle').forEach((p, i) => {
+            gsap.to(p, {
+                y: -70, opacity: 0,
+                duration: 2.2 + Math.random() * 0.8,
+                delay: 2.2 + i * 0.28,
+                ease: 'power1.out',
+                repeat: -1,
+                repeatDelay: 1.8 + Math.random()
+            });
+        });
     </script>
 </body>
 </html>

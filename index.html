@@ -699,10 +699,8 @@
             isMobile = vw < 768;
 
             if (isMobile) {
-                /* Blend between contain and cover: 70% toward cover */
-                var contain = Math.min(vw / iw, vh / ih);
-                var cover = Math.max(vw / iw, vh / ih);
-                var scale = contain + (cover - contain) * 0.55;
+                /* Mobile: use width as base, add slight boost to fill more screen */
+                var scale = (vw / iw) * 1.35;
                 drawW = Math.round(iw * scale);
                 drawH = Math.round(ih * scale);
                 coverOffsetX = Math.round((vw - drawW) / 2);

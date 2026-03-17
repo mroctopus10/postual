@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #F5F5F5;
+            --bg: #F5F7FA;
             --bg-dark: #1A1D1E;
             --sage: #6B7F5E;
             --sage-light: #8FA580;
@@ -21,7 +21,7 @@
             --text-secondary: #4A4F51;
             --text-on-dark: rgba(255,255,255,0.9);
             --text-on-dark-muted: rgba(255,255,255,0.5);
-            --cream: #F5F5F5;
+            --cream: #F5F7FA;
             --radius: 12px;
             --radius-lg: 20px;
             --border: #E6E4DF;
@@ -296,6 +296,10 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .hero-section { height: 75vh; }
+            .scroll-wrapper { height: 180vh; }
+            .scroll-hint { bottom: 20px; }
+            .section { padding: 80px 20px; }
             .services-grid { grid-template-columns: 1fr; }
             .pricing-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
@@ -678,6 +682,13 @@
             frames[i] = img;
         }
 
+        /* Canvas covers viewport on mobile (crop sides), contains on desktop */
+        var isMobile = false;
+        var coverOffsetX = 0;
+        var coverOffsetY = 0;
+        var drawW = 0;
+        var drawH = 0;
+
         function sizeCanvas() {
             if (!frames[0] || !frames[0].naturalWidth) return;
             var dpr = window.devicePixelRatio || 1;
@@ -685,24 +696,48 @@
             var vh = window.innerHeight;
             var iw = frames[0].naturalWidth;
             var ih = frames[0].naturalHeight;
-            var scale = Math.min(vw / iw, vh / ih);
-            var dw = Math.round(iw * scale);
-            var dh = Math.round(ih * scale);
-            canvas.width = dw * dpr;
-            canvas.height = dh * dpr;
-            canvas.style.width = dw + 'px';
-            canvas.style.height = dh + 'px';
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            isMobile = vw < 768;
+
+            if (isMobile) {
+                /* COVER mode: fill viewport height, crop sides */
+                var scale = Math.max(vw / iw, vh / ih);
+                drawW = Math.round(iw * scale);
+                drawH = Math.round(ih * scale);
+                coverOffsetX = Math.round((vw - drawW) / 2);
+                coverOffsetY = Math.round((vh - drawH) / 2);
+                canvas.width = vw * dpr;
+                canvas.height = vh * dpr;
+                canvas.style.width = vw + 'px';
+                canvas.style.height = vh + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            } else {
+                /* CONTAIN mode: fit within viewport */
+                var scale = Math.min(vw / iw, vh / ih);
+                drawW = Math.round(iw * scale);
+                drawH = Math.round(ih * scale);
+                coverOffsetX = 0;
+                coverOffsetY = 0;
+                canvas.width = drawW * dpr;
+                canvas.height = drawH * dpr;
+                canvas.style.width = drawW + 'px';
+                canvas.style.height = drawH + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
         }
 
         function drawFrame(idx) {
             if (idx === currentFrame) return;
             if (!frames[idx] || !frames[idx].complete || !frames[idx].naturalWidth) return;
             currentFrame = idx;
-            var dw = parseFloat(canvas.style.width) || canvas.width;
-            var dh = parseFloat(canvas.style.height) || canvas.height;
-            ctx.clearRect(0, 0, dw, dh);
-            ctx.drawImage(frames[idx], 0, 0, dw, dh);
+            if (isMobile) {
+                var cw = parseFloat(canvas.style.width);
+                var ch = parseFloat(canvas.style.height);
+                ctx.clearRect(0, 0, cw, ch);
+                ctx.drawImage(frames[idx], coverOffsetX, coverOffsetY, drawW, drawH);
+            } else {
+                ctx.clearRect(0, 0, drawW, drawH);
+                ctx.drawImage(frames[idx], 0, 0, drawW, drawH);
+            }
         }
 
         window.addEventListener('resize', function() {

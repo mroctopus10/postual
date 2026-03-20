@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postual - Plano de Ação</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1d1e 0%, #2d3035 100%);
+            color: #333;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #6B7F5E;
+        }
+        header p {
+            font-size: 16px;
+            color: #ccc;
+        }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .section-title {
+            color: #6B7F5E;
+            font-size: 28px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #6B7F5E;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .weekly-targets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .target-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #eef1f7 100%);
+            border-left: 4px solid #6B7F5E;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .target-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #6B7F5E;
+            margin-bottom: 5px;
+        }
+        .target-label {
+            font-size: 13px;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .daily-routine {
+            margin-top: 30px;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            align-items: start;
+        }
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        .timeline-time {
+            font-weight: bold;
+            color: #6B7F5E;
+            font-size: 14px;
+        }
+        .timeline-content {
+            line-height: 1.6;
+            color: #333;
+        }
+        .timeline-content strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .timeline-content p {
+            font-size: 14px;
+            color: #666;
+        }
+        .script-box {
+            background: #f0f5f2;
+            border-left: 4px solid #6B7F5E;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .script-title {
+            font-weight: bold;
+            color: #6B7F5E;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+        .dos-donts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .dos, .donts {
+            padding: 20px;
+            border-radius: 6px;
+        }
+        .dos {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        .donts {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        .dos h4 {
+            color: #155724;
+            margin-bottom: 12px;
+        }
+        .donts h4 {
+            color: #721c24;
+            margin-bottom: 12px;
+        }
+        .dos ul, .donts ul {
+            list-style: none;
+            padding: 0;
+        }
+        .dos li, .donts li {
+            padding: 5px 0;
+            font-size: 14px;
+        }
+        .dos li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .donts li:before {
+            content: "✗ ";
+            color: #dc3545;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .tracking-section {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .tracking-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        .tracking-item:last-child {
+            border-bottom: none;
+        }
+        .tracking-label {
+            font-weight: 600;
+            color: #6B7F5E;
+            font-size: 13px;
+        }
+        .tracking-example {
+            color: #666;
+            font-size: 13px;
+        }
+        .commission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .commission-table th, .commission-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .commission-table th {
+            background: #6B7F5E;
+            color: white;
+            font-weight: 600;
+        }
+        .commission-table tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        .commission-table .amount {
+            text-align: right;
+            font-weight: 600;
+            color: #6B7F5E;
+        }
+        .demo-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .demo-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #eef1f7 100%);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #6B7F5E;
+            text-align: center;
+        }
+        .demo-card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #6B7F5E;
+        }
+        .demo-card p {
+            font-size: 13px;
+            color: #666;
+        }
+        .highlight {
+            background: #fff9e6;
+            padding: 20px;
+            border-left: 4px solid #f0ad4e;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .highlight strong {
+            color: #856404;
+        }
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Plano de Ação - Postual</h1>
+            <p>Roteiro para Prosperidade na Outreach de Vendas</p>
+        </header>
+
+        <!-- WEEKLY TARGETS -->
+        <div class="section">
+            <div class="section-title">🎯 Metas Semanais</div>
+            <div class="section-subtitle">Objetivos realistas e alcançáveis</div>
+
+            <div class="weekly-targets">
+                <div class="target-card">
+                    <div class="target-number">12-15</div>
+                    <div class="target-label">Emails por Dia</div>
+                </div>
+                <div class="target-card">
+                    <div class="target-number">5-7</div>
+                    <div class="target-label">Visitas Presenciais/Dia</div>
+                </div>
+                <div class="target-card">
+                    <div class="target-number">8-10</div>
+                    <div class="target-label">WhatsApp Follow-ups/Dia</div>
+                </div>
+                <div class="target-card">
+                    <div class="target-number">2-3</div>
+                    <div class="target-label">Conversas Agendadas/Dia</div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>📌 Meta Realista:</strong> 1-2 clientes novos por semana no início. A qualidade importa mais que quantidade.
+            </div>
+        </div>
+
+        <!-- DAILY ROUTINE -->
+        <div class="section">
+            <div class="section-title">⏰ Rotina Diária</div>
+            <div class="section-subtitle">Estrutura de trabalho que funciona</div>
+
+            <div class="daily-routine">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">08:00 - 08:30</div>
+                        <div class="timeline-content">
+                            <strong>Setup do Dia</strong>
+                            <p>Abrir spreadsheet Postual_Prospect_Pipeline.xlsx. Identificar 15-20 prospects para contactar. Separar por vertical (restaurantes vs imobiliárias). Preparar tablet com exemplos de posts.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">08:30 - 10:00</div>
+                        <div class="timeline-content">
+                            <strong>Emails em Lote</strong>
+                            <p>Enviar 12-15 emails personalizados usando os templates. Dicas: Mudar sempre o [NOME DO NEGÓCIO], adaptar 1-2 linhas para parecer pessoal (ex: "Vi que têm uma promoção de verão"). Marcar no spreadsheet como "Email enviado".</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:00 - 12:00</div>
+                        <div class="timeline-content">
+                            <strong>Visitas Presenciais</strong>
+                            <p>Ir a 5-7 estabelecimentos (restaurantes, imobiliárias). Levar tablet preparado. Aplicar script de apresentação. Deixar cartão, tentar agendar conversa. Marcar no spreadsheet como "Visita realizada".</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">12:00 - 13:00</div>
+                        <div class="timeline-content">
+                            <strong>Intervalo</strong>
+                            <p>Pausa para almoço. Recarregar energia. Rever notas das visitas.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">13:00 - 14:30</div>
+                        <div class="timeline-content">
+                            <strong>Seguimentos</strong>
+                            <p>Telefonemas para prospects que não responderam. WhatsApp follow-ups (usar templates adaptados). Agendamento de reuniões. Atualizar estado no spreadsheet.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">14:30 - 15:30</div>
+                        <div class="timeline-content">
+                            <strong>Visitas Presenciais (2ª rodada)</strong>
+                            <p>Mais 5-7 visitas em zonas diferentes. Objetivo: ver rostos, deixar tablet demo, construir relação.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">15:30 - 16:30</div>
+                        <div class="timeline-content">
+                            <strong>Reuniões & Conversas</strong>
+                            <p>Executar as conversas agendadas (presenciais ou via telefone). Demonstrar o tablet. Oferecer trial. Tentar fechar.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">16:30 - 17:00</div>
+                        <div class="timeline-content">
+                            <strong>Tracking & Admin</strong>
+                            <p>Atualizar spreadsheet com progresso do dia. Registar quem respondeu, quem disse "não", quem tem interesse. Preparar amanhã. Registar clientes novos em "Cliente ✓".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IN-PERSON VISIT SCRIPT -->
+        <div class="section">
+            <div class="section-title">🎤 Script para Visitas Presenciais</div>
+            <div class="section-subtitle">Exatamente o que dizer quando entrar</div>
+
+            <div class="script-box">
+                <div class="script-title">Para Restaurantes:</div>
+                <p>
+                    "Olá! Sou o [SEU NOME], trabalho com conteúdo automático para restaurantes. Vi que têm uma boa presença — mas acho que os vossos pratos mereciam estar no Instagram de forma mais consistente. Tenho 2 minutos?"
+                    <br><br>
+                    [Se disseram "sim" ou não rejeitarem imediatamente:]
+                    <br>
+                    "Basicamente, criamos 2-3 posts por semana com os vossos pratos, promoções, ambiente. Aparece no Google, no Instagram, tudo automático. Tenho um trial grátis de 2 semanas — nada a perder, vocês veem o resultado e depois decidem."
+                    <br><br>
+                    [Mostrar exemplos no tablet]
+                    <br>
+                    "Deixo o meu contacto. Posso voltar amanhã para falar mais detalhes?"
+                </p>
+            </div>
+
+            <div class="script-box">
+                <div class="script-title">Para Imobiliárias:</div>
+                <p>
+                    "Olá! Sou o [SEU NOME] da Postual. Trabalho com agências imobiliárias da região. Tenho uma ferramenta que publica automaticamente os vossos imóveis no Instagram e Facebook — com 2-3 posts por dia. Posso mostrar?"
+                    <br><br>
+                    [Se tiverem interesse:]
+                    <br>
+                    "Funciona assim: vocês dão-nos as propriedades, nós criamos conteúdo visual bonito, publica automaticamente. Resultado: mais clientes a ver os imóveis antes de entrar na imobiliária."
+                    <br><br>
+                    [Mostrar no tablet. Deixar cartão. Tentar agendar conversa com gerente.]
+                </p>
+            </div>
+
+            <div class="dos-donts">
+                <div class="dos">
+                    <h4>✓ Faça</h4>
+                    <ul>
+                        <li>Sorria e seja simpático</li>
+                        <li>Escute mais do que fale</li>
+                        <li>Faça perguntas ("Como estão a ir as vendas?")</li>
+                        <li>Mostre exemplos reais no tablet</li>
+                        <li>Deixe cartão sempre</li>
+                        <li>Seja rápido (2-3 minutos máximo)</li>
+                    </ul>
+                </div>
+                <div class="donts">
+                    <h4>✗ Não Faça</h4>
+                    <ul>
+                        <li>Não pareça desesperado</li>
+                        <li>Não prometa resultados garantidos</li>
+                        <li>Não seja agressivo</li>
+                        <li>Não minta sobre capacidades</li>
+                        <li>Não desista à 1ª rejeição</li>
+                        <li>Não fale de preço logo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLET DEMO -->
+        <div class="section">
+            <div class="section-title">📱 O Que Mostrar no Tablet</div>
+            <div class="section-subtitle">Deixar impressão e gerar confiança</div>
+
+            <p style="margin-bottom: 20px; color: #666;">Quando está na visita presencial, o tablet é a sua melhor arma. Aqui está o que deve ter preparado:</p>
+
+            <div class="demo-items">
+                <div class="demo-card">
+                    <strong>1. Casos de Sucesso</strong>
+                    <p>Fotos/vídeos de posts que criou para restaurantes/imobiliárias similares. Objetivo: mostrar qualidade e relevância.</p>
+                </div>
+                <div class="demo-card">
+                    <strong>2. Antes & Depois</strong>
+                    <p>Gráficos de engagement (likes, visualizações, comentários) antes e depois de usar Postual.</p>
+                </div>
+                <div class="demo-card">
+                    <strong>3. Feed Simulado</strong>
+                    <p>Mock-up do que ficaria o Instagram/Facebook deles com os posts automáticos. Personalize com nome deles.</p>
+                </div>
+                <div class="demo-card">
+                    <strong>4. Timeline do Trial</strong>
+                    <p>Explicar visualmente: "Semana 1: Criamos 4-6 posts. Semana 2: Veem resultado. Depois decidem."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRACKING IN SPREADSHEET -->
+        <div class="section">
+            <div class="section-title">📊 Como Rastrear no Spreadsheet</div>
+            <div class="section-subtitle">Mantenha tudo organizado</div>
+
+            <div class="tracking-section">
+                <div class="tracking-item">
+                    <div class="tracking-label">Coluna "Estado"</div>
+                    <div class="tracking-example">Atualizar diariamente conforme progresso: "Por contactar" → "Email enviado" → "Em negociação" → "Free trial" → "Cliente ✓"</div>
+                </div>
+                <div class="tracking-item">
+                    <div class="tracking-label">Coluna "Notas" (adicione)</div>
+                    <div class="tracking-example">Adicione coluna própria com notas: "Dito para contactar semana próxima", "Gerente disse sim mas chefe tem que aprovar"</div>
+                </div>
+                <div class="tracking-item">
+                    <div class="tracking-label">Coluna "Data Contacto" (adicione)</div>
+                    <div class="tracking-example">Registar quando contactou pela primeira vez. Ajuda a saber quem não respondeu há mais tempo.</div>
+                </div>
+                <div class="tracking-item">
+                    <div class="tracking-label">Filtros Ativos</div>
+                    <div class="tracking-example">Use filtros no spreadsheet para ver apenas "Por contactar" ou apenas "Em negociação" — mais produtivo.</div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>💡 Dica:</strong> No final da semana, adicione uma coluna com contagem de: emails enviados, visitas realizadas, conversas agendadas. Cria pressão positiva e visibilidade de produtividade.
+            </div>
+        </div>
+
+        <!-- COMMISSION STRUCTURE -->
+        <div class="section">
+            <div class="section-title">💰 Estrutura de Remuneração Sugerida</div>
+            <div class="section-subtitle">Incentivos que funcionam</div>
+
+            <p style="margin-bottom: 20px; color: #666;">Proposição: <strong>Base semanal + Comissão por Cliente</strong></p>
+
+            <table class="commission-table">
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Valor Sugerido</th>
+                        <th>Justificação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Base Semanal</td>
+                        <td class="amount">€100-150</td>
+                        <td>Garante min. viável. Cobre custos de transporte, refeições.</td>
+                    </tr>
+                    <tr>
+                        <td>Por Cliente (Novo)</td>
+                        <td class="amount">€150-200</td>
+                        <td>Por cada cliente que assina trial → client (2 semanas = sucesso)</td>
+                    </tr>
+                    <tr>
+                        <td>Bonus (5+ Clientes/mês)</td>
+                        <td class="amount">+€200</td>
+                        <td>Incentivo para crescimento agressivo</td>
+                    </tr>
+                    <tr>
+                        <td>Reembolso Transporte</td>
+                        <td class="amount">€20-30/dia</td>
+                        <td>Cobre gasolina / transportes públicos</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 20px; padding: 15px; background: #f9fafb; border-radius: 6px;">
+                <p style="font-size: 13px; color: #666;"><strong>Exemplo Real:</strong> Se conseguir 2 clientes novos por semana = €100 (base) + €400 (2 × €200) + €100-150 (transporte) = ~€600/semana. Bem viável.</p>
+            </div>
+        </div>
+
+        <!-- WEEKLY CHECKPOINTS -->
+        <div class="section">
+            <div class="section-title">✅ Checkpoints Semanais</div>
+            <div class="section-subtitle">Métricas para medir sucesso</div>
+
+            <div class="tracking-section">
+                <div class="tracking-item">
+                    <div class="tracking-label">Segunda-feira</div>
+                    <div class="tracking-example">Revisar semana anterior. Quantos emails? Visitas? Clientes? Ajustar estratégia se números baixos.</div>
+                </div>
+                <div class="tracking-item">
+                    <div class="tracking-label">Quarta-feira</div>
+                    <div class="tracking-example">Mid-week check. Estou no caminho? Preciso de mais visitas ou emails?</div>
+                </div>
+                <div class="tracking-item">
+                    <div class="tracking-label">Sexta-feira</div>
+                    <div class="tracking-example">Registar semana completa. Enviar relatório com: emails, visitas, conversas, clientes novos.</div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>🎯 Metas Realistas Progressivas:</strong>
+                <br><br>
+                <strong>Semana 1-2:</strong> 1 cliente (learning phase)
+                <br>
+                <strong>Semana 3-4:</strong> 1-2 clientes (você já sabe o pitch)
+                <br>
+                <strong>Semana 5+:</strong> 2-3 clientes (tá fluido, pitch é natural)
+                <br>
+                <strong>Mês 2+:</strong> 8-12 clientes (você domina, referências funcionam)
+            </div>
+        </div>
+
+        <!-- OBJECTION HANDLING -->
+        <div class="section">
+            <div class="section-title">🛡️ Como Lidar com Rejeições</div>
+            <div class="section-subtitle">Respostas rápidas para objeções comuns</div>
+
+            <div style="margin-top: 20px;">
+                <div style="margin-bottom: 30px;">
+                    <strong style="color: #6B7F5E; display: block; margin-bottom: 10px;">Objeção: "Não temos orçamento para isto"</strong>
+                    <div class="script-box">
+                        <p>"Entendo. Por isso mesmo temos trial GRATUITO — 2 semanas, zero custo. Veem se gera valor e depois decidem se faz sentido. Sem risco."</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <strong style="color: #6B7F5E; display: block; margin-bottom: 10px;">Objeção: "A nossa rede social já está bem"</strong>
+                    <div class="script-box">
+                        <p>"Pode ser verdade. Mas quantos posts criam por semana? A maioria dos negócios consegue 2-3 por mês — nós criamos 2-3 por dia. Mais conteúdo = mais visibilidade."</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <strong style="color: #6B7F5E; display: block; margin-bottom: 10px;">Objeção: "Já tentei algo parecido e não funcionou"</strong>
+                    <div class="script-box">
+                        <p>"Totalmente válido. O que não funcionou? [Escute]. Na nossa solução é diferente porque [explique a diferença]. E temos trial — posso provar."</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <strong style="color: #6B7F5E; display: block; margin-bottom: 10px;">Objeção: "Preciso pensar"</strong>
+                    <div class="script-box">
+                        <p>"Claro. Deixo-te o meu contacto. Quando chegar ao fim da semana, liga ou manda mensagem e marcamos uma conversa rápida? Sem pressão."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLOSING TIPS -->
+        <div class="section">
+            <div class="section-title">🚀 Dicas para Fechar</div>
+            <div class="section-subtitle">Turnos na conversa que levam a "Sim"</div>
+
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 12px 0; border-bottom: 1px solid #eee;">
+                    <strong style="color: #6B7F5E;">1. Assumir "sim":</strong> Em vez de "Quer tentar?", diga "Quando podemos começar o trial?" (já assume que vão fazer).
+                </li>
+                <li style="padding: 12px 0; border-bottom: 1px solid #eee;">
+                    <strong style="color: #6B7F5E;">2. Remover risco:</strong> "É grátis, sem contrato, sem cartão. Se não gostar, fim." Medo é o maior bloqueador.
+                </li>
+                <li style="padding: 12px 0; border-bottom: 1px solid #eee;">
+                    <strong style="color: #6B7F5E;">3. Criar urgência (leve):</strong> "Estou a trabalhar com mais 3 restaurantes na zona. Se quer, melhor já porque vai estar numa onda de crescimento colectivo."
+                </li>
+                <li style="padding: 12px 0; border-bottom: 1px solid #eee;">
+                    <strong style="color: #6B7F5E;">4. Referências:</strong> Mencione nomes de clientes (com permissão). "Estou a fazer isto com o [RESTAURANTE X] em Albufeira. Quer que te dê o contacto deles para confirmarem?"
+                </li>
+                <li style="padding: 12px 0;">
+                    <strong style="color: #6B7F5E;">5. Próximos passos claros:</strong> Nunca termine vago. "Ok, deixa-me preparar o teu trial até amanhã. Posso passar cá ao fim da tarde?" (data + hora específicas).
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Postual © 2026 | Plano de Ação Prático para Sucesso em Outreach de Vendas</p>
+        </div>
+    </div>
+</body>
+</html>

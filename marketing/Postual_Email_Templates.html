@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postual - Email Templates</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1d1e 0%, #2d3035 100%);
+            color: #333;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #6B7F5E;
+        }
+        header p {
+            font-size: 16px;
+            color: #ccc;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tab-button {
+            padding: 12px 24px;
+            border: none;
+            background: #444;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        .tab-button.active {
+            background: #6B7F5E;
+            color: white;
+        }
+        .tab-button:hover {
+            background: #6B7F5E;
+        }
+        .template-section {
+            display: none;
+        }
+        .template-section.active {
+            display: block;
+        }
+        .template-card {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .template-title {
+            color: #6B7F5E;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .template-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .subject-line {
+            background: #f5f7fa;
+            padding: 15px;
+            border-left: 4px solid #6B7F5E;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .subject-label {
+            font-weight: 600;
+            color: #6B7F5E;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .subject-text {
+            color: #333;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+        }
+        .email-body {
+            line-height: 1.6;
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #fafbfc;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border-left: 4px solid #f0f0f0;
+        }
+        .copy-button {
+            background: #6B7F5E;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+        .copy-button:hover {
+            background: #5a6b50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 127, 94, 0.3);
+        }
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6B7F5E, transparent);
+            margin: 50px 0;
+        }
+        .whatsapp-section h2 {
+            color: #6B7F5E;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .whatsapp-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .whatsapp-message {
+            background: #e7f3ff;
+            padding: 15px;
+            border-left: 4px solid #6B7F5E;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .whatsapp-label {
+            font-weight: 600;
+            color: #6B7F5E;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .whatsapp-text {
+            color: #333;
+            font-size: 14px;
+        }
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+        }
+        .feedback {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+        }
+        .feedback.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✉️ Postual Email Templates</h1>
+            <p>Modelos prontos para cópia - Customize com o nome do negócio</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="switchTab('restaurants')">🍽️ Restaurantes</button>
+            <button class="tab-button" onclick="switchTab('imobiliarias')">🏠 Imobiliárias</button>
+            <button class="tab-button" onclick="switchTab('clinicas')">🏥 Clínicas</button>
+            <button class="tab-button" onclick="switchTab('advogados')">⚖️ Advogados</button>
+        </div>
+
+        <!-- RESTAURANTES -->
+        <div id="restaurants" class="template-section active">
+            <div class="template-card">
+                <div class="template-title">🍽️ Restaurantes</div>
+                <div class="template-subtitle">Foco: Visibilidade do cardápio, posts no Instagram, presença no Google</div>
+
+                <div class="subject-line">
+                    <span class="subject-label">Assunto:</span>
+                    <span class="subject-text">Os seus pratos merecem ser vistos — Postual</span>
+                </div>
+
+                <div class="email-body">Olá [NOME DO RESTAURANTE],
+
+Sou o Fábio da Postual. Vi que têm uma boa presença no Google, mas estou a criar conteúdo visual automático para restaurantes na região — e acho que os vossos pratos mereciam ainda mais visibilidade.
+
+A ideia é simples:
+• Posts no Instagram com fotos dos seus pratos e promoções (2-3 por semana)
+• Conteúdo otimizado para aparecer no Google Local
+• Aumento do engagement direto dos clientes
+
+Tenho uma oferta especial: trial GRATUITO durante 2 semanas onde criam-se 4-6 posts completos para veem o resultado. Depois decidem se vale a pena.
+
+Posso passar por uma conversa rápida amanhã (5 min) ou enviar exemplos do que fazemos?
+
+Fábio</div>
+
+                <button class="copy-button" onclick="copyToClipboard('restaurants-email')">📋 Copiar Modelo</button>
+            </div>
+
+            <div id="restaurants-email" style="display:none;">Olá [NOME DO RESTAURANTE],
+
+Sou o Fábio da Postual. Vi que têm uma boa presença no Google, mas estou a criar conteúdo visual automático para restaurantes na região — e acho que os vossos pratos mereciam ainda mais visibilidade.
+
+A ideia é simples:
+• Posts no Instagram com fotos dos seus pratos e promoções (2-3 por semana)
+• Conteúdo otimizado para aparecer no Google Local
+• Aumento do engagement direto dos clientes
+
+Tenho uma oferta especial: trial GRATUITO durante 2 semanas onde criam-se 4-6 posts completos para veem o resultado. Depois decidem se vale a pena.
+
+Posso passar por uma conversa rápida amanhã (5 min) ou enviar exemplos do que fazemos?
+
+Fábio</div>
+        </div>
+
+        <!-- IMOBILIÁRIAS -->
+        <div id="imobiliarias" class="template-section">
+            <div class="template-card">
+                <div class="template-title">🏠 Imobiliárias</div>
+                <div class="template-subtitle">Foco: Visibilidade de imóveis, posts automáticos, presença no Google</div>
+
+                <div class="subject-line">
+                    <span class="subject-label">Assunto:</span>
+                    <span class="subject-text">Os seus imóveis merecem mais visibilidade — Postual</span>
+                </div>
+
+                <div class="email-body">Olá [NOME DA IMOBILIÁRIA],
+
+Sou o Fábio da Postual. Vi que trabalham com propriedades na região e tenho uma solução que está a fazer sucesso com agências como a vossa.
+
+O desafio: Imóveis não vendem sozinhos — precisam de visibilidade, e as redes sociais são agora o primeiro contacto dos clientes.
+
+O que fazemos:
+• Posts automáticos com as vossas propriedades (1-2 por dia)
+• Conteúdo otimizado para cada plataforma (Instagram, Facebook)
+• Integrável com as vossas publicações já existentes
+
+Tenho um trial GRATUITO de 2 semanas — vocês recebem conteúdo pronto, veem a reação dos clientes, e depois decidem.
+
+Posso mostrar exemplos? Tenho 5 minutos amanhã para uma chamada.
+
+Fábio</div>
+
+                <button class="copy-button" onclick="copyToClipboard('imobiliarias-email')">📋 Copiar Modelo</button>
+            </div>
+
+            <div id="imobiliarias-email" style="display:none;">Olá [NOME DA IMOBILIÁRIA],
+
+Sou o Fábio da Postual. Vi que trabalham com propriedades na região e tenho uma solução que está a fazer sucesso com agências como a vossa.
+
+O desafio: Imóveis não vendem sozinhos — precisam de visibilidade, e as redes sociais são agora o primeiro contacto dos clientes.
+
+O que fazemos:
+• Posts automáticos com as vossas propriedades (1-2 por dia)
+• Conteúdo otimizado para cada plataforma (Instagram, Facebook)
+• Integrável com as vossas publicações já existentes
+
+Tenho um trial GRATUITO de 2 semanas — vocês recebem conteúdo pronto, veem a reação dos clientes, e depois decidem.
+
+Posso mostrar exemplos? Tenho 5 minutos amanhã para uma chamada.
+
+Fábio</div>
+        </div>
+
+        <!-- CLÍNICAS -->
+        <div id="clinicas" class="template-section">
+            <div class="template-card">
+                <div class="template-title">🏥 Clínicas</div>
+                <div class="template-subtitle">Foco: Conteúdo educativo, avaliações Google, credibilidade online</div>
+
+                <div class="subject-line">
+                    <span class="subject-label">Assunto:</span>
+                    <span class="subject-text">Os seus pacientes procuram-no online — Postual</span>
+                </div>
+
+                <div class="email-body">Olá [NOME DA CLÍNICA],
+
+Sou o Fábio da Postual. Vi a vossa clínica e tenho notado que muitos pacientes procuram referências online antes de marcar consulta.
+
+Aqui está o desafio: A reputação online é agora tão importante como a experiência na clínica.
+
+O que oferecemos:
+• Conteúdo educativo automático (dicas de saúde, bem-estar) para credibilidade
+• Postagens que destacam as vossas especialidades
+• Gestão de avaliações Google
+
+Resultado: Pacientes encontram-vos mais facilmente e confiam mais antes de marcar.
+
+Tenho um TRIAL GRATUITO de 2 semanas — veem o impacto e depois decidem continuar.
+
+Posso marcar uma conversa rápida? Tenho exemplos para mostrar.
+
+Fábio</div>
+
+                <button class="copy-button" onclick="copyToClipboard('clinicas-email')">📋 Copiar Modelo</button>
+            </div>
+
+            <div id="clinicas-email" style="display:none;">Olá [NOME DA CLÍNICA],
+
+Sou o Fábio da Postual. Vi a vossa clínica e tenho notado que muitos pacientes procuram referências online antes de marcar consulta.
+
+Aqui está o desafio: A reputação online é agora tão importante como a experiência na clínica.
+
+O que oferecemos:
+• Conteúdo educativo automático (dicas de saúde, bem-estar) para credibilidade
+• Postagens que destacam as vossas especialidades
+• Gestão de avaliações Google
+
+Resultado: Pacientes encontram-vos mais facilmente e confiam mais antes de marcar.
+
+Tenho um TRIAL GRATUITO de 2 semanas — veem o impacto e depois decidem continuar.
+
+Posso marcar uma conversa rápida? Tenho exemplos para mostrar.
+
+Fábio</div>
+        </div>
+
+        <!-- ADVOGADOS -->
+        <div id="advogados" class="template-section">
+            <div class="template-card">
+                <div class="template-title">⚖️ Advogados</div>
+                <div class="template-subtitle">Foco: Credibilidade, presença online, conteúdo legal</div>
+
+                <div class="subject-line">
+                    <span class="subject-label">Assunto:</span>
+                    <span class="subject-text">Os seus clientes pesquisam antes de ligar — Postual</span>
+                </div>
+
+                <div class="email-body">Olá [NOME DO ADVOGADO/ESCRITÓRIO],
+
+Sou o Fábio da Postual. Conheço bem o sector legal e tenho notado que a maioria dos clientes procuram credibilidade online antes de contactarem um advogado.
+
+O problema: Falta de visibilidade online = perda de clientes que realmente procuram pelos seus serviços.
+
+A solução:
+• Conteúdo de credibilidade automático (artigos, dicas legais) na vossa presença online
+• Otimização para aparecer em pesquisas locais
+• Reputação bem gerida
+
+Isto não é "marketing tradicional" — é aparecer exatamente quando alguém precisa de vocês.
+
+Tenho um TRIAL GRATUITO de 2 semanas para demonstrar o impacto. Sem compromisso além de ver se funciona.
+
+Posso marcar 5 minutos para explicar melhor?
+
+Fábio</div>
+
+                <button class="copy-button" onclick="copyToClipboard('advogados-email')">📋 Copiar Modelo</button>
+            </div>
+
+            <div id="advogados-email" style="display:none;">Olá [NOME DO ADVOGADO/ESCRITÓRIO],
+
+Sou o Fábio da Postual. Conheço bem o sector legal e tenho notado que a maioria dos clientes procuram credibilidade online antes de contactarem um advogado.
+
+O problema: Falta de visibilidade online = perda de clientes que realmente procuram pelos seus serviços.
+
+A solução:
+• Conteúdo de credibilidade automático (artigos, dicas legais) na vossa presença online
+• Otimização para aparecer em pesquisas locais
+• Reputação bem gerida
+
+Isto não é "marketing tradicional" — é aparecer exatamente quando alguém precisa de vocês.
+
+Tenho um TRIAL GRATUITO de 2 semanas para demonstrar o impacto. Sem compromisso além de ver se funciona.
+
+Posso marcar 5 minutos para explicar melhor?
+
+Fábio</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- WHATSAPP FOLLOW-UPS -->
+        <div style="margin-top: 50px;">
+            <div class="template-card">
+                <div class="whatsapp-section">
+                    <h2>💬 WhatsApp Follow-ups</h2>
+                    <div class="whatsapp-subtitle">Mensagens curtas para usar 3-5 dias após enviar o email</div>
+
+                    <div style="margin-bottom: 40px;">
+                        <div style="color: #6B7F5E; font-weight: 600; margin-bottom: 15px; font-size: 16px;">🍽️ Restaurantes</div>
+                        <div class="whatsapp-message">
+                            <span class="whatsapp-label">Mensagem:</span>
+                            <span class="whatsapp-text">Olá! 👋 É o Fábio (Postual). Vi que não respondi ainda ao email, sem problema. Apenas quer reforçar: temos um trial gratuito de 2 semanas onde criamos conteúdo pronto para Instagram. Posso mostrar exemplos de restaurantes que já fizemos? Só leva 5 minutos.</span>
+                        </div>
+                        <button class="copy-button" onclick="copyToClipboard('wa-restaurantes')">📋 Copiar</button>
+                    </div>
+
+                    <div id="wa-restaurantes" style="display:none;">Olá! 👋 É o Fábio (Postual). Vi que não respondi ainda ao email, sem problema. Apenas quer reforçar: temos um trial gratuito de 2 semanas onde criamos conteúdo pronto para Instagram. Posso mostrar exemplos de restaurantes que já fizemos? Só leva 5 minutos.</div>
+
+                    <div style="margin-bottom: 40px;">
+                        <div style="color: #6B7F5E; font-weight: 600; margin-bottom: 15px; font-size: 16px;">🏠 Imobiliárias</div>
+                        <div class="whatsapp-message">
+                            <span class="whatsapp-label">Mensagem:</span>
+                            <span class="whatsapp-text">Olá! 👋 Sou o Fábio (Postual). Enviei um email com uma proposta de trial gratuito para as vossas propriedades. Tem 2 minutos para uma chamada rápida ou prefere que envie exemplos de imóveis que já publicámos?</span>
+                        </div>
+                        <button class="copy-button" onclick="copyToClipboard('wa-imobiliarias')">📋 Copiar</button>
+                    </div>
+
+                    <div id="wa-imobiliarias" style="display:none;">Olá! 👋 Sou o Fábio (Postual). Enviei um email com uma proposta de trial gratuito para as vossas propriedades. Tem 2 minutos para uma chamada rápida ou prefere que envie exemplos de imóveis que já publicámos?</div>
+
+                    <div style="margin-bottom: 40px;">
+                        <div style="color: #6B7F5E; font-weight: 600; margin-bottom: 15px; font-size: 16px;">🏥 Clínicas</div>
+                        <div class="whatsapp-message">
+                            <span class="whatsapp-label">Mensagem:</span>
+                            <span class="whatsapp-text">Olá! 👋 É o Fábio (Postual). Enviei um email sobre uma solução de conteúdo online para clínicas. Tenho exemplos de outras clínicas na região onde vimos aumento real de consultas marcadas. Posso mostrar?</span>
+                        </div>
+                        <button class="copy-button" onclick="copyToClipboard('wa-clinicas')">📋 Copiar</button>
+                    </div>
+
+                    <div id="wa-clinicas" style="display:none;">Olá! 👋 É o Fábio (Postual). Enviei um email sobre uma solução de conteúdo online para clínicas. Tenho exemplos de outras clínicas na região onde vimos aumento real de consultas marcadas. Posso mostrar?</div>
+
+                    <div style="margin-bottom: 40px;">
+                        <div style="color: #6B7F5E; font-weight: 600; margin-bottom: 15px; font-size: 16px;">⚖️ Advogados</div>
+                        <div class="whatsapp-message">
+                            <span class="whatsapp-label">Mensagem:</span>
+                            <span class="whatsapp-text">Olá! 👋 Sou o Fábio (Postual). Enviei um email sobre visibilidade online para escritórios de advocacia. Sem pressão — apenas quer deixar a oferta de trial 100% gratuito em cima da mesa. Faz sentido conversar?</span>
+                        </div>
+                        <button class="copy-button" onclick="copyToClipboard('wa-advogados')">📋 Copiar</button>
+                    </div>
+
+                    <div id="wa-advogados" style="display:none;">Olá! 👋 Sou o Fábio (Postual). Enviei um email sobre visibilidade online para escritórios de advocacia. Sem pressão — apenas quer deixar a oferta de trial 100% gratuito em cima da mesa. Faz sentido conversar?</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Postual © 2026 | Modelos personalizáveis — customize sempre com o nome específico do negócio</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.template-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = '✓ Copiado!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                alert('Erro ao copiar. Tente manualmente.');
+            });
+        }
+    </script>
+</body>
+</html>

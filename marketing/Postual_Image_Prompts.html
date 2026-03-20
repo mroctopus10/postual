@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postual — All 20 Image Prompts + 10 Higgsfield Prompts</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#FAFAF8;color:#1A1D1E;line-height:1.7}
+.wrap{max-width:800px;margin:0 auto;padding:48px 32px}
+h1{font-size:1.8rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:6px}
+h1 span{color:#6B7F5E}
+.sub{color:#6B7280;margin-bottom:48px;font-size:0.92rem}
+h2{font-size:1.3rem;font-weight:800;margin:48px 0 20px;padding-top:32px;border-top:2px solid #E5E7EB}
+.post-block{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:24px;margin:16px 0}
+.post-num{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#6B7F5E;margin-bottom:6px}
+.post-title{font-weight:700;font-size:1rem;margin-bottom:12px}
+.tag{display:inline-block;padding:3px 10px;border-radius:50px;font-size:0.68rem;font-weight:700;margin-bottom:8px}
+.tag-img{background:#DBEAFE;color:#1D4ED8}
+.tag-hf{background:#FCE7F3;color:#BE185D}
+.prompt{background:#1A1D1E;color:#E5E7EB;padding:16px;border-radius:8px;font-size:0.82rem;font-family:'Menlo',monospace;line-height:1.6;white-space:pre-wrap;margin:8px 0;position:relative}
+.copy-btn{display:inline-block;padding:6px 14px;background:#6B7F5E;color:#fff;border:none;border-radius:6px;font-size:0.72rem;font-weight:600;cursor:pointer;margin:4px 4px 4px 0}
+.copy-btn:hover{background:#8FA580}
+.copy-btn:active{transform:scale(0.97)}
+.note{font-size:0.82rem;color:#6B7280;margin-top:8px;font-style:italic}
+</style>
+<script>
+function c(id){navigator.clipboard.writeText(document.getElementById(id).innerText).then(()=>{event.target.textContent='Copiado!';setTimeout(()=>event.target.textContent='Copiar',1500)})}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<h1>All 30 Prompts — <span>Ready to Paste</span></h1>
+<p class="sub">20 static image prompts (Midjourney/DALL-E) + 10 Higgsfield video prompts. Every post covered.</p>
+
+<h2>Static Image Prompts (1080x1080 for Instagram)</h2>
+
+<!-- POST 1 -->
+<div class="post-block">
+<div class="post-num">Post 1</div>
+<div class="post-title">"82% dos clientes lêem reviews antes de escolher"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p1">A dark charcoal background (#1A1D1E). In the center, the number "82%" displayed in massive bold white typography, slightly 3D with a subtle shadow. Below it in smaller sage green text (#6B7F5E): five small star icons in a row. Subtle light particles floating in the background. Clean, minimal, premium tech aesthetic. No other text. Square format 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p1')">Copiar</button>
+</div>
+
+<!-- POST 2 -->
+<div class="post-block">
+<div class="post-num">Post 2 — Carousel (4 slides)</div>
+<div class="post-title">"O que fazemos em 30 segundos"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p2a">Slide 1: A dark charcoal background. A large minimal icon of a smartphone with social media notification bubbles floating around it, rendered in sage green (#6B7F5E) line art style. Below the icon, clean white text area (leave blank for text overlay). Premium, minimal, tech brand aesthetic. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p2a')">Copiar Slide 1</button>
+<div class="prompt" id="p2b">Slide 2: A dark charcoal background. A large minimal icon of a target/bullseye with a cursor arrow pointing at the center, rendered in sage green (#6B7F5E) line art style. Represents targeted advertising. Clean and minimal with space for text overlay below. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p2b')">Copiar Slide 2</button>
+<div class="prompt" id="p2c">Slide 3: A dark charcoal background. A large minimal icon of five stars with a speech bubble, rendered in sage green (#6B7F5E) line art style. Represents review management. Clean and minimal with space for text overlay below. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p2c')">Copiar Slide 3</button>
+<div class="prompt" id="p2d">Slide 4: A dark charcoal background. A large minimal icon of a laptop with a browser window showing a website layout, rendered in sage green (#6B7F5E) line art style. Represents website creation. Clean and minimal with space for text overlay below. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p2d')">Copiar Slide 4</button>
+</div>
+
+<!-- POST 3 -->
+<div class="post-block">
+<div class="post-num">Post 3</div>
+<div class="post-title">"O seu restaurante não aparece no Google?"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p3">A photorealistic top-down view of a hand holding a modern smartphone. The screen shows Google Maps with three restaurant pins clustered together, one pin glowing bright green standing out from red pins. The background is a slightly blurred marble table surface with a coffee cup partially visible. Warm natural lighting, shallow depth of field on the hand and phone. Editorial photography style. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p3')">Copiar</button>
+</div>
+
+<!-- POST 4 -->
+<div class="post-block">
+<div class="post-num">Post 4</div>
+<div class="post-title">"+340% de visitas em 60 dias"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p4">A dark charcoal background (#1A1D1E). Three large stat numbers arranged horizontally: "+340%" in bold white on the left, "3x" in sage green (#6B7F5E) in the center, "24h" in bold white on the right. Each number has a thin sage green underline. Subtle upward-trending line graph drawn faintly in the background. Clean, data-driven, premium dashboard aesthetic. No other text or decorations. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p4')">Copiar</button>
+</div>
+
+<!-- POST 5 -->
+<div class="post-block">
+<div class="post-num">Post 5 — Carousel (5 slides)</div>
+<div class="post-title">"5 erros que os negócios locais cometem no Instagram"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p5a">Slide 1 (Cover): A dark charcoal background. A large red "X" mark made of two crossed lines, slightly textured, in the center. Below it, empty space for text overlay. Dramatic, bold, attention-grabbing. Minimal design with a sense of urgency. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p5a')">Copiar Cover</button>
+<div class="prompt" id="p5b">Slides 2-5: A dark charcoal background. A large circled number "1" (change to 2, 3, 4, 5 for each slide) in bold white typography with a red circular outline. The number is centered with generous space below for text overlay. Clean, minimal, bold. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p5b')">Copiar Slides</button>
+</div>
+
+<!-- POST 6 -->
+<div class="post-block">
+<div class="post-num">Post 6</div>
+<div class="post-title">"Como funciona — 3 passos"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p6">A dark charcoal background. Three large numbers "1", "2", "3" arranged vertically on the left side, each in bold sage green (#6B7F5E) with a thin connecting line between them forming a vertical flow. Each number has a small minimal icon next to it: chat bubble for 1, paintbrush for 2, checkmark for 3. Icons in white line art. Clean infographic style with space on the right for text overlay. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p6')">Copiar</button>
+</div>
+
+<!-- POST 7 -->
+<div class="post-block">
+<div class="post-num">Post 7</div>
+<div class="post-title">"O Google Business Profile é grátis"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p7">A photorealistic laptop screen showing a Google Business Profile dashboard for a restaurant, with sections for photos, reviews, posts, and opening hours clearly visible. The laptop sits on a clean white desk with a small potted plant next to it. Soft natural window light from the left. The screen shows a 4.8 star rating and recent photos of food. Apple-style product photography, clean and bright. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p7')">Copiar</button>
+</div>
+
+<!-- POST 8 — HIGGSFIELD -->
+<div class="post-block">
+<div class="post-num">Post 8 — REEL</div>
+<div class="post-title">"Antes vs Depois — Instagram de um restaurante"</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="p8">Split screen animation. Left side shows a messy, inconsistent Instagram profile grid with dark blurry food photos, random selfies, and empty gaps, slowly fading to grey. Right side reveals a beautiful, cohesive Instagram grid with professional food photography, consistent warm color grading, and clean layout sliding in smoothly from the right. A satisfying wipe transition from left to right. The right side has a subtle green glow. Dark phone frame around both grids. 9:16 vertical format, 4 seconds.</div>
+<button class="copy-btn" onclick="c('p8')">Copiar</button>
+</div>
+
+<!-- POST 9 -->
+<div class="post-block">
+<div class="post-num">Post 9</div>
+<div class="post-title">"Quanto custa NÃO estar online?"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p9">A dark charcoal background. The number "5.2M" displayed in massive bold white typography taking up most of the frame. Below it in smaller sage green text, a subtle airplane icon and a map pin icon. Very faint silhouettes of tourists walking in the deep background. Clean, impactful, data-visualization aesthetic. Minimal and bold. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p9')">Copiar</button>
+</div>
+
+<!-- POST 10 -->
+<div class="post-block">
+<div class="post-num">Post 10</div>
+<div class="post-title">"Gestão de Reviews — €59/mês"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p10">A dark charcoal background. Five large 3D star shapes in a horizontal row. The first three stars are filled with a dull grey color, representing a 3.2 rating. An arrow curves from left to right, and on the right side, five stars all filled with warm gold color representing 4.8. The transformation from grey to gold is the visual story. Clean, premium, with subtle reflections on the stars. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p10')">Copiar</button>
+</div>
+
+<!-- POST 11 — HIGGSFIELD -->
+<div class="post-block">
+<div class="post-num">Post 11 — REEL</div>
+<div class="post-title">"O que acontece quando um turista pesquisa"</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="p11">A photorealistic smartphone held in a hand against a blurred sunny Algarve beach town background. The screen shows Google Maps with the search "restaurante perto de mim" typed in. Restaurant pins appear one by one with a subtle bounce animation. The camera slowly pushes in toward the phone screen. One pin pulses green, brighter than the others. Golden hour lighting, Mediterranean architecture blurred in background. 9:16 vertical format, 4 seconds.</div>
+<button class="copy-btn" onclick="c('p11')">Copiar</button>
+</div>
+
+<!-- POST 12 -->
+<div class="post-block">
+<div class="post-num">Post 12</div>
+<div class="post-title">"De 12 reviews para 87 em 90 dias"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p12">A dark charcoal background split in half by a thin vertical sage green line. Left side: the number "12" in large grey muted typography with "3.9★" below in dull yellow. Right side: the number "87" in large bold white typography with "4.7★" below in bright gold. A subtle upward arrow between the two sides. Clean, before/after comparison, data-driven aesthetic. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p12')">Copiar</button>
+</div>
+
+<!-- POST 13 -->
+<div class="post-block">
+<div class="post-num">Post 13 — Carousel (3 slides)</div>
+<div class="post-title">"3 coisas que um turista vê antes de entrar"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p13a">Slide 1: A photorealistic close-up of a tourist's hands holding a smartphone, screen showing a Google Maps restaurant listing with a 4.7 star rating prominently displayed. The background is a blurred sunny European street. Warm golden hour lighting. The focus is sharp on the phone screen. Editorial travel photography style. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p13a')">Copiar Slide 1</button>
+<div class="prompt" id="p13b">Slide 2: A photorealistic close-up of a smartphone screen showing a Google Maps photo gallery for a restaurant. Some photos are bright and professional (food, interior), while one thumbnail is dark and blurry. The contrast between good and bad photos is obvious. Soft focus on the edges. Clean, editorial style. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p13b')">Copiar Slide 2</button>
+<div class="prompt" id="p13c">Slide 3: A photorealistic close-up of a smartphone screen showing Google reviews for a restaurant. The most recent review is from "2 days ago" with 5 stars. The overall rating shows 4.6 with 340 reviews. Warm screen glow against a slightly dark background. Sharp focus on the text. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p13c')">Copiar Slide 3</button>
+</div>
+
+<!-- POST 14 -->
+<div class="post-block">
+<div class="post-num">Post 14</div>
+<div class="post-title">"Servimos restaurantes, imobiliárias, clínicas e mais"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p14">A dark charcoal background with a 3x2 bento grid layout. Six squares with rounded corners, each containing a different minimal white line-art icon: fork and knife (restaurant), house (real estate), tooth (dental), scales of justice (lawyer), car (dealership), shopping bag (retail). Each icon sits centered in its square with a very subtle sage green (#6B7F5E) background glow. Clean, modern, app-icon aesthetic. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p14')">Copiar</button>
+</div>
+
+<!-- POST 15 — HIGGSFIELD -->
+<div class="post-block">
+<div class="post-num">Post 15 — REEL</div>
+<div class="post-title">"Prato → Post → Cliente"</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="p15">A beautifully plated Portuguese cataplana dish on a rustic wooden table, shot from above with warm golden lighting. The camera slowly pulls back and a white iPhone frame appears around the food image, transforming it into an Instagram post. Red heart notification icons and like counts float upward from the post. The phone then tilts slightly revealing the Instagram app interface. Cinematic food photography transitioning to digital mockup. 9:16 vertical, 5 seconds.</div>
+<button class="copy-btn" onclick="c('p15')">Copiar</button>
+</div>
+
+<!-- POST 16 -->
+<div class="post-block">
+<div class="post-num">Post 16</div>
+<div class="post-title">"Publicar 1x por mês não é marketing"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p16">A dark charcoal background. Two monthly calendar grids side by side. The left calendar is nearly empty with only one small sage green dot on one random day, looking sad and sparse. The right calendar is filled with sage green dots on Monday, Wednesday, Friday, and Sunday of every week, looking active and professional. A subtle red "X" over the left calendar and a green checkmark over the right. Clean, infographic, minimal. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p16')">Copiar</button>
+</div>
+
+<!-- POST 17 -->
+<div class="post-block">
+<div class="post-num">Post 17</div>
+<div class="post-title">"Primeiro mês grátis — porquê?"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p17">A dark charcoal background (#1A1D1E). In the center, "30 DIAS" written in massive bold white typography. Below it, "GRÁTIS" in sage green (#6B7F5E) bold text, slightly smaller. A subtle circular timer icon drawn in thin sage green lines surrounds the text like a clock face. Very minimal, very clean, very bold. No other elements. Premium tech brand aesthetic. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p17')">Copiar</button>
+</div>
+
+<!-- POST 18 — HIGGSFIELD -->
+<div class="post-block">
+<div class="post-num">Post 18 — REEL</div>
+<div class="post-title">"Laptop opening — Postual dashboard"</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="p18">A sleek silver MacBook laptop on a clean white surface slowly opens from closed to fully open. As the screen lights up, it reveals a beautiful dark dashboard interface with sage green (#6B7F5E) accent charts showing analytics, social media metrics, and review scores. The dashboard has sections for Instagram posts, Google reviews, and ad performance. The camera is at a slight angle, cinematic lighting with soft reflections on the aluminum. Premium tech product photography. 9:16 vertical, 5 seconds.</div>
+<button class="copy-btn" onclick="c('p18')">Copiar</button>
+</div>
+
+<!-- POST 19 -->
+<div class="post-block">
+<div class="post-num">Post 19</div>
+<div class="post-title">"Meta Ads: €5/dia pode mudar tudo"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p19">A dark charcoal background. A single €5 euro coin photographed realistically in the center-left of the frame, lit with dramatic studio lighting. From the coin, an expanding cone of light fans out to the right, containing small human silhouette icons representing customers, getting more numerous as the cone widens. The visual metaphor: small investment → many customers. Clean, minimal, impactful. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p19')">Copiar</button>
+</div>
+
+<!-- POST 20 -->
+<div class="post-block">
+<div class="post-num">Post 20</div>
+<div class="post-title">"Também criamos websites"</div>
+<span class="tag tag-img">MIDJOURNEY / DALL-E</span>
+<div class="prompt" id="p20">A photorealistic silver MacBook and an iPhone side by side on a clean white marble desk. Both screens show the same modern restaurant website with beautiful food photography, sage green accent colors, and clean typography. The website has a hero image of a Mediterranean dish, a navigation bar, and a "Reserve a Table" button. Soft natural lighting from a window on the left. Premium product photography, Apple-style clean aesthetic. Square 1080x1080. --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="c('p20')">Copiar</button>
+</div>
+
+<h2>Higgsfield Video Prompts (9:16 Reels)</h2>
+
+<!-- HF 1 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 1</div>
+<div class="post-title">Star Rating Rising (Reviews promo)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf1">A sleek dark minimal background. Five large 3D star shapes in a row, initially grey and flat. The stars sequentially fill with warm gold color from left to right, each rising slightly as it fills, creating a satisfying cascade effect. Below the stars, the number "4.8" fades in with elegant white typography. Smooth cinematic lighting, subtle reflections on the stars, premium tech aesthetic. 9:16 vertical format, 4 seconds.</div>
+<button class="copy-btn" onclick="c('hf1')">Copiar</button>
+</div>
+
+<!-- HF 2 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 2</div>
+<div class="post-title">Phone Google Maps Search (Educational)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf2">A photorealistic smartphone floating against a clean white background. The screen shows a Google Maps interface with restaurant pins appearing one by one, popping up with a subtle bounce animation. The camera slowly orbits around the phone at a slight angle. One pin glows bright green, pulsing gently, standing out from the rest. Soft studio lighting, minimal shadows, Apple-style product photography. 9:16 vertical format, 4 seconds.</div>
+<button class="copy-btn" onclick="c('hf2')">Copiar</button>
+</div>
+
+<!-- HF 3 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 3</div>
+<div class="post-title">Data Dashboard Coming to Life (Results)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf3">A dark premium dashboard UI on a laptop screen. Bar charts animate upward one by one, line graphs draw themselves from left to right showing growth curves. Numbers count up rapidly: followers from 234 to 2847, engagement from 1.2% to 8.7%. The camera slowly zooms into the screen. Soft ambient glow from the screen illuminates dark surroundings. Corporate tech aesthetic with sage green (#6B7F5E) accent color. 9:16 vertical format, 5 seconds.</div>
+<button class="copy-btn" onclick="c('hf3')">Copiar</button>
+</div>
+
+<!-- HF 4 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 4</div>
+<div class="post-title">Food Plate to Instagram Post (Restaurants)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf4">A beautifully plated Portuguese seafood cataplana on a rustic wooden table, photographed from above. The camera slowly pulls back as a white phone frame appears around the image, transforming it into an Instagram post. Red heart likes and notification bubbles float upward. The phone tilts slightly showing caption area. Warm golden lighting transitioning to sharp digital aesthetic. 9:16 vertical format, 5 seconds.</div>
+<button class="copy-btn" onclick="c('hf4')">Copiar</button>
+</div>
+
+<!-- HF 5 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 5</div>
+<div class="post-title">Villa Listing to Social Post (Real Estate)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf5">A stunning white Algarve villa with terracotta roof, blue infinity pool, and palm trees, shot from drone perspective with golden hour lighting. The camera smoothly transitions as the image gets framed into a carousel Instagram post with a price tag "€450,000" and property details appearing in clean typography. Multiple slides peek from the right edge. Premium real estate marketing aesthetic. 9:16 vertical format, 5 seconds.</div>
+<button class="copy-btn" onclick="c('hf5')">Copiar</button>
+</div>
+
+<!-- HF 6 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 6</div>
+<div class="post-title">Empty Restaurant → Full Restaurant (Results)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf6">A charming Portuguese restaurant terrace in the Algarve. Starts completely empty with chairs and tables set but no customers, slightly cold blue lighting. Gradually transforms: candles light up, plates of food appear, happy diners fill every table, warm golden lighting takes over, the atmosphere becomes bustling and alive. Mediterranean white walls with pink bougainvillea. Cinematic time-lapse feel. 9:16 vertical format, 5 seconds.</div>
+<button class="copy-btn" onclick="c('hf6')">Copiar</button>
+</div>
+
+<!-- HF 7 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 7</div>
+<div class="post-title">Review Notifications Cascading (Reviews)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf7">A smartphone screen against a dark background. White Google review notification cards cascade down the screen one after another, each showing 5 gold stars and short preview text. The notifications stack with satisfying bounce physics. A counter in the corner rapidly climbs from "12 reviews" to "87 reviews." The phone has a subtle warm glow. Clean, minimal, tech aesthetic. 9:16 vertical format, 4 seconds.</div>
+<button class="copy-btn" onclick="c('hf7')">Copiar</button>
+</div>
+
+<!-- HF 8 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 8</div>
+<div class="post-title">€5 Coin Multiplying (Meta Ads)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf8">A single €5 euro coin on a clean white surface with soft studio lighting. The coin begins multiplying, splitting into dozens that spread across the surface in a satisfying cascade. The coins then morph and transform into small human silhouette icons representing customers, spreading outward in a ripple. Camera pulls back to reveal hundreds of customer icons formed from the initial coin. Minimal, clean, subtle shadows. 9:16 vertical format, 5 seconds.</div>
+<button class="copy-btn" onclick="c('hf8')">Copiar</button>
+</div>
+
+<!-- HF 9 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 9</div>
+<div class="post-title">Before/After Instagram Grid (Service showcase)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf9">Split screen. Left shows a messy Instagram grid: inconsistent colors, dark blurry photos, random selfies, gaps between posts. The left side slowly fades and desaturates. A smooth wipe transition reveals the right side: a perfectly curated Instagram grid with cohesive warm tones, professional food/business photography, consistent branding. A green checkmark pulses on the right side. Dark background. 9:16 vertical format, 4 seconds.</div>
+<button class="copy-btn" onclick="c('hf9')">Copiar</button>
+</div>
+
+<!-- HF 10 -->
+<div class="post-block">
+<div class="post-num">Higgsfield 10</div>
+<div class="post-title">Postual Logo Reveal (Brand intro)</div>
+<span class="tag tag-hf">HIGGSFIELD</span>
+<div class="prompt" id="hf10">Dark charcoal background (#1A1D1E). Particles of warm white light slowly converge from the edges toward the center, forming the lowercase letter "p" in clean bold white typography. A moment of stillness, then a single sage green (#6B7F5E) circle materializes next to the p with a soft pulse of light. The complete "p." logo sits centered, minimal and bold. Subtle ambient particles float softly. Premium, understated tech brand aesthetic. 1:1 square format, 4 seconds.</div>
+<button class="copy-btn" onclick="c('hf10')">Copiar</button>
+</div>
+
+<div style="text-align:center;padding:48px 0 16px;color:#6B7280;font-size:0.8rem;">
+<p>Postual — 30 Image & Video Prompts</p>
+<p>Every post has a ready-to-paste prompt. No descriptions, no guessing.</p>
+</div>
+
+</div>
+</body>
+</html>

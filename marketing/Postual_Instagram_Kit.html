@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postual — Instagram Content Kit</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#FAFAF8;color:#1A1D1E;line-height:1.7}
+.wrap{max-width:800px;margin:0 auto;padding:48px 32px}
+h1{font-size:2rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:6px}
+h1 span{color:#6B7F5E}
+.sub{color:#6B7280;margin-bottom:48px;font-size:0.95rem}
+h2{font-size:1.4rem;font-weight:800;margin:48px 0 20px;padding-top:32px;border-top:2px solid #E5E7EB;letter-spacing:-0.02em}
+h2 .emoji{margin-right:8px}
+h3{font-size:1.05rem;font-weight:700;margin:28px 0 10px;color:#6B7F5E}
+h4{font-size:0.88rem;font-weight:700;margin:20px 0 8px;color:#374151}
+p{margin-bottom:12px;font-size:0.92rem;color:#374151}
+.box{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:24px;margin:16px 0}
+.box-dark{background:#1A1D1E;color:#E5E7EB;border:none}
+.box-dark p{color:rgba(255,255,255,0.7)}
+.box-sage{border-left:4px solid #6B7F5E}
+.box-amber{border-left:4px solid #D97706}
+.box-blue{border-left:4px solid #2563EB}
+.tag{display:inline-block;padding:3px 10px;border-radius:50px;font-size:0.7rem;font-weight:700;margin:2px}
+.tag-edu{background:#DBEAFE;color:#1D4ED8}
+.tag-promo{background:#DCFCE7;color:#166534}
+.tag-social{background:#FEF3C7;color:#92400E}
+.tag-video{background:#F3E8FF;color:#7C3AED}
+.tag-hf{background:#FCE7F3;color:#BE185D}
+.copy-btn{display:inline-block;padding:6px 14px;background:#6B7F5E;color:#fff;border:none;border-radius:6px;font-size:0.75rem;font-weight:600;cursor:pointer;margin:8px 0}
+.copy-btn:hover{background:#8FA580}
+.copy-btn:active{transform:scale(0.97)}
+.prompt-box{background:#F9FAFB;border:1px solid #E5E7EB;border-radius:8px;padding:16px;margin:10px 0;font-size:0.85rem;font-family:'Menlo',monospace;line-height:1.6;white-space:pre-wrap;color:#374151;position:relative}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bio-box{background:#1A1D1E;border-radius:16px;padding:32px;color:#fff;margin:16px 0}
+.bio-box .name{font-size:1.1rem;font-weight:800}
+.bio-box .handle{color:#6B7F5E;font-size:0.85rem;font-weight:600;margin-bottom:16px}
+.bio-box .bio-text{font-size:0.88rem;color:rgba(255,255,255,0.85);line-height:1.6}
+.bio-box .bio-text a{color:#6B7F5E}
+.highlight{display:inline-flex;flex-direction:column;align-items:center;gap:6px;margin:0 12px}
+.highlight-circle{width:64px;height:64px;border-radius:50%;border:2px solid #6B7F5E;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.highlight-label{font-size:0.65rem;font-weight:600;color:rgba(255,255,255,0.6)}
+.post-idea{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:20px;margin:12px 0}
+.post-idea .post-title{font-weight:700;font-size:0.95rem;margin-bottom:6px}
+.post-idea .post-caption{font-size:0.85rem;color:#374151;margin-bottom:10px;line-height:1.6}
+.post-idea .post-hashtags{font-size:0.78rem;color:#6B7F5E;margin-bottom:8px}
+.divider{height:1px;background:#E5E7EB;margin:40px 0}
+@media(max-width:640px){.grid-2{grid-template-columns:1fr}.wrap{padding:32px 20px}}
+</style>
+<script>
+function copyText(id){
+    const el=document.getElementById(id);
+    navigator.clipboard.writeText(el.innerText).then(()=>{
+        const btn=el.nextElementSibling;
+        btn.textContent='Copiado!';
+        setTimeout(()=>btn.textContent='Copiar',1500);
+    });
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Instagram Kit — <span>@postual.agency</span></h1>
+<p class="sub">Profile setup, content strategy, 20 post ideas with captions, and Higgsfield prompts for animated reels.</p>
+
+<!-- ==================== PROFILE SETUP ==================== -->
+<h2><span class="emoji">📱</span> Profile Setup</h2>
+
+<div class="bio-box">
+    <div class="name">postual.</div>
+    <div class="handle">@postual.agency</div>
+    <div class="bio-text" id="bio-text">
+📍 Marketing Digital · Algarve
+🚀 Mais visibilidade. Mais clientes. Mais vendas.
+🎯 Redes sociais · Ads · Reviews · Websites
+🆓 Primeiro mês grátis
+👇 Peça um orçamento
+    </div>
+    <button class="copy-btn" onclick="copyText('bio-text')">Copiar Bio</button>
+
+    <div style="margin-top:24px;display:flex;gap:4px;flex-wrap:wrap">
+        <div class="highlight"><div class="highlight-circle">🍽️</div><div class="highlight-label">Restaurantes</div></div>
+        <div class="highlight"><div class="highlight-circle">🏠</div><div class="highlight-label">Imobiliárias</div></div>
+        <div class="highlight"><div class="highlight-circle">🦷</div><div class="highlight-label">Clínicas</div></div>
+        <div class="highlight"><div class="highlight-circle">⭐</div><div class="highlight-label">Reviews</div></div>
+        <div class="highlight"><div class="highlight-circle">📊</div><div class="highlight-label">Resultados</div></div>
+        <div class="highlight"><div class="highlight-circle">💬</div><div class="highlight-label">Testemunhos</div></div>
+    </div>
+</div>
+
+<div class="box box-sage">
+    <h4>Profile Details</h4>
+    <p><b>Name:</b> Postual · Marketing Digital Algarve</p>
+    <p><b>Username:</b> @postual.agency</p>
+    <p><b>Category:</b> Marketing Agency</p>
+    <p><b>Website:</b> postual.com</p>
+    <p><b>Email:</b> agency@postual.com</p>
+    <p><b>Phone:</b> +351 912 730 964</p>
+    <p><b>Action button:</b> "Contact" → WhatsApp link</p>
+    <p style="margin:0"><b>Profile pic:</b> The p. logo (postual_logo_instagram.png)</p>
+</div>
+
+<!-- ==================== CONTENT STRATEGY ==================== -->
+<h2><span class="emoji">🎯</span> Content Strategy</h2>
+
+<div class="box">
+    <h4>Content Pillars (4 types, rotate weekly)</h4>
+    <p><span class="tag tag-edu">EDUCATIVO</span> Tips & facts about digital marketing — builds authority</p>
+    <p><span class="tag tag-promo">SERVIÇO</span> Showcase what Postual does — drives inquiries</p>
+    <p><span class="tag tag-social">SOCIAL PROOF</span> Results, stats, before/after — builds trust</p>
+    <p><span class="tag tag-video">REEL/VIDEO</span> Animated content via Higgsfield — gets reach</p>
+</div>
+
+<div class="box box-sage">
+    <h4>Posting Schedule</h4>
+    <p><b>Frequency:</b> 4x per week (Mon, Wed, Fri, Sun)</p>
+    <p><b>Monday:</b> <span class="tag tag-edu">EDUCATIVO</span> — tip or stat</p>
+    <p><b>Wednesday:</b> <span class="tag tag-promo">SERVIÇO</span> — what we do / how it works</p>
+    <p><b>Friday:</b> <span class="tag tag-video">REEL</span> — animated Higgsfield content</p>
+    <p style="margin:0"><b>Sunday:</b> <span class="tag tag-social">SOCIAL PROOF</span> — result or client story</p>
+</div>
+
+<div class="box box-amber">
+    <h4>Hashtag Strategy</h4>
+    <p><b>In caption (3):</b> #MarketingAlgarve #NegóciosLocais #Postual</p>
+    <p style="margin:0"><b>First comment (10):</b> #MarketingDigital #RedesSociais #AlgarveEmpresas #GestãoRedesSociais #PMEPortugal #RestaurantesAlgarve #ImobiliáriaAlgarve #GoogleReviews #PublicidadeDigital #CrescerOnline</p>
+</div>
+
+<!-- ==================== 20 POST IDEAS ==================== -->
+<h2><span class="emoji">📝</span> 20 Post Ideas with Captions</h2>
+
+<!-- POST 1 -->
+<div class="post-idea">
+    <span class="tag tag-edu">EDUCATIVO</span>
+    <div class="post-title">1. "82% dos clientes lêem reviews antes de escolher"</div>
+    <div class="post-caption" id="caption1">82% dos consumidores lêem avaliações online antes de escolher um negócio local.
+
+E o seu negócio? Quantas reviews tem no Google?
+
+Se a resposta é "poucas" ou "não sei" — está a perder clientes todos os dias para a concorrência que tem 4.8 estrelas.
+
+A boa notícia: isto resolve-se. Rapidamente.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption1')">Copiar</button>
+    <p><b>Visual:</b> Dark background, big "82%" in white, small text below. 1080x1080.</p>
+</div>
+
+<!-- POST 2 -->
+<div class="post-idea">
+    <span class="tag tag-promo">SERVIÇO</span>
+    <div class="post-title">2. "O que fazemos em 30 segundos"</div>
+    <div class="post-caption" id="caption2">Nós tratamos do marketing digital. Você trata do seu negócio.
+
+→ Publicações semanais no Instagram e Facebook
+→ Campanhas de publicidade segmentadas
+→ Gestão de avaliações no Google
+→ Websites profissionais
+
+Tudo isto sem esforço da sua parte.
+
+O primeiro mês é grátis. Sem compromisso.
+
+Link na bio 👆
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption2')">Copiar</button>
+    <p><b>Visual:</b> Carousel — 1 slide per service with icon + short text. Sage green accents on dark.</p>
+</div>
+
+<!-- POST 3 -->
+<div class="post-idea">
+    <span class="tag tag-edu">EDUCATIVO</span>
+    <div class="post-title">3. "O seu restaurante não aparece no Google?"</div>
+    <div class="post-caption" id="caption3">Quando alguém pesquisa "restaurante em Albufeira" no Google, aparecem os 3 primeiros resultados do Maps.
+
+Se o seu restaurante não está nesse top 3, está invisível para milhares de turistas todos os dias.
+
+O que muda o jogo:
+• Reviews recentes (últimos 30 dias)
+• Fotos actualizadas
+• Posts regulares no Google Business Profile
+
+Nós automatizamos tudo isto.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption3')">Copiar</button>
+    <p><b>Visual:</b> Screenshot mockup of Google Maps search with arrow pointing to top 3.</p>
+</div>
+
+<!-- POST 4 -->
+<div class="post-idea">
+    <span class="tag tag-social">SOCIAL PROOF</span>
+    <div class="post-title">4. "+340% de visitas em 60 dias"</div>
+    <div class="post-caption" id="caption4">+340% de aumento nas visitas ao perfil.
+3x mais contactos por mês.
+Respostas em menos de 24 horas.
+
+Estes são os resultados que entregamos — não promessas.
+
+Quer ver o que podemos fazer pelo seu negócio?
+
+O primeiro mês é por nossa conta.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption4')">Copiar</button>
+    <p><b>Visual:</b> 3 big stat numbers on dark background with sage green accents.</p>
+</div>
+
+<!-- POST 5 -->
+<div class="post-idea">
+    <span class="tag tag-edu">EDUCATIVO</span>
+    <div class="post-title">5. "5 erros que os negócios locais cometem no Instagram"</div>
+    <div class="post-caption" id="caption5">5 erros que vemos todos os dias:
+
+1. Publicar sem consistência (1 post por mês não funciona)
+2. Fotos de baixa qualidade (a primeira impressão é visual)
+3. Sem hashtags relevantes (ninguém encontra o conteúdo)
+4. Nunca responder a comentários (o algoritmo penaliza)
+5. Não ter call-to-action (o cliente não sabe o que fazer)
+
+Qual destes é o seu? Seja honesto 👇
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption5')">Copiar</button>
+    <p><b>Visual:</b> Carousel — 1 error per slide, numbered, clean dark design.</p>
+</div>
+
+<!-- POST 6 -->
+<div class="post-idea">
+    <span class="tag tag-promo">SERVIÇO</span>
+    <div class="post-title">6. "Como funciona — 3 passos"</div>
+    <div class="post-caption" id="caption6">Trabalhar connosco é simples:
+
+Passo 1 → Conte-nos sobre o seu negócio (5 min)
+Passo 2 → Criamos o conteúdo e a estratégia
+Passo 3 → Aprova e nós publicamos
+
+Sem contratos longos. Sem complicações. E o primeiro mês é grátis.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption6')">Copiar</button>
+    <p><b>Visual:</b> 3-step infographic, vertical flow, sage green numbers.</p>
+</div>
+
+<!-- POST 7 -->
+<div class="post-idea">
+    <span class="tag tag-edu">EDUCATIVO</span>
+    <div class="post-title">7. "O Google Business Profile é grátis. Porque é que ninguém o usa?"</div>
+    <div class="post-caption" id="caption7">O Google Business Profile é a ferramenta gratuita mais subestimada para negócios locais.
+
+Com ele pode:
+• Aparecer no Google Maps
+• Publicar novidades e promoções
+• Receber e responder a reviews
+• Mostrar horários, fotos, menu
+
+Mas 90% dos negócios no Algarve nunca publicam nada.
+
+Resultado? Perdem posição para quem publica semanalmente.
+
+Nós publicamos por si. Todas as semanas.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption7')">Copiar</button>
+    <p><b>Visual:</b> Google Business Profile mockup with highlights on key features.</p>
+</div>
+
+<!-- POST 8 -->
+<div class="post-idea">
+    <span class="tag tag-video">REEL</span> <span class="tag tag-hf">HIGGSFIELD</span>
+    <div class="post-title">8. "Antes vs Depois — Instagram de um restaurante"</div>
+    <div class="post-caption" id="caption8">O Instagram do seu restaurante parece o da esquerda ou o da direita?
+
+A diferença entre "ninguém vê" e "mesa sempre cheia" é conteúdo profissional, consistente e estratégico.
+
+Nós tratamos disso. O primeiro mês é grátis.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption8')">Copiar</button>
+    <p><b>Visual:</b> Higgsfield reel — split screen morphing from ugly Instagram grid to professional grid.</p>
+</div>
+
+<!-- POST 9 -->
+<div class="post-idea">
+    <span class="tag tag-edu">EDUCATIVO</span>
+    <div class="post-title">9. "Quanto custa NÃO estar online?"</div>
+    <div class="post-caption" id="caption9">Vamos fazer as contas.
+
+O Algarve recebeu 5.2 milhões de turistas em 2024.
+
+73% desses turistas pesquisam restaurantes, hotéis e serviços online antes de ir.
+
+Se o seu negócio não aparece... esses clientes vão para a concorrência.
+
+Quanto vale um cliente para si? €30? €50? €200?
+
+Agora multiplique por todos os que nunca o encontraram.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption9')">Copiar</button>
+    <p><b>Visual:</b> Dark bg, "5.2M turistas" big number, calculator emoji, clean typography.</p>
+</div>
+
+<!-- POST 10 -->
+<div class="post-idea">
+    <span class="tag tag-promo">SERVIÇO</span>
+    <div class="post-title">10. "Gestão de Reviews — €59/mês"</div>
+    <div class="post-caption" id="caption10">Novo serviço: Gestão de Reviews Google ⭐
+
+O que incluímos:
+✅ Pedidos automáticos de avaliação aos seus clientes
+✅ Respostas profissionais a todas as reviews
+✅ Filtro inteligente (reviews negativas ficam privadas)
+✅ Relatório mensal de reputação
+
+82% das pessoas lêem reviews antes de escolher. Ter 4.8 estrelas não é sorte — é estratégia.
+
+€59/mês. Adicione a qualquer plano.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption10')">Copiar</button>
+    <p><b>Visual:</b> Star rating graphic going from 3.2 → 4.8, clean design with sage green stars.</p>
+</div>
+
+<!-- POST 11 -->
+<div class="post-idea">
+    <span class="tag tag-video">REEL</span> <span class="tag tag-hf">HIGGSFIELD</span>
+    <div class="post-title">11. "O que acontece quando um turista pesquisa o seu negócio"</div>
+    <div class="post-caption" id="caption11">Um turista em Albufeira pega no telemóvel. Pesquisa "restaurante perto de mim."
+
+O Google mostra 3 resultados.
+
+O seu está lá? Ou está a perder esse cliente para o vizinho do lado?
+
+Nós fazemos com que apareça. Sempre.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption11')">Copiar</button>
+    <p><b>Visual:</b> Higgsfield reel — phone screen showing Google Maps search, zoom into restaurant pin.</p>
+</div>
+
+<!-- POST 12 -->
+<div class="post-idea">
+    <span class="tag tag-social">SOCIAL PROOF</span>
+    <div class="post-title">12. "De 12 reviews para 87 em 90 dias"</div>
+    <div class="post-caption" id="caption12">Um dos nossos clientes tinha 12 reviews no Google. Rating: 3.9 ⭐
+
+Depois de 90 dias com o nosso serviço de gestão de reviews:
+
+→ 87 reviews
+→ Rating: 4.7 ⭐
+→ +45% mais chamadas do Google Maps
+
+O segredo? Não é comprar reviews. É pedir de forma inteligente e responder a todas profissionalmente.
+
+Quer o mesmo para o seu negócio? Link na bio.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption12')">Copiar</button>
+    <p><b>Visual:</b> Before/after stat comparison, clean dark layout.</p>
+</div>
+
+<!-- POST 13 -->
+<div class="post-idea">
+    <span class="tag tag-edu">EDUCATIVO</span>
+    <div class="post-title">13. "3 coisas que um turista vê antes de entrar no seu restaurante"</div>
+    <div class="post-caption" id="caption13">Antes de entrar, um turista verifica:
+
+1️⃣ Rating no Google (abaixo de 4.0 = próximo)
+2️⃣ Fotos recentes (se parecem de 2019 = próximo)
+3️⃣ Comentários recentes (se o último é de há 6 meses = próximo)
+
+É injusto? Talvez. Mas é a realidade.
+
+A boa notícia: todas estas coisas são fáceis de melhorar. Com a estratégia certa.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption13')">Copiar</button>
+    <p><b>Visual:</b> Carousel — 3 slides, each showing what the tourist checks with a phone mockup.</p>
+</div>
+
+<!-- POST 14 -->
+<div class="post-idea">
+    <span class="tag tag-promo">SERVIÇO</span>
+    <div class="post-title">14. "Servimos restaurantes, imobiliárias, clínicas e mais"</div>
+    <div class="post-caption" id="caption14">Não somos uma agência genérica. Especializamo-nos em negócios locais no Algarve.
+
+🍽️ Restaurantes — menus que se tornam posts
+🏠 Imobiliárias — imóveis publicados automaticamente
+🦷 Clínicas — conteúdo que gera confiança
+⚖️ Advogados — credibilidade online
+🚗 Stands — carros no stock, online em horas
+
+Qual é o seu sector? Temos uma solução à medida.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption14')">Copiar</button>
+    <p><b>Visual:</b> 6-panel bento grid, each with vertical icon + name. Dark background.</p>
+</div>
+
+<!-- POST 15 -->
+<div class="post-idea">
+    <span class="tag tag-video">REEL</span> <span class="tag tag-hf">HIGGSFIELD</span>
+    <div class="post-title">15. "Prato → Post → Cliente" (transformation reel)</div>
+    <div class="post-caption" id="caption15">De prato na mesa → a post no Instagram → a cliente na porta.
+
+É assim que o marketing digital funciona para restaurantes.
+
+Nós fotografamos, escrevemos, publicamos e promovemos. Você serve.
+
+Primeiro mês grátis. Link na bio.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption15')">Copiar</button>
+    <p><b>Visual:</b> Higgsfield reel — food plate morphing into Instagram post mockup morphing into restaurant full of people.</p>
+</div>
+
+<!-- POST 16 -->
+<div class="post-idea">
+    <span class="tag tag-edu">EDUCATIVO</span>
+    <div class="post-title">16. "Publicar 1x por mês não é marketing"</div>
+    <div class="post-caption" id="caption16">Se publica no Instagram 1x por mês, o algoritmo esquece-se de si.
+
+Se publica 3-4x por semana, o algoritmo trabalha para si.
+
+Não é magia. É consistência.
+
+O problema: quem tem tempo para criar conteúdo 4 vezes por semana quando tem um negócio para gerir?
+
+Ninguém. É por isso que existimos.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption16')">Copiar</button>
+    <p><b>Visual:</b> Calendar mockup — empty months vs full months comparison.</p>
+</div>
+
+<!-- POST 17 -->
+<div class="post-idea">
+    <span class="tag tag-social">SOCIAL PROOF</span>
+    <div class="post-title">17. "Primeiro mês grátis — porquê?"</div>
+    <div class="post-caption" id="caption17">Perguntam-nos sempre: "Porquê o primeiro mês grátis?"
+
+Porque acreditamos que os resultados falam por si.
+
+Se depois de 30 dias não gostar do que vê — não paga nada. Cancela sem justificar.
+
+Sem contratos. Sem letras pequenas. Sem surpresas.
+
+É simples: se entregarmos valor, fica. Se não, vai-se embora sem gastar um cêntimo.
+
+Justo?
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption17')">Copiar</button>
+    <p><b>Visual:</b> Clean typography on dark bg: "30 DIAS GRÁTIS" with "sem compromisso" below.</p>
+</div>
+
+<!-- POST 18 -->
+<div class="post-idea">
+    <span class="tag tag-video">REEL</span> <span class="tag tag-hf">HIGGSFIELD</span>
+    <div class="post-title">18. "Laptop opening — Postual dashboard" (brand reel)</div>
+    <div class="post-caption" id="caption18">Tudo o que o seu negócio precisa. Num único ecrã.
+
+Redes sociais ✓
+Publicidade ✓
+Reviews ✓
+Resultados ✓
+
+Postual — o seu negócio, sem limites.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption18')">Copiar</button>
+    <p><b>Visual:</b> Higgsfield reel — the Postual laptop animation from the website (use frames from your scrollytelling video).</p>
+</div>
+
+<!-- POST 19 -->
+<div class="post-idea">
+    <span class="tag tag-edu">EDUCATIVO</span>
+    <div class="post-title">19. "Meta Ads: €5/dia pode mudar tudo"</div>
+    <div class="post-caption" id="caption19">Com €5 por dia em Meta Ads pode:
+
+• Alcançar 1,000-3,000 pessoas na sua zona
+• Aparecer no feed de quem procura o que vende
+• Gerar 5-15 cliques no seu perfil por dia
+
+€150/mês. Menos que um jantar para dois.
+
+Mas o retorno? Dezenas de novos clientes.
+
+Não precisa de milhares de euros para fazer publicidade. Precisa de estratégia.
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption19')">Copiar</button>
+    <p><b>Visual:</b> Calculator showing €5/day = 3,000 people reached. Clean infographic.</p>
+</div>
+
+<!-- POST 20 -->
+<div class="post-idea">
+    <span class="tag tag-promo">SERVIÇO</span>
+    <div class="post-title">20. "Também criamos websites"</div>
+    <div class="post-caption" id="caption20">Precisa de um website profissional?
+
+Criamos sites modernos, rápidos e optimizados para o seu negócio.
+
+✅ Design à medida
+✅ Optimizado para telemóvel
+✅ Rápido no Google
+✅ Integrado com as suas redes sociais
+
+A partir de €500. Manutenção incluída.
+
+O seu negócio merece mais do que uma página de Facebook como "website."
+
+#MarketingAlgarve #NegóciosLocais #Postual</div>
+    <button class="copy-btn" onclick="copyText('caption20')">Copiar</button>
+    <p><b>Visual:</b> Website mockup on laptop + phone, showing a restaurant site. Clean, premium feel.</p>
+</div>
+
+<!-- ==================== HIGGSFIELD PROMPTS ==================== -->
+<h2><span class="emoji">🎬</span> Higgsfield Prompts for Animated Reels</h2>
+
+<p>These are ready-to-paste prompts for Higgsfield AI video generation. Each produces a 4-6 second reel suitable for Instagram.</p>
+
+<h3>Prompt 1: Star Rating Rising</h3>
+<p>For: Review management service promo</p>
+<div class="prompt-box" id="hf1">A sleek dark minimal background. Five large 3D star shapes in a row, initially grey and flat. The stars sequentially fill with a warm gold color from left to right, each rising slightly as it fills, creating a satisfying cascade effect. Below the stars, the number "4.8" fades in with elegant white typography. Smooth cinematic lighting, subtle reflections on the stars, premium tech aesthetic. 16:9 aspect ratio.</div>
+<button class="copy-btn" onclick="copyText('hf1')">Copiar Prompt</button>
+
+<h3>Prompt 2: Phone Google Maps Search</h3>
+<p>For: Educational post about being found online</p>
+<div class="prompt-box" id="hf2">A photorealistic smartphone floating against a clean white background. The screen shows a Google Maps interface with restaurant pins appearing one by one, popping up with a subtle bounce animation. The camera slowly orbits around the phone at a slight angle. One pin glows bright green, pulsing gently, standing out from the rest. Soft studio lighting, minimal shadows, Apple-style product photography aesthetic. 9:16 vertical format.</div>
+<button class="copy-btn" onclick="copyText('hf2')">Copiar Prompt</button>
+
+<h3>Prompt 3: Before/After Instagram Grid</h3>
+<p>For: Service showcase — social media management</p>
+<div class="prompt-box" id="hf3">Split screen animation. Left side shows a messy Instagram profile grid with inconsistent, dark, blurry food photos slowly fading out. Right side reveals a professional, cohesive Instagram grid with beautiful food photography, consistent branding, and clean layout sliding in from the right. The transition happens with a smooth wipe effect from left to right. A subtle green checkmark appears on the right side. Dark background, modern UI aesthetic. 9:16 vertical format.</div>
+<button class="copy-btn" onclick="copyText('hf3')">Copiar Prompt</button>
+
+<h3>Prompt 4: Data Dashboard Coming to Life</h3>
+<p>For: Results/analytics showcase</p>
+<div class="prompt-box" id="hf4">A dark premium dashboard UI on a laptop screen. Bar charts animate upward one by one, line graphs draw themselves from left to right showing growth curves. Numbers count up rapidly: followers going from 234 to 2,847, engagement from 1.2% to 8.7%. The camera slowly zooms into the screen. Soft ambient glow from the screen illuminates the dark surroundings. Corporate tech aesthetic with sage green accent color (#6B7F5E). 16:9 format.</div>
+<button class="copy-btn" onclick="copyText('hf4')">Copiar Prompt</button>
+
+<h3>Prompt 5: Food Plate to Instagram Post</h3>
+<p>For: Restaurant vertical — content creation service</p>
+<div class="prompt-box" id="hf5">A beautifully plated Portuguese seafood dish (cataplana) sits on a rustic wooden table, photographed from above. The camera slowly pulls back as a phone frame appears around the image, transforming it into an Instagram post. Likes and hearts float upward from the post. The phone tilts slightly showing the caption area with hashtags. Warm golden lighting, shallow depth of field transitioning to sharp digital aesthetic. 9:16 vertical format.</div>
+<button class="copy-btn" onclick="copyText('hf5')">Copiar Prompt</button>
+
+<h3>Prompt 6: House Listing to Social Post</h3>
+<p>For: Real estate vertical</p>
+<div class="prompt-box" id="hf6">A stunning Algarve villa with white walls and a blue pool, shot from a drone perspective. The camera smoothly transitions as the image gets framed into a carousel Instagram post layout with price tag "€450,000" and property details appearing with clean typography animation. Multiple slides peek from the right edge. The post mockup floats against a dark background with subtle shadow. Premium real estate marketing aesthetic. 9:16 vertical format.</div>
+<button class="copy-btn" onclick="copyText('hf6')">Copiar Prompt</button>
+
+<h3>Prompt 7: Empty Restaurant → Full Restaurant</h3>
+<p>For: Results showcase reel</p>
+<div class="prompt-box" id="hf7">A time-lapse style animation of a charming Portuguese restaurant terrace in the Algarve. It starts completely empty with chairs and tables set but no customers. Gradually, the restaurant fills with happy diners, candles light up, plates of food appear on tables, the atmosphere becomes warm and bustling. The transition from empty to full happens over 4 seconds. Golden hour lighting, Mediterranean architecture, bougainvillea on the walls. Cinematic, warm tones. 9:16 vertical format.</div>
+<button class="copy-btn" onclick="copyText('hf7')">Copiar Prompt</button>
+
+<h3>Prompt 8: Review Notifications Cascading</h3>
+<p>For: Review management service</p>
+<div class="prompt-box" id="hf8">A smartphone screen against a dark background. Google review notification cards cascade down the screen one after another, each showing 5 gold stars and a short preview text. The notifications stack with a satisfying bounce physics. A counter in the corner goes from "12 reviews" to "87 reviews" with each new card. The phone has a subtle glow. Clean, minimal, tech aesthetic with white cards on dark background. 9:16 vertical format.</div>
+<button class="copy-btn" onclick="copyText('hf8')">Copiar Prompt</button>
+
+<h3>Prompt 9: €5 Coin Multiplying</h3>
+<p>For: Meta Ads educational post</p>
+<div class="prompt-box" id="hf9">A single €5 euro coin sits on a clean white surface, lit with soft studio lighting. The coin begins to multiply, splitting into dozens of coins that spread across the surface in a satisfying cascade. The coins then morph and transform into small human silhouette icons representing customers, spreading outward in a ripple effect. Camera pulls back to reveal hundreds of customer icons. Minimal, clean aesthetic with subtle shadows. 16:9 format.</div>
+<button class="copy-btn" onclick="copyText('hf9')">Copiar Prompt</button>
+
+<h3>Prompt 10: Postual Logo Reveal</h3>
+<p>For: Brand intro / profile reel</p>
+<div class="prompt-box" id="hf10">A dark charcoal background (#1A1D1E). Particles of light slowly converge from the edges of the frame toward the center, forming the letter "p" in clean white typography. A moment of stillness, then a single sage green (#6B7F5E) dot materializes next to the p with a subtle pulse of light. The complete logo "p." sits centered, minimal and bold. Subtle ambient particles float in the background. Premium, understated, tech brand aesthetic. 1:1 square format.</div>
+<button class="copy-btn" onclick="copyText('hf10')">Copiar Prompt</button>
+
+<!-- ==================== IMAGE PROMPTS ==================== -->
+<h2><span class="emoji">🖼️</span> Static Image Prompts (Midjourney / DALL-E)</h2>
+
+<h3>Brand Background Template</h3>
+<div class="prompt-box" id="img1">Minimal dark charcoal background with subtle sage green gradient glow in the center, abstract soft light particles floating, premium tech brand aesthetic, clean and modern, no text, suitable for text overlay, 1080x1080 square format --ar 1:1 --v 6</div>
+<button class="copy-btn" onclick="copyText('img1')">Copiar</button>
+
+<h3>Algarve Restaurant Atmosphere</h3>
+<div class="prompt-box" id="img2">A charming outdoor restaurant terrace in the Algarve, Portugal, golden hour lighting, Mediterranean white walls with bougainvillea, rustic wooden tables with beautiful plated food, warm candles, happy diners in background slightly blurred, shot on Canon 5D Mark IV, 35mm lens, shallow depth of field, warm tones, editorial food photography --ar 4:5 --v 6</div>
+<button class="copy-btn" onclick="copyText('img2')">Copiar</button>
+
+<h3>Professional Phone Mockup</h3>
+<div class="prompt-box" id="img3">A modern smartphone floating at a slight angle against a clean white background, screen showing a vibrant Instagram feed with cohesive restaurant content, soft studio lighting, subtle reflection on the phone surface, Apple product photography style, ultra clean, minimal shadows --ar 4:5 --v 6</div>
+<button class="copy-btn" onclick="copyText('img3')">Copiar</button>
+
+<h3>Dental Clinic Trust Image</h3>
+<div class="prompt-box" id="img4">A modern, clean dental clinic reception area with warm neutral tones, a friendly receptionist greeting a patient, natural light streaming through large windows, indoor plants, subtle medical cross symbol, trustworthy and welcoming atmosphere, professional healthcare photography, soft focus background --ar 4:5 --v 6</div>
+<button class="copy-btn" onclick="copyText('img4')">Copiar</button>
+
+<div style="text-align:center;padding:48px 0 16px;color:#6B7280;font-size:0.8rem;">
+<p>Postual — Instagram Content Kit</p>
+<p>20 posts + 10 Higgsfield prompts + 4 image prompts. Ready to go.</p>
+</div>
+
+</div>
+</body>
+</html>

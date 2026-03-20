@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postual — Review Service Setup Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#FAFAF8;color:#1A1D1E;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:60px 32px}
+h1{font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px}
+h1 span{color:#6B7F5E}
+.sub{color:#6B7280;margin-bottom:48px}
+h2{font-size:1.3rem;font-weight:800;margin:48px 0 16px;padding-top:32px;border-top:1px solid #E5E7EB}
+h3{font-size:1rem;font-weight:700;margin:24px 0 8px;color:#6B7F5E}
+p{margin-bottom:14px;font-size:0.92rem;color:#374151}
+.step{background:#fff;border:1px solid #E5E7EB;border-left:4px solid #6B7F5E;border-radius:8px;padding:24px;margin:16px 0}
+.step-num{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#6B7F5E;margin-bottom:8px}
+.step h4{font-size:1rem;font-weight:700;margin-bottom:8px}
+code{background:#F3F4F6;padding:2px 8px;border-radius:4px;font-size:0.85rem;font-family:'Menlo',monospace}
+pre{background:#1A1D1E;color:#E5E7EB;padding:20px;border-radius:8px;overflow-x:auto;margin:12px 0;font-size:0.82rem;line-height:1.6}
+.cost{display:inline-block;background:#DCFCE7;color:#166534;padding:4px 12px;border-radius:50px;font-size:0.78rem;font-weight:700}
+.warn{background:#FEF3C7;border-left-color:#D97706;color:#92400E}
+.warn .step-num{color:#D97706}
+.template{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:20px;margin:12px 0;font-size:0.88rem}
+.template strong{display:block;margin-bottom:8px;color:#166534;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Gestão de Reviews Google — <span>Setup Guide</span></h1>
+<p class="sub">How to deliver the €59/month review management service. From zero to automated in 30 minutes per client.</p>
+
+<h2>Phase 1: When a Client Says Yes <span class="cost">€0 cost</span></h2>
+
+<div class="step">
+<div class="step-num">Step 1 — Get Their Google Review Link</div>
+<h4>Find the client's Place ID</h4>
+<p>Go to <a href="https://developers.google.com/maps/documentation/places/web-service/place-id" target="_blank">Google's Place ID Finder</a>, search for the client's business, and copy the Place ID (e.g., <code>ChIJN1t_tDeuEmsRUsoyG83frY4</code>).</p>
+<p>Their direct review link is:</p>
+<pre>https://search.google.com/local/writereview?placeid=THEIR_PLACE_ID</pre>
+<p>Test it yourself — it should open Google Maps with the review form ready. Save this link, you'll use it in every message.</p>
+</div>
+
+<div class="step">
+<div class="step-num">Step 2 — Create a Short Link</div>
+<h4>Make the link look professional</h4>
+<p>The raw Google link is ugly. Use <a href="https://bit.ly" target="_blank">bit.ly</a> (free) to create something like: <code>bit.ly/review-restaurante-xpto</code></p>
+<p>Or even better, if you have a domain, create a redirect: <code>postual.com/review/clientname</code></p>
+</div>
+
+<div class="step">
+<div class="step-num">Step 3 — Set Up the WhatsApp Review Request</div>
+<h4>The client sends this after each customer visit</h4>
+<p>Create a pre-written WhatsApp message the client can forward to customers. They just tap "share" after each visit:</p>
+
+<div class="template">
+<strong>WhatsApp Template — Portuguese</strong>
+Olá [Nome]! 👋<br><br>
+Obrigado pela sua visita ao [Nome do Negócio]! Esperamos que tenha gostado da experiência.<br><br>
+Se tiver 30 segundos, a sua opinião no Google significa muito para nós: [LINK]<br><br>
+Muito obrigado! 🙏
+</div>
+
+<div class="template">
+<strong>WhatsApp Template — English (for tourist businesses)</strong>
+Hi [Name]! 👋<br><br>
+Thank you for visiting [Business Name]! We hope you enjoyed your experience.<br><br>
+If you have 30 seconds, your Google review means the world to us: [LINK]<br><br>
+Thank you so much! 🙏
+</div>
+
+<p>The client can save these as WhatsApp "quick replies" on WhatsApp Business (free) and send with one tap.</p>
+</div>
+
+<div class="step">
+<div class="step-num">Step 4 — Automate Review Responses with Claude</div>
+<h4>You respond to every review professionally</h4>
+<p>This is where your €59/month becomes worth it. Every week, you check the client's Google reviews and respond using Claude API:</p>
+
+<pre>import anthropic
+
+client = anthropic.Anthropic()
+
+def generate_review_response(review_text, business_name, reviewer_name):
+    message = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=300,
+        messages=[{
+            "role": "user",
+            "content": f"""Write a professional Google review response in Portuguese
+for {business_name}.
+
+Reviewer: {reviewer_name}
+Review: {review_text}
+
+Rules:
+- Thank the reviewer by name
+- Reference something specific from their review
+- Keep it warm and professional (2-3 sentences)
+- If negative: apologize, offer to make it right, provide contact
+- Never be defensive
+- Sign off with the business name"""
+        }]
+    )
+    return message.content[0].text</pre>
+
+<p>You already have the Claude API set up from the car dealer scraper. This is 10 lines of extra code. Run it once a week, copy-paste responses into Google Maps.</p>
+</div>
+
+<div class="step">
+<div class="step-num">Step 5 — Monthly Report</div>
+<h4>Send the client a simple report</h4>
+<p>Every month, send the client a WhatsApp message with:</p>
+<div class="template">
+<strong>Monthly Report Template</strong>
+📊 Relatório de Reviews — [Mês] 2026<br><br>
+⭐ Rating atual: 4.6 (era 4.3)<br>
+📝 Novos reviews este mês: 12<br>
+✅ Respostas enviadas: 12/12<br>
+👍 Reviews positivos: 11 (92%)<br><br>
+O seu negócio subiu de posição no Google Maps este mês. Continue a pedir reviews! 💪
+</div>
+</div>
+
+<h2>Phase 2: Scale to 5+ Clients <span class="cost">€19-29/month</span></h2>
+
+<div class="step">
+<div class="step-num">When manual gets tedious</div>
+<h4>Switch to a review management tool</h4>
+<p>At 5+ clients, checking each one's Google reviews manually every week becomes 2-3 hours of work. That's when you add a tool:</p>
+<p><strong>Cheapest option:</strong> <a href="https://reputacion.io" target="_blank">Reputacion.io</a> — €19/month. Sends automated SMS/email review requests, filters negative ones, dashboard per client.</p>
+<p><strong>Mid option:</strong> <a href="https://www.responsescribe.com" target="_blank">ResponseScribe</a> — €29/month Pro plan. AI review responses, multi-location support.</p>
+<p><strong>GoHighLevel option:</strong> If you eventually get GoHighLevel ($497/month), review management is built in — automated SMS/email sequences triggered after customer visits.</p>
+</div>
+
+<h2>Phase 3: White-Label Platform <span class="cost">€1,497 one-time</span></h2>
+
+<div class="step">
+<div class="step-num">When you hit 15+ review clients</div>
+<h4>Climbo gives you your own branded platform</h4>
+<p><a href="https://www.climbo.com" target="_blank">Climbo</a> sets up a white-label platform at your domain (e.g., <code>reviews.postual.com</code>). Clients log in, see Postual branding, manage their reviews. One-time fee ~$1,500-$3,000, unlimited clients after that.</p>
+<p>Only invest in this when 15+ clients × €59 = €885/month makes the one-time cost pay for itself in 2 months.</p>
+</div>
+
+<h2>The Negative Review Filter (Your Secret Weapon)</h2>
+
+<div class="step warn">
+<div class="step-num">Critical — This is what makes the service valuable</div>
+<h4>Never send unhappy customers to Google</h4>
+<p>The smart approach: instead of sending the Google review link directly, send customers to a simple feedback form first. The form asks "How was your experience?" with a 1-5 star rating.</p>
+<p><strong>If they rate 4-5 stars →</strong> show the Google review link ("Thank you! Share your experience on Google")</p>
+<p><strong>If they rate 1-3 stars →</strong> show a private feedback form ("We're sorry. Tell us what happened and we'll make it right") — this goes to the client's email, NOT to Google.</p>
+<p>This is 100% legal and is what every review management tool does. It doesn't fake reviews — it just channels happy customers to public reviews and unhappy ones to private feedback.</p>
+<p>You can build this as a simple one-page HTML form hosted on Vercel. One page per client: <code>postual.com/review/clientname</code></p>
+</div>
+
+<h2>Time Investment Per Client</h2>
+
+<div class="step">
+<div class="step-num">Your weekly time commitment</div>
+<h4>~20 minutes per client per week</h4>
+<p><strong>Setup (one-time):</strong> 30 minutes — get Place ID, create short link, set up WhatsApp templates, brief the client</p>
+<p><strong>Weekly maintenance:</strong> 15-20 minutes — check new reviews, generate Claude responses, post them</p>
+<p><strong>Monthly report:</strong> 5 minutes — screenshot stats, send WhatsApp summary</p>
+<p>At €59/month and 80 minutes/month of work, you're earning ~€44/hour. At 10 clients, that's €590/month for ~13 hours of work.</p>
+</div>
+
+<h2>What to Tell the Client</h2>
+
+<div class="step">
+<div class="step-num">The pitch (never mention the tools)</div>
+<h4>What they hear</h4>
+<p>"Nós tratamos da sua reputação no Google. Ajudamos os seus clientes a deixar avaliações positivas, respondemos a todas as reviews de forma profissional, e enviamos-lhe um relatório mensal. Tudo automatizado pela plataforma Postual."</p>
+<p><strong>What they DON'T need to know:</strong> that you're using Claude API for responses, that the "platform" is a WhatsApp template + Python script, or that the review filter is a simple HTML page.</p>
+</div>
+
+<div style="text-align:center;padding:48px 0 16px;color:#6B7280;font-size:0.8rem;">
+<p>Postual — Review Service Setup Guide</p>
+<p>Start with Phase 1. Zero cost. Scale when needed.</p>
+</div>
+
+</div>
+</body>
+</html>

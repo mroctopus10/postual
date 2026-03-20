@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte — Imobiliária Premium no Algarve</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --navy-light: #2D4066;
+            --blue: #4A7CC9;
+            --blue-light: #6B9EE0;
+            --blue-bg: #EDF2FA;
+            --cream: #FAFBFD;
+            --white: #FFFFFF;
+            --warm: #C4946A;
+            --text: #1B2A4A;
+            --text-light: #5A6880;
+            --text-muted: #94A0B4;
+            --border: #E4E8F0;
+            --border-light: #F0F2F7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+        /* NAV */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 16px 0;
+            background: rgba(250,251,253,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+        }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-size: 1.3rem; font-weight: 800; color: var(--navy); text-decoration: none; letter-spacing: -0.03em; }
+        .nav-logo span { color: var(--blue); }
+        .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+        .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-light); text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--navy); }
+        .btn-nav { background: var(--navy); color: var(--white) !important; padding: 10px 24px; border-radius: 10px; font-weight: 600; font-size: 0.82rem; }
+        .btn-nav:hover { background: var(--navy-light); color: var(--white) !important; }
+
+        /* HERO */
+        .hero {
+            padding: 160px 0 100px;
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; top: -100px; right: -150px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--blue-bg) 0%, transparent 60%);
+            opacity: 0.6;
+        }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--blue-bg); border: 1px solid rgba(74,124,201,0.15);
+            padding: 6px 16px; border-radius: 8px;
+            font-size: 0.75rem; font-weight: 600; color: var(--blue); margin-bottom: 28px;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3rem);
+            font-weight: 800; line-height: 1.1; letter-spacing: -0.035em;
+            margin-bottom: 20px;
+        }
+        .hero h1 em { font-style: normal; color: var(--blue); }
+        .hero p {
+            font-size: 1.05rem; color: var(--text-light); max-width: 440px;
+            line-height: 1.75; margin-bottom: 36px;
+        }
+        .hero-btns { display: flex; gap: 12px; }
+        .btn-primary {
+            background: var(--navy); color: var(--white);
+            padding: 15px 34px; border-radius: 12px;
+            font-size: 0.92rem; font-weight: 600; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-primary:hover { background: var(--navy-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(27,42,74,0.15); }
+        .btn-outline {
+            background: transparent; color: var(--navy);
+            border: 1.5px solid var(--border);
+            padding: 15px 30px; border-radius: 12px;
+            font-size: 0.92rem; font-weight: 500; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-outline:hover { border-color: var(--navy); }
+
+        .hero-visual { position: relative; z-index: 1; }
+        .hero-featured {
+            border-radius: 24px; overflow: hidden;
+            border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+            background: var(--white);
+        }
+        .featured-img {
+            height: 260px; background: var(--blue-bg);
+        }
+        .featured-img img { width: 100%; height: 100%; object-fit: cover; }
+        .featured-body { padding: 28px; }
+        .featured-tag {
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--blue); background: var(--blue-bg);
+            padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 10px;
+        }
+        .featured-body h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+        .featured-body p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 14px; }
+        .featured-meta { display: flex; gap: 20px; font-size: 0.82rem; color: var(--text-muted); }
+        .featured-meta strong { color: var(--navy); font-weight: 700; }
+        .featured-price { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin-top: 10px; }
+
+        /* PROPERTIES */
+        .properties { padding: 100px 0; background: var(--white); }
+        .section-header { text-align: center; margin-bottom: 56px; }
+        .s-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; }
+        .section-header p { color: var(--text-light); font-size: 1rem; }
+
+        .properties-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .prop-card {
+            border-radius: 20px; overflow: hidden;
+            border: 1px solid var(--border-light); background: var(--cream);
+            transition: all 0.3s;
+        }
+        .prop-card:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.06); }
+        .prop-img { height: 200px; background: var(--blue-bg); position: relative; }
+        .prop-img img { width: 100%; height: 100%; object-fit: cover; }
+        .prop-badge {
+            position: absolute; top: 14px; left: 14px;
+            background: var(--navy); color: var(--white);
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+            padding: 5px 12px; border-radius: 8px;
+        }
+        .prop-body { padding: 24px; }
+        .prop-body h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+        .prop-body .location { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px; }
+        .prop-details { display: flex; gap: 16px; font-size: 0.78rem; color: var(--text-light); margin-bottom: 14px; }
+        .prop-details span { display: flex; align-items: center; gap: 4px; }
+        .prop-price { font-size: 1.2rem; font-weight: 800; color: var(--navy); }
+
+        /* STATS */
+        .stats { padding: 80px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .stat-card {
+            background: var(--white); border: 1px solid var(--border-light);
+            border-radius: 20px; padding: 36px; text-align: center;
+        }
+        .stat-card h3 { font-size: 2.4rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em; }
+        .stat-card h3 span { color: var(--blue); }
+        .stat-card p { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+        /* CTA */
+        .cta {
+            margin: 0 28px; padding: 80px 60px;
+            background: var(--navy); border-radius: 28px;
+            text-align: center; color: var(--white);
+            position: relative; overflow: hidden;
+        }
+        .cta::before {
+            content: '';
+            position: absolute; top: -80px; right: -80px;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(74,124,201,0.2) 0%, transparent 70%);
+        }
+        .cta h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; position: relative; }
+        .cta p { color: rgba(255,255,255,0.5); margin-bottom: 36px; font-size: 1rem; max-width: 440px; margin-left: auto; margin-right: auto; position: relative; }
+        .btn-cta {
+            background: var(--white); color: var(--navy);
+            padding: 16px 40px; border-radius: 12px;
+            font-size: 0.92rem; font-weight: 700; text-decoration: none;
+            transition: all 0.3s; position: relative;
+        }
+        .btn-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 30px rgba(255,255,255,0.15); }
+
+        .cta-wrapper { padding: 0 0 100px; }
+
+        /* FOOTER */
+        .footer {
+            padding: 36px 0; border-top: 1px solid var(--border-light);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.8rem; color: var(--text-muted);
+        }
+        .footer a { color: var(--text-muted); text-decoration: none; }
+        .footer a:hover { color: var(--blue); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .properties-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta { margin: 0 16px; padding: 48px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">horizonte<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#imoveis">Imóveis</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#" class="btn-nav">Fale Connosco</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">Imobiliária Premium — Algarve</div>
+                    <h1>Encontre a casa dos seus <em>sonhos</em> no Algarve</h1>
+                    <p>Moradias, apartamentos e propriedades de luxo nas melhores localizações do Algarve. Acompanhamento personalizado do início ao fim.</p>
+                    <div class="hero-btns">
+                        <a href="#imoveis" class="btn-primary">Ver Imóveis</a>
+                        <a href="#contacto" class="btn-outline">Contactar</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-featured">
+                        <div class="featured-img">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" alt="Moradia">
+                        </div>
+                        <div class="featured-body">
+                            <div class="featured-tag">Destaque</div>
+                            <h3>Moradia T4 com Piscina</h3>
+                            <p>Vilamoura, Loulé — Vista mar, jardim privado, garagem dupla</p>
+                            <div class="featured-meta">
+                                <span><strong>4</strong> quartos</span>
+                                <span><strong>3</strong> WC</span>
+                                <span><strong>280</strong> m²</span>
+                                <span><strong>800</strong> m² terreno</span>
+                            </div>
+                            <div class="featured-price">€895.000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="properties" id="imoveis">
+        <div class="container">
+            <div class="section-header">
+                <div class="s-label">Imóveis</div>
+                <h2>Propriedades em destaque</h2>
+                <p>Uma seleção dos melhores imóveis disponíveis no Algarve</p>
+            </div>
+            <div class="properties-grid">
+                <div class="prop-card">
+                    <div class="prop-img">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Moradia">
+                        <div class="prop-badge">Novo</div>
+                    </div>
+                    <div class="prop-body">
+                        <h3>Moradia T3 Contemporânea</h3>
+                        <div class="location">Albufeira, Algarve</div>
+                        <div class="prop-details">
+                            <span><strong>3</strong> quartos</span>
+                            <span><strong>2</strong> WC</span>
+                            <span><strong>190</strong> m²</span>
+                        </div>
+                        <div class="prop-price">€485.000</div>
+                    </div>
+                </div>
+                <div class="prop-card">
+                    <div class="prop-img">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Apartamento">
+                        <div class="prop-badge">Vista Mar</div>
+                    </div>
+                    <div class="prop-body">
+                        <h3>Apartamento T2 Luxo</h3>
+                        <div class="location">Lagos, Algarve</div>
+                        <div class="prop-details">
+                            <span><strong>2</strong> quartos</span>
+                            <span><strong>2</strong> WC</span>
+                            <span><strong>110</strong> m²</span>
+                        </div>
+                        <div class="prop-price">€375.000</div>
+                    </div>
+                </div>
+                <div class="prop-card">
+                    <div class="prop-img">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Quinta">
+                        <div class="prop-badge">Exclusivo</div>
+                    </div>
+                    <div class="prop-body">
+                        <h3>Quinta T5 com Pomar</h3>
+                        <div class="location">Tavira, Algarve</div>
+                        <div class="prop-details">
+                            <span><strong>5</strong> quartos</span>
+                            <span><strong>4</strong> WC</span>
+                            <span><strong>420</strong> m²</span>
+                        </div>
+                        <div class="prop-price">€1.250.000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats" id="sobre">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>150<span>+</span></h3>
+                    <p>Imóveis vendidos</p>
+                </div>
+                <div class="stat-card">
+                    <h3>98<span>%</span></h3>
+                    <p>Clientes satisfeitos</p>
+                </div>
+                <div class="stat-card">
+                    <h3>12</h3>
+                    <p>Anos de experiência</p>
+                </div>
+                <div class="stat-card">
+                    <h3>45<span>M€</span></h3>
+                    <p>Volume transaccionado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-wrapper" id="contacto">
+        <div class="cta">
+            <div class="s-label" style="color:var(--blue-light);">Contacto</div>
+            <h2>Pronto para encontrar o seu imóvel?</h2>
+            <p>Fale connosco hoje. Acompanhamento personalizado e sem compromisso.</p>
+            <a href="#" class="btn-cta">Marcar Visita</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+            <span>&copy; 2026 Horizonte Imobiliária. Todos os direitos reservados.</span>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+</body>
+</html>

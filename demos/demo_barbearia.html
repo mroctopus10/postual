@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corte & Navalha — Barbearia Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0A0A0A;
+            --dark: #1A1A1A;
+            --dark-mid: #2A2A2A;
+            --warm: #C4946A;
+            --warm-light: #D8B494;
+            --warm-bg: #F5EDE5;
+            --cream: #F9F7F4;
+            --white: #FFFFFF;
+            --text: #0A0A0A;
+            --text-light: #6B6660;
+            --text-muted: #999590;
+            --border: #E8E4DE;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+        /* NAV */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 18px 0;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(20px);
+        }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--white); text-decoration: none; }
+        .nav-logo span { color: var(--warm); }
+        .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+        .nav-links a { font-size: 0.84rem; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--warm); }
+        .btn-marcar { background: var(--warm); color: var(--white); padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 0.82rem; }
+
+        /* HERO */
+        .hero {
+            padding: 0; min-height: 100vh;
+            background: var(--black); color: var(--white);
+            display: flex; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1600&q=80') center/cover;
+            opacity: 0.2;
+        }
+        .hero-content { position: relative; z-index: 1; padding: 160px 0 120px; }
+        .hero-label {
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--warm); margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1.02; letter-spacing: -0.03em;
+            margin-bottom: 28px;
+        }
+        .hero p {
+            font-size: 1.08rem; color: rgba(255,255,255,0.55); max-width: 440px;
+            line-height: 1.75; margin-bottom: 44px;
+        }
+        .hero-btns { display: flex; gap: 14px; }
+        .btn-hero-primary {
+            background: var(--warm); color: var(--white);
+            padding: 16px 40px; border-radius: 50px;
+            font-size: 0.92rem; font-weight: 600; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-hero-primary:hover { background: var(--warm-light); }
+        .btn-hero-outline {
+            background: transparent; color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.2);
+            padding: 16px 36px; border-radius: 50px;
+            font-size: 0.92rem; font-weight: 500; text-decoration: none; transition: all 0.3s;
+        }
+        .btn-hero-outline:hover { border-color: rgba(255,255,255,0.4); }
+
+        /* SERVICES */
+        .services { padding: 100px 0; }
+        .services-header { text-align: center; margin-bottom: 56px; }
+        .services-header h2 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; margin-bottom: 12px; }
+        .services-header p { color: var(--text-light); font-size: 1rem; }
+        .s-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm); margin-bottom: 14px; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .service-card {
+            background: var(--white); border-radius: 20px; padding: 40px 32px;
+            border: 1px solid var(--border); text-align: center; transition: all 0.3s;
+        }
+        .service-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+        .service-card .icon {
+            width: 56px; height: 56px; border-radius: 16px; background: var(--warm-bg);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-size: 1.4rem;
+        }
+        .service-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; margin-bottom: 8px; }
+        .service-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; }
+        .service-price { font-size: 1.3rem; font-weight: 700; color: var(--warm); }
+        .service-price span { font-size: 0.8rem; font-weight: 400; color: var(--text-muted); }
+
+        /* GALLERY */
+        .gallery { padding: 100px 0; background: var(--dark); }
+        .gallery-header { text-align: center; margin-bottom: 48px; }
+        .gallery-header h2 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--white); margin-bottom: 12px; }
+        .gallery-header p { color: rgba(255,255,255,0.45); font-size: 0.95rem; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .gallery-item {
+            aspect-ratio: 1; border-radius: 14px; overflow: hidden;
+            background: var(--dark-mid);
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: all 0.4s; }
+        .gallery-item:hover img { opacity: 1; transform: scale(1.03); }
+
+        /* CONTACT */
+        .contact { padding: 100px 0; text-align: center; }
+        .contact h2 { font-family: 'DM Serif Display', serif; font-size: 2.4rem; margin-bottom: 16px; }
+        .contact p { color: var(--text-light); margin-bottom: 40px; font-size: 1rem; }
+        .contact-grid { display: flex; justify-content: center; gap: 56px; flex-wrap: wrap; }
+        .contact-item strong {
+            display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--warm); margin-bottom: 6px;
+        }
+        .contact-item span { font-size: 0.92rem; color: var(--text-light); }
+
+        .footer {
+            padding: 32px 0; border-top: 1px solid var(--border);
+            text-align: center; font-size: 0.78rem; color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">Corte<span>&</span>Navalha</a>
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#" class="btn-marcar">Marcar Agora</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">Barbearia Premium — Faro</div>
+                <h1>Estilo começa<br>aqui.</h1>
+                <p>Cortes clássicos e modernos, barba à navalha e tratamentos premium num ambiente exclusivamente masculino.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn-hero-primary">Marcar Agora</a>
+                    <a href="#servicos" class="btn-hero-outline">Ver Serviços</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="services-header">
+                <div class="s-label">Serviços</div>
+                <h2>O que oferecemos</h2>
+                <p>Cada serviço inclui consultoria personalizada e produtos premium</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon">&#9986;</div>
+                    <h3>Corte Clássico</h3>
+                    <p>Corte à tesoura ou máquina, lavagem e styling. Consultoria de imagem incluída.</p>
+                    <div class="service-price">€18 <span>/ 40min</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="icon">&#128136;</div>
+                    <h3>Barba à Navalha</h3>
+                    <p>Aparar e definir com navalha tradicional, toalha quente e bálsamo hidratante.</p>
+                    <div class="service-price">€12 <span>/ 25min</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="icon">&#9733;</div>
+                    <h3>Pacote Completo</h3>
+                    <p>Corte + barba + tratamento facial com produtos premium. A experiência completa.</p>
+                    <div class="service-price">€35 <span>/ 75min</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <div class="gallery-header">
+                <div class="s-label" style="color:var(--warm);">Galeria</div>
+                <h2>O nosso trabalho</h2>
+                <p>Estilo, precisão e atenção ao detalhe em cada corte</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=400&q=80" alt="Corte 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&q=80" alt="Corte 2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=400&q=80" alt="Barbearia"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=400&q=80" alt="Interior"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="s-label">Visite-nos</div>
+            <h2>Marque o seu horário</h2>
+            <p>Atendemos por marcação para garantir a melhor experiência</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>Morada</strong>
+                    <span>Rua de Santo António, 15<br>8000 Faro</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Horário</strong>
+                    <span>Ter–Sáb: 10h–20h<br>Dom–Seg: Encerrado</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Contacto</strong>
+                    <span>+351 912 000 000<br>geral@cortenavalha.pt</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">&copy; 2026 Corte & Navalha. Todos os direitos reservados.</div>
+    </footer>
+</body>
+</html>

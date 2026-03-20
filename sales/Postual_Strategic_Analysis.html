@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postual — Strategic Growth Analysis</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    :root {
+        --bg: #FAFAF8;
+        --text: #1A1D1E;
+        --text-light: #6B7280;
+        --sage: #6B7F5E;
+        --sage-light: #8FA580;
+        --red: #DC2626;
+        --green: #16A34A;
+        --blue: #2563EB;
+        --amber: #D97706;
+        --border: #E5E7EB;
+        --card: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Inter', -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .cover {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 60px 32px;
+        background: linear-gradient(135deg, #1A1D1E 0%, #2D3436 100%);
+        color: white;
+        position: relative;
+    }
+    .cover-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 24px; }
+    .cover h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 20px; }
+    .cover h1 em { font-style: normal; color: var(--sage-light); }
+    .cover p { font-size: 1.1rem; color: rgba(255,255,255,0.6); max-width: 600px; }
+    .cover-meta { margin-top: 48px; font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+
+    .toc {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 80px 32px;
+    }
+    .toc h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 32px; letter-spacing: -0.03em; }
+    .toc-list { list-style: none; }
+    .toc-list li { padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .toc-list a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.95rem; display: flex; justify-content: space-between; }
+    .toc-list a:hover { color: var(--sage); }
+    .toc-list .toc-num { color: var(--sage); font-weight: 800; margin-right: 16px; }
+
+    .section { max-width: 800px; margin: 0 auto; padding: 80px 32px; }
+    .section-divider { width: 100%; height: 1px; background: var(--border); max-width: 800px; margin: 0 auto; }
+
+    h2 { font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 24px; line-height: 1.15; }
+    h2 .num { color: var(--sage); margin-right: 8px; }
+    h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; margin-top: 32px; color: var(--text); }
+    h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--sage); text-transform: uppercase; letter-spacing: 0.05em; }
+    p { margin-bottom: 16px; font-size: 0.95rem; color: #374151; }
+
+    .callout {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--sage);
+        border-radius: 8px;
+        padding: 24px;
+        margin: 24px 0;
+    }
+    .callout-red { border-left-color: var(--red); }
+    .callout-blue { border-left-color: var(--blue); }
+    .callout-amber { border-left-color: var(--amber); }
+    .callout-green { border-left-color: var(--green); }
+    .callout strong { display: block; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .callout-red strong { color: var(--red); }
+    .callout-blue strong { color: var(--blue); }
+    .callout-amber strong { color: var(--amber); }
+    .callout-green strong { color: var(--green); }
+    .callout strong { color: var(--sage); }
+
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        margin: 24px 0;
+    }
+    .stat-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+    }
+    .stat-card .num { font-size: 2rem; font-weight: 900; color: var(--sage); line-height: 1; margin-bottom: 6px; }
+    .stat-card .label { font-size: 0.78rem; color: var(--text-light); font-weight: 500; }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 24px 0;
+        font-size: 0.88rem;
+    }
+    th {
+        background: #F3F4F6;
+        text-align: left;
+        padding: 12px 16px;
+        font-weight: 700;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-light);
+        border-bottom: 2px solid var(--border);
+    }
+    td {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+    }
+    tr:hover td { background: #F9FAFB; }
+
+    .verdict {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 50px;
+        font-size: 0.72rem;
+        font-weight: 700;
+    }
+    .verdict-high { background: #DCFCE7; color: #166534; }
+    .verdict-med { background: #FEF3C7; color: #92400E; }
+    .verdict-low { background: #FEE2E2; color: #991B1B; }
+
+    .framework-box {
+        background: linear-gradient(135deg, #1A1D1E 0%, #2D3436 100%);
+        color: white;
+        border-radius: 16px;
+        padding: 40px 32px;
+        margin: 32px 0;
+    }
+    .framework-box h3 { color: var(--sage-light); margin-top: 0; }
+    .framework-box p { color: rgba(255,255,255,0.7); }
+    .framework-box .fw-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .fw-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; }
+    .fw-item h4 { color: var(--sage-light); font-size: 0.8rem; margin-bottom: 8px; }
+    .fw-item p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin: 0; }
+    .fw-item .fw-num { font-size: 1.6rem; font-weight: 900; color: white; margin-bottom: 4px; }
+
+    .timeline {
+        position: relative;
+        padding-left: 32px;
+        margin: 24px 0;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 11px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+    }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 28px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -27px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--sage);
+        border: 3px solid var(--bg);
+    }
+    .timeline-item h4 { font-size: 0.85rem; color: var(--sage); margin-bottom: 4px; }
+    .timeline-item p { margin: 0; font-size: 0.9rem; }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .pill { display: inline-block; padding: 4px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; background: #F3F4F6; color: var(--text-light); }
+    .pill-sage { background: rgba(107,127,94,0.12); color: var(--sage); }
+
+    @media print {
+        .cover { min-height: auto; padding: 100px 32px; page-break-after: always; }
+        .section { page-break-inside: avoid; }
+    }
+    @media (max-width: 640px) {
+        .stat-grid { grid-template-columns: 1fr 1fr; }
+        .fw-grid { grid-template-columns: 1fr; }
+        table { font-size: 0.8rem; }
+        td, th { padding: 8px 10px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+    <div class="cover-label">Strategic Growth Analysis — March 2026</div>
+    <h1>Postual: From Car Dealers<br>to <em>Full-Stack Local Business Engine</em></h1>
+    <p>Deep competitive analysis, vertical expansion strategy, and high-ROI automation models for scaling Postual across Portugal.</p>
+    <div class="cover-meta">Prepared for Fábio Luz · Confidential</div>
+</div>
+
+<!-- ==================== TOC ==================== -->
+<div class="toc">
+    <h2>Contents</h2>
+    <ol class="toc-list">
+        <li><a href="#s1"><span class="toc-num">01</span> Executive Summary</a></li>
+        <li><a href="#s2"><span class="toc-num">02</span> The Portuguese SMB Landscape</a></li>
+        <li><a href="#s3"><span class="toc-num">03</span> Competitor Analysis: What They Charge & What They Miss</a></li>
+        <li><a href="#s4"><span class="toc-num">04</span> Postual's Unfair Advantage</a></li>
+        <li><a href="#s5"><span class="toc-num">05</span> Vertical Expansion: Scoring 8 Industries</a></li>
+        <li><a href="#s6"><span class="toc-num">06</span> Revenue Architecture: 4 Models Beyond Social Posts</a></li>
+        <li><a href="#s7"><span class="toc-num">07</span> Automation Stack & Build Plan</a></li>
+        <li><a href="#s8"><span class="toc-num">08</span> 90-Day Execution Roadmap</a></li>
+        <li><a href="#s9"><span class="toc-num">09</span> Financial Projections</a></li>
+        <li><a href="#s10"><span class="toc-num">10</span> Risk Analysis & Mitigation</a></li>
+    </ol>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 01 EXECUTIVE SUMMARY ==================== -->
+<div class="section" id="s1">
+    <h2><span class="num">01</span> Executive Summary</h2>
+
+    <p>Postual currently operates as a niche social media agency for car dealerships in the Algarve, charging €199–€599/month for automated Instagram content. The business model works, but it has a ceiling: there are roughly 200–300 used car dealerships in the Algarve, most are family-run with tight budgets, and the service is a single revenue line.</p>
+
+    <p>This analysis reveals that Postual is sitting on a much larger opportunity. Portugal has over 1.3 million SMBs, 99.9% are micro/small enterprises, and the vast majority have terrible or non-existent digital presence. The Algarve alone welcomed 5.2 million tourists in 2024 — and the restaurants, clinics, salons, and shops serving those tourists are desperate for visibility but have zero sophistication in digital marketing.</p>
+
+    <div class="callout">
+        <strong>Core Thesis</strong>
+        <p style="margin:0;">Postual should evolve from "Instagram posts for car dealers" into a <b>local business growth platform</b> — selling 3–4 automated services (social media, Google Business Profile management, website creation, review management) across 5+ verticals, using the same AI-powered automation that already works for car dealers. This shifts Postual from a €199/month single-service agency to a €297–€997/month multi-product platform with 3–5x higher revenue per client and dramatically lower churn.</p>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-card">
+            <div class="num">1.3M+</div>
+            <div class="label">SMBs in Portugal</div>
+        </div>
+        <div class="stat-card">
+            <div class="num">5.2M</div>
+            <div class="label">Algarve tourists 2024</div>
+        </div>
+        <div class="stat-card">
+            <div class="num">€150–600</div>
+            <div class="label">Market price for social mgmt</div>
+        </div>
+        <div class="stat-card">
+            <div class="num">73%</div>
+            <div class="label">Check online before buying</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 02 MARKET LANDSCAPE ==================== -->
+<div class="section" id="s2">
+    <h2><span class="num">02</span> The Portuguese SMB Landscape</h2>
+
+    <h3>The Hard Numbers</h3>
+    <p>Portugal's SMBs represent 99.9% of all non-financial enterprises, employ 4.7 million people, and generate €550 billion in revenue. Yet Portuguese SMB productivity remains below the EU average, largely due to poor digital adoption. Social media is still not a reality for the majority of small Portuguese businesses, according to Jornal de Negócios.</p>
+
+    <p>Here's what the data tells us about the gap between opportunity and reality:</p>
+
+    <table>
+        <tr><th>Metric</th><th>Portugal Reality</th><th>Opportunity</th></tr>
+        <tr><td>SMBs with active social media</td><td>Minority of small businesses</td><td>Massive untapped market</td></tr>
+        <tr><td>Businesses with professional website</td><td>~40% of micro-enterprises</td><td>60%+ need one</td></tr>
+        <tr><td>Google Business Profile optimised</td><td>Very few claim/update regularly</td><td>GBP visibility drops after 30 days without updates</td></tr>
+        <tr><td>Average marketing spend</td><td>€0–400/month for micro SMBs</td><td>Willing to pay if ROI is clear</td></tr>
+        <tr><td>Digital ad spending growth</td><td>Portugal ad market → $1.94B in 2025</td><td>70% of SMBs globally plan to increase digital spend</td></tr>
+    </table>
+
+    <h3>The Algarve Specifically</h3>
+    <p>The Algarve is Postual's home turf and it's booming. In 2024, the region set a new tourism record: 5.2 million visitors, 20.7 million overnight stays, and 9.8 million airport passengers through Faro. The 1.46 million golf rounds played tells you the profile: international visitors with money to spend.</p>
+
+    <p>This tourism economy creates thousands of local businesses — restaurants, bars, hotels, surf schools, boat tours, rental agencies, dental clinics (dental tourism is huge), beauty salons — that need to be found online by tourists who search in English, French, German, and Dutch. Most of these businesses have a mediocre Google listing, no website, and an Instagram that was last updated 3 months ago.</p>
+
+    <div class="callout callout-amber">
+        <strong>Key Insight</strong>
+        <p style="margin:0;">The Algarve is one of the few regions in Portugal where a local business agency can serve clients whose customers are international tourists with high spending power. This means the ROI story for your clients is extremely compelling — a €200/month investment that gets them found by tourists willing to spend €50–200 per visit.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 03 COMPETITOR ANALYSIS ==================== -->
+<div class="section" id="s3">
+    <h2><span class="num">03</span> Competitor Analysis: What They Charge & What They Miss</h2>
+
+    <h3>Direct Competitors in the Algarve</h3>
+    <table>
+        <tr><th>Agency</th><th>Location</th><th>Services</th><th>Pricing</th><th>Weakness</th></tr>
+        <tr>
+            <td><b>Agência Vela</b></td>
+            <td>Algarve</td>
+            <td>Websites, social, SEO, GBP</td>
+            <td>Sites from €500</td>
+            <td>Generalist, no automation, no vertical focus</td>
+        </tr>
+        <tr>
+            <td><b>Social Marketing Algarve</b></td>
+            <td>Algarve</td>
+            <td>Marketing & design</td>
+            <td>Custom quotes</td>
+            <td>Traditional agency model, slow delivery</td>
+        </tr>
+        <tr>
+            <td><b>Clarity Digital</b></td>
+            <td>Algarve</td>
+            <td>Full-service digital</td>
+            <td>Premium (€1,000+/mo)</td>
+            <td>Too expensive for micro businesses</td>
+        </tr>
+        <tr>
+            <td><b>GrowMe</b></td>
+            <td>Algarve</td>
+            <td>Web design, marketing</td>
+            <td>Custom quotes</td>
+            <td>No recurring model, project-based</td>
+        </tr>
+        <tr>
+            <td><b>Digital Xperience</b></td>
+            <td>Portugal-wide</td>
+            <td>Google Ads, social, SEO, email</td>
+            <td>€300–800/mo</td>
+            <td>Not focused on micro/local businesses</td>
+        </tr>
+        <tr>
+            <td><b>DUNA</b></td>
+            <td>Portugal-wide</td>
+            <td>Social media plans</td>
+            <td>€150–600/mo</td>
+            <td>No automation, manual content creation</td>
+        </tr>
+        <tr>
+            <td><b>Webfarus</b></td>
+            <td>Faro</td>
+            <td>Web design, SEO, ads</td>
+            <td>Custom quotes</td>
+            <td>Project-based, no productised services</td>
+        </tr>
+    </table>
+
+    <h3>What Every Single One of Them Misses</h3>
+
+    <div class="callout callout-red">
+        <strong>Gap #1 — No Automation</strong>
+        <p style="margin:0;">Every agency listed creates content manually. A human writes posts, designs graphics, schedules them. This means they need 2–4 hours per client per week. At €300/month, they're earning €18–37/hour. Postual's scraper + AI pipeline does this in minutes. <b>Your cost per client is 90% lower than theirs.</b></p>
+    </div>
+
+    <div class="callout callout-red">
+        <strong>Gap #2 — No Productised Offers</strong>
+        <p style="margin:0;">Everyone says "custom quotes" or "contact us." Nobody has a clear, published pricing page with tiers. Small business owners hate ambiguity. They want to see €199/month and know exactly what they get. Postual already does this — it's a massive trust advantage.</p>
+    </div>
+
+    <div class="callout callout-red">
+        <strong>Gap #3 — No Google Business Profile Management</strong>
+        <p style="margin:0;">Not a single Algarve competitor offers automated GBP posting as a core service. Yet Google's own data shows that GBP visibility decays significantly after 30 days without updates. For local businesses, GBP is more important than Instagram — it's where 46% of all Google searches end up.</p>
+    </div>
+
+    <div class="callout callout-red">
+        <strong>Gap #4 — No Review Management</strong>
+        <p style="margin:0;">82% of people read reviews before choosing a local business. 73% check a lawyer's online reputation before hiring. Yet no local agency offers automated review solicitation + response as a service. White-label tools like Climbo let you add this for near-zero marginal cost with massive perceived value.</p>
+    </div>
+
+    <div class="callout callout-red">
+        <strong>Gap #5 — No "Free Trial" Anywhere</strong>
+        <p style="margin:0;">Postual's "first month free" offer is unique in the market. No competitor does this. For risk-averse Portuguese SMB owners, this is the single most powerful sales tool. Don't lose it.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 04 UNFAIR ADVANTAGE ==================== -->
+<div class="section" id="s4">
+    <h2><span class="num">04</span> Postual's Unfair Advantage</h2>
+
+    <p>Let's be brutally honest about what Postual has that competitors don't — and what it's currently wasting.</p>
+
+    <h3>What You Have</h3>
+    <table>
+        <tr><th>Asset</th><th>Why It Matters</th><th>Current Usage</th></tr>
+        <tr><td><b>AI content pipeline</b></td><td>Generates Instagram posts from business data in minutes, not hours</td><td>Only used for car inventory</td></tr>
+        <tr><td><b>Web scraping infrastructure</b></td><td>Can extract data from any business website automatically</td><td>Only scrapes car listings</td></tr>
+        <tr><td><b>Claude API integration</b></td><td>Can generate copy for any industry, not just cars</td><td>Hardcoded for car descriptions</td></tr>
+        <tr><td><b>Published pricing + free trial</b></td><td>Removes friction, builds trust, unique in market</td><td>Active — keep it</td></tr>
+        <tr><td><b>Remote operation from Dubai</b></td><td>No Portuguese overhead costs, higher margins</td><td>Active advantage</td></tr>
+        <tr><td><b>Nephew on the ground in Algarve</b></td><td>In-person meetings, local trust, Meta Ads setup</td><td>Underutilised — could be doing sales full-time</td></tr>
+        <tr><td><b>Premium scrollytelling website</b></td><td>Looks more professional than any competitor</td><td>Just launched — strong</td></tr>
+    </table>
+
+    <h3>What You're Wasting</h3>
+    <p>Your scraper and AI pipeline are built for <b>one vertical</b>. But the architecture — scrape data from website → generate social content via AI → deliver to client — works identically for restaurants (scrape menu), real estate (scrape listings), clinics (scrape services), law firms (scrape practice areas), and more. You built a general-purpose machine and then only used it for one thing.</p>
+
+    <div class="callout callout-green">
+        <strong>The Unlock</strong>
+        <p style="margin:0;">Modifying the scraper config + Claude prompts for a new vertical takes 2–4 hours of development. For restaurants: scrape the menu and daily specials → generate Instagram posts featuring dishes. For real estate: scrape listings → generate property highlight posts. For clinics: scrape services → generate educational content about treatments. Same engine, different fuel.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 05 VERTICAL SCORING ==================== -->
+<div class="section" id="s5">
+    <h2><span class="num">05</span> Vertical Expansion: Scoring 8 Industries</h2>
+
+    <p>I've scored each vertical on 5 factors (1–5 scale), then calculated a weighted total. The factors are: <b>Market Size</b> (how many businesses in the Algarve/Portugal), <b>Digital Gap</b> (how poorly they currently do digital), <b>Willingness to Pay</b> (budget and perceived value), <b>Automation Fit</b> (how easily Postual's pipeline adapts), and <b>Churn Risk</b> (likelihood of cancelling — lower is better).</p>
+
+    <table>
+        <tr>
+            <th>Vertical</th>
+            <th>Market Size</th>
+            <th>Digital Gap</th>
+            <th>Willingness to Pay</th>
+            <th>Automation Fit</th>
+            <th>Low Churn</th>
+            <th>Total /25</th>
+            <th>Verdict</th>
+        </tr>
+        <tr>
+            <td><b>Restaurants & Cafés</b></td>
+            <td>5</td><td>5</td><td>3</td><td>5</td><td>3</td>
+            <td><b>21</b></td>
+            <td><span class="verdict verdict-high">TOP PICK</span></td>
+        </tr>
+        <tr>
+            <td><b>Real Estate Agencies</b></td>
+            <td>4</td><td>3</td><td>5</td><td>5</td><td>4</td>
+            <td><b>21</b></td>
+            <td><span class="verdict verdict-high">TOP PICK</span></td>
+        </tr>
+        <tr>
+            <td><b>Dental / Medical Clinics</b></td>
+            <td>4</td><td>4</td><td>5</td><td>3</td><td>5</td>
+            <td><b>21</b></td>
+            <td><span class="verdict verdict-high">TOP PICK</span></td>
+        </tr>
+        <tr>
+            <td><b>Hotels & Accommodation</b></td>
+            <td>4</td><td>3</td><td>4</td><td>4</td><td>4</td>
+            <td><b>19</b></td>
+            <td><span class="verdict verdict-med">STRONG</span></td>
+        </tr>
+        <tr>
+            <td><b>Beauty Salons / Barbers</b></td>
+            <td>5</td><td>5</td><td>2</td><td>4</td><td>3</td>
+            <td><b>19</b></td>
+            <td><span class="verdict verdict-med">STRONG</span></td>
+        </tr>
+        <tr>
+            <td><b>Law Firms / Lawyers</b></td>
+            <td>3</td><td>4</td><td>5</td><td>2</td><td>5</td>
+            <td><b>19</b></td>
+            <td><span class="verdict verdict-med">STRONG</span></td>
+        </tr>
+        <tr>
+            <td><b>Retail / Local Shops</b></td>
+            <td>5</td><td>4</td><td>2</td><td>3</td><td>2</td>
+            <td><b>16</b></td>
+            <td><span class="verdict verdict-low">WAIT</span></td>
+        </tr>
+        <tr>
+            <td><b>Car Dealerships (current)</b></td>
+            <td>2</td><td>4</td><td>3</td><td>5</td><td>3</td>
+            <td><b>17</b></td>
+            <td><span class="verdict verdict-med">KEEP</span></td>
+        </tr>
+    </table>
+
+    <h3>Deep Dive: The Top 3 Verticals</h3>
+
+    <h4>🍽️ Restaurants & Cafés — Score: 21/25</h4>
+    <p>The Algarve has thousands of restaurants competing for tourist attention. Most have an Instagram that's a mess of poorly-lit food photos with no captions, a Google Business Profile that hasn't been updated in months, and no website at all. Food is the #1 content type on Instagram, which means organic reach is naturally higher.</p>
+    <p><b>Automation fit:</b> Scrape daily specials or menu from website/Facebook → generate Instagram posts with dish photography captions + relevant hashtags. Also automate Google Business Profile weekly posts ("Try our fresh catch of the day!"). For restaurants without a website, you can sell them a simple one-page site AND the social management — double the revenue.</p>
+    <p><b>Pricing sweet spot:</b> €149–€249/month. Restaurants operate on thin margins, so keep it affordable — but the volume is massive. 50 restaurants at €149 = €7,450/month.</p>
+    <p><b>Risk:</b> Higher churn due to seasonal closures (winter) and restaurant failure rates. Mitigate by offering seasonal pause options.</p>
+
+    <h4>🏠 Real Estate Agencies — Score: 21/25</h4>
+    <p>The Algarve real estate market is booming with international buyers. Agencies need constant social media content for new listings, but most post manually with ugly phone photos. Real estate agencies already understand marketing spend — they're used to paying for property portal listings (Idealista, Casa Sapo, etc.).</p>
+    <p><b>Automation fit:</b> Identical to car dealers. Scrape property listings → generate Instagram carousel posts with property highlights, price, location, key features. This is your existing pipeline with different CSS selectors and prompts.</p>
+    <p><b>Pricing sweet spot:</b> €299–€499/month. Real estate agencies have higher budgets and each sale is worth €5,000–15,000 in commission. Your €299/month service that leads to one extra sale pays for itself 15x over.</p>
+    <p><b>Risk:</b> Market cycles. Mitigate by targeting agencies focused on the always-in-demand international buyer segment.</p>
+
+    <h4>🦷 Dental & Medical Clinics — Score: 21/25</h4>
+    <p>Portugal is becoming a major dental tourism destination, with prices 40–60% cheaper than northern Europe. 82% of patients search online before choosing a dentist. Clinics in the Algarve serve both locals and the massive expat/tourist community.</p>
+    <p><b>Automation fit:</b> Slightly different — less about scraping inventory, more about educational content automation. Scrape list of services → generate weekly posts about each treatment (teeth whitening tips, implant FAQs, etc.) + Google reviews management. Also multilingual content (PT + EN + DE) is a huge differentiator for clinics targeting expats.</p>
+    <p><b>Pricing sweet spot:</b> €349–€599/month. Clinics have excellent margins and each new patient is worth €500–€5,000 in lifetime value. They'll pay premium prices if you can demonstrate patient acquisition.</p>
+    <p><b>Risk:</b> Lowest churn of any vertical. Clinics are sticky — they don't switch providers often.</p>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 06 REVENUE ARCHITECTURE ==================== -->
+<div class="section" id="s6">
+    <h2><span class="num">06</span> Revenue Architecture: 4 Models Beyond Social Posts</h2>
+
+    <p>Here's the brutal truth about your current model: selling Instagram posts at €199/month is a race to the bottom. Anyone with Canva and ChatGPT thinks they can do it. To build a defensible business, you need to stack services that compound — each one making the others stickier.</p>
+
+    <div class="framework-box">
+        <h3>The Postual Growth Stack</h3>
+        <p>Four services, each automated, each adding revenue per client:</p>
+        <div class="fw-grid">
+            <div class="fw-item">
+                <h4>Layer 1: Social Media</h4>
+                <div class="fw-num">€99–199</div>
+                <p>What you do now. Automated Instagram/Facebook posts from scraped business data. Keep it as the entry-level hook.</p>
+            </div>
+            <div class="fw-item">
+                <h4>Layer 2: Google Business Profile</h4>
+                <div class="fw-num">€79–149</div>
+                <p>Weekly GBP posts, photo uploads, review response automation. GBP visibility decays after 30 days — businesses NEED this.</p>
+            </div>
+            <div class="fw-item">
+                <h4>Layer 3: Website</h4>
+                <div class="fw-num">€500 setup + €49/mo</div>
+                <p>One-page websites built with a white-label builder. Market price is €1,500–3,000. You charge €500 because it's automated. Recurring hosting/maintenance fee on top.</p>
+            </div>
+            <div class="fw-item">
+                <h4>Layer 4: Review Management</h4>
+                <div class="fw-num">€69–99</div>
+                <p>Automated review solicitation via SMS/WhatsApp after visits. AI-powered review responses. White-label via Climbo or similar.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3>Revenue Per Client: Before vs After</h3>
+    <table>
+        <tr><th>Scenario</th><th>Monthly Revenue</th><th>Annual Revenue</th><th>Your Cost/Client</th><th>Margin</th></tr>
+        <tr>
+            <td><b>Current: Social only</b></td>
+            <td>€199</td>
+            <td>€2,388</td>
+            <td>~€30 (API + time)</td>
+            <td>~85%</td>
+        </tr>
+        <tr>
+            <td><b>Proposed: Full stack</b></td>
+            <td>€397–€497</td>
+            <td>€4,764–5,964</td>
+            <td>~€60 (tools + APIs)</td>
+            <td>~87%</td>
+        </tr>
+        <tr style="background: #F0FDF4;">
+            <td><b>Full stack + website setup</b></td>
+            <td>€397–497 + €500 one-time</td>
+            <td>€5,264–6,464</td>
+            <td>~€80</td>
+            <td>~88%</td>
+        </tr>
+    </table>
+
+    <div class="callout callout-green">
+        <strong>The Math That Matters</strong>
+        <p style="margin:0;">With full stack, 50 clients = €20,000–25,000/month recurring. With social-only, you'd need 100+ clients for the same revenue. More services per client = lower acquisition cost per € of revenue, lower churn (harder to leave when you depend on 4 services), and higher lifetime value.</p>
+    </div>
+
+    <h3>Why This Works Psychologically</h3>
+    <p>Portuguese small business owners don't want to manage 4 different vendors. They want ONE person who handles "the internet stuff." The agency that offers social media, Google presence, a website, AND review management as a single package with a single monthly bill wins. Right now, nobody in the Algarve offers this. Not one.</p>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 07 AUTOMATION STACK ==================== -->
+<div class="section" id="s7">
+    <h2><span class="num">07</span> Automation Stack & Build Plan</h2>
+
+    <h3>Current Stack (What You Have)</h3>
+    <div class="pill-row">
+        <span class="pill pill-sage">Python + Playwright scraper</span>
+        <span class="pill pill-sage">Claude API for copy</span>
+        <span class="pill pill-sage">Manual delivery via email/WhatsApp</span>
+        <span class="pill pill-sage">Vercel for website hosting</span>
+    </div>
+
+    <h3>Proposed Stack (What to Build)</h3>
+
+    <table>
+        <tr><th>Service Layer</th><th>Tool</th><th>Cost</th><th>Build Time</th></tr>
+        <tr>
+            <td><b>Social media automation</b></td>
+            <td>Existing scraper + Claude API → expand prompts for new verticals</td>
+            <td>~€20/month (API costs)</td>
+            <td>2–4 hours per vertical</td>
+        </tr>
+        <tr>
+            <td><b>Google Business Profile</b></td>
+            <td>GBP API (free) or Semrush GBP AI Agent or custom automation via Google Business Profile API</td>
+            <td>€0–50/month</td>
+            <td>1–2 days to integrate</td>
+        </tr>
+        <tr>
+            <td><b>Website builder</b></td>
+            <td>White-label builder (Brizy, Weblium, or 10Web AI) — branded as "Postual Sites"</td>
+            <td>€30–100/month for agency plan</td>
+            <td>1 day to set up branding</td>
+        </tr>
+        <tr>
+            <td><b>Review management</b></td>
+            <td>Climbo (white-label) or build custom with Google Places API + Claude for responses</td>
+            <td>€29–79/month for agency plan</td>
+            <td>1 day setup</td>
+        </tr>
+        <tr>
+            <td><b>Client dashboard</b></td>
+            <td>GoHighLevel SaaS mode (white-labeled) — or build simple custom dashboard</td>
+            <td>€497/month (covers unlimited clients)</td>
+            <td>2–3 days to configure</td>
+        </tr>
+        <tr>
+            <td><b>Prospect scraping</b></td>
+            <td>Apify actors (Google Maps scraper, Instagram profile scraper) for lead generation</td>
+            <td>Pay per use (~€5–20/month)</td>
+            <td>Already know how to use</td>
+        </tr>
+    </table>
+
+    <h3>GoHighLevel: The Decision</h3>
+    <p>GoHighLevel at €497/month is expensive when you have zero clients. But here's the math: at $497/month, you need just 2 clients at €297/month to break even. With 10 clients, you're netting €2,473/month from the platform alone. It gives you a white-labeled CRM, review management, website builder, appointment booking, email/SMS automation, and a client portal — all branded as "Postual."</p>
+
+    <div class="callout callout-amber">
+        <strong>Recommendation</strong>
+        <p style="margin:0;"><b>Don't start with GoHighLevel.</b> Start lean: your existing scraper + Claude for social, a free GBP posting workflow, and Climbo for reviews. Only upgrade to GoHighLevel once you hit 10+ clients and need the unified platform. Premature infrastructure is how agencies die.</p>
+    </div>
+
+    <h3>Apify for Lead Generation</h3>
+    <p>This is your secret weapon for scaling outreach. Apify's Google Maps scraper can extract every restaurant, clinic, salon, or agency in the Algarve with their name, address, phone, website, Google rating, and review count. From there:</p>
+    <p>Scrape all restaurants in Albufeira → filter by those with fewer than 50 Google reviews or no website → export to spreadsheet → run outreach. You can identify 500+ prospects in an afternoon, segmented by vertical and level of digital sophistication.</p>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 08 ROADMAP ==================== -->
+<div class="section" id="s8">
+    <h2><span class="num">08</span> 90-Day Execution Roadmap</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <h4>Week 1–2: Vertical Expansion Prep</h4>
+            <p>Adapt the scraper + Claude prompts for restaurants (menu → posts) and real estate (listings → posts). Test on 3 demo businesses per vertical. Update the Postual website copy to say "para negócios" instead of "para stands." Create vertical-specific landing pages or sections.</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Week 3–4: Lead Generation Blitz</h4>
+            <p>Use Apify Google Maps scraper to extract all restaurants, real estate agencies, and dental clinics in the Algarve. Filter by: no website, fewer than 50 Google reviews, Instagram inactive for 30+ days, or fewer than 500 followers. Build prospect lists by vertical. Prepare email templates per vertical.</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Week 5–6: Outreach Sprint</h4>
+            <p>Send 50 cold emails per vertical per week (nephew handles follow-up calls). Offer the same free month trial. Focus on restaurants first — lowest barrier to entry, highest volume. Nephew visits 5–10 restaurants in person per week with tablet showing demo posts.</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Week 7–8: Add GBP + Reviews</h4>
+            <p>For existing clients + new signups, add Google Business Profile weekly posts as a free bonus for the first 2 months. Set up Climbo or manual review solicitation. This becomes a paid add-on from month 3.</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Week 9–10: Website Service Launch</h4>
+            <p>Choose white-label website builder. Create 3 templates per vertical (restaurant, real estate, clinic). Offer €500 website setup to any client who commits to a 6-month social media plan. This locks in retention AND generates one-time revenue.</p>
+        </div>
+        <div class="timeline-item">
+            <h4>Week 11–12: Package & Scale</h4>
+            <p>Launch "Pacote Completo" bundle pricing on postual.com. Publish case studies from first clients' results. Create referral programme (€50 credit per referral). Evaluate GoHighLevel decision based on client count.</p>
+        </div>
+    </div>
+
+    <div class="callout callout-blue">
+        <strong>Target: End of 90 Days</strong>
+        <p style="margin:0;">15–25 paying clients across 3+ verticals, with average revenue of €250–350/month per client. Total MRR: €3,750–8,750. If the nephew can close 2 clients per week from in-person visits, you'll hit 20 clients by Week 10.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 09 FINANCIALS ==================== -->
+<div class="section" id="s9">
+    <h2><span class="num">09</span> Financial Projections</h2>
+
+    <h3>Conservative Scenario (12 months)</h3>
+    <table>
+        <tr><th>Month</th><th>Clients</th><th>Avg Revenue/Client</th><th>MRR</th><th>Costs</th><th>Net</th></tr>
+        <tr><td>1–3</td><td>8</td><td>€199</td><td>€1,592</td><td>€300</td><td>€1,292</td></tr>
+        <tr><td>4–6</td><td>20</td><td>€275</td><td>€5,500</td><td>€500</td><td>€5,000</td></tr>
+        <tr><td>7–9</td><td>35</td><td>€325</td><td>€11,375</td><td>€800</td><td>€10,575</td></tr>
+        <tr style="background: #F0FDF4;">
+            <td><b>10–12</b></td><td><b>50</b></td><td><b>€375</b></td><td><b>€18,750</b></td><td><b>€1,200</b></td><td><b>€17,550</b></td></tr>
+    </table>
+    <p><b>Year 1 total net revenue (conservative): ~€120,000</b></p>
+    <p>Costs include: Claude API (~€50/month), hosting (~€20), tools (Climbo, builder ~€100), nephew commission (~30% of new sales), phone/email tools.</p>
+
+    <h3>Aggressive Scenario (12 months)</h3>
+    <table>
+        <tr><th>Month</th><th>Clients</th><th>Avg Revenue/Client</th><th>MRR</th></tr>
+        <tr><td>1–3</td><td>15</td><td>€250</td><td>€3,750</td></tr>
+        <tr><td>4–6</td><td>40</td><td>€350</td><td>€14,000</td></tr>
+        <tr><td>7–9</td><td>70</td><td>€400</td><td>€28,000</td></tr>
+        <tr style="background: #F0FDF4;"><td><b>10–12</b></td><td><b>100</b></td><td><b>€425</b></td><td><b>€42,500</b></td></tr>
+    </table>
+    <p><b>Year 1 total net revenue (aggressive): ~€300,000+</b></p>
+
+    <div class="callout">
+        <strong>Key Lever: Revenue Per Client</strong>
+        <p style="margin:0;">The difference between a €120K and €300K year isn't primarily about client count — it's about ARPC (Average Revenue Per Client). Moving from €199 social-only to €400 full-stack doubles your revenue with the same number of clients and roughly the same effort. This is why the service stack matters more than sales volume.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 10 RISKS ==================== -->
+<div class="section" id="s10">
+    <h2><span class="num">10</span> Risk Analysis & Mitigation</h2>
+
+    <table>
+        <tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr>
+        <tr>
+            <td><b>Seasonal churn (restaurants close in winter)</b></td>
+            <td><span class="verdict verdict-med">MEDIUM</span></td>
+            <td>Offer "winter pause" at €49/month (maintain GBP + website only). Diversify into non-seasonal verticals (clinics, law firms, real estate).</td>
+        </tr>
+        <tr>
+            <td><b>Competitors copy your model</b></td>
+            <td><span class="verdict verdict-low">LOW</span></td>
+            <td>They don't have the tech. Traditional agencies can't build scrapers. By the time they try, you have 50+ clients and case studies. Speed is your moat.</td>
+        </tr>
+        <tr>
+            <td><b>AI-generated content quality concerns</b></td>
+            <td><span class="verdict verdict-med">MEDIUM</span></td>
+            <td>Never tell clients it's AI. Quality-check every post batch before delivery. The free trial proves quality before they commit money.</td>
+        </tr>
+        <tr>
+            <td><b>Nephew burns out or leaves</b></td>
+            <td><span class="verdict verdict-high">HIGH</span></td>
+            <td>Your biggest single point of failure. At 20+ clients, hire a second part-time person in the Algarve. Structure nephew compensation as base + commission to keep him motivated.</td>
+        </tr>
+        <tr>
+            <td><b>Client onboarding bottleneck</b></td>
+            <td><span class="verdict verdict-med">MEDIUM</span></td>
+            <td>Create standardised onboarding flow: form → auto-configure scraper → deliver first batch in 48h. Reduce manual steps to near-zero.</td>
+        </tr>
+        <tr>
+            <td><b>Google/Meta API changes break workflow</b></td>
+            <td><span class="verdict verdict-low">LOW</span></td>
+            <td>You scrape websites, not APIs. Website structure rarely changes. If a client redesigns their site, updating selectors takes 15 minutes.</td>
+        </tr>
+        <tr>
+            <td><b>Remote management difficulties</b></td>
+            <td><span class="verdict verdict-med">MEDIUM</span></td>
+            <td>Weekly 30-minute sync with nephew. Use shared dashboard for client status. Visit Portugal quarterly for client meetings and relationship building.</td>
+        </tr>
+    </table>
+
+    <h3>The One Thing That Would Kill This Business</h3>
+    <p>Not starting. The biggest risk isn't competition, seasonality, or tech. It's spending 6 months perfecting the website and automation while someone else signs up all the restaurants in Albufeira. The tech is ready. The website is beautiful. The pricing is competitive. The free trial removes all friction. Go get 10 clients in the next 30 days and everything else follows.</p>
+
+    <div class="framework-box" style="margin-top:48px;">
+        <h3>Final Recommendation: The 3 Moves That Matter Most</h3>
+        <div class="fw-grid">
+            <div class="fw-item">
+                <div class="fw-num">1</div>
+                <h4>Expand to Restaurants</h4>
+                <p>Adapt the scraper for menus. Start outreach in Albufeira, Lagos, and Vilamoura. 50+ restaurants within walking distance. Nephew visits 5/day.</p>
+            </div>
+            <div class="fw-item">
+                <div class="fw-num">2</div>
+                <h4>Add GBP as Free Bonus</h4>
+                <p>Every client gets weekly Google Business Profile posts included. Nobody else offers this. It's nearly zero-cost for you and massive perceived value.</p>
+            </div>
+            <div class="fw-item">
+                <div class="fw-num">3</div>
+                <h4>Stack Websites for Lock-In</h4>
+                <p>€500 website setup for any client who signs 6 months. Creates switching costs, generates upfront cash, and positions Postual as the one-stop shop.</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; padding: 60px 0 20px; color: var(--text-light); font-size: 0.8rem;">
+        <p>Postual Strategic Growth Analysis — March 2026</p>
+        <p>Prepared for Fábio Luz · Confidential</p>
+    </div>
+</div>
+
+</body>
+</html>

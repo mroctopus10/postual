@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post 16 — Sectores que servimos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0F1114; }
+.card {
+  width: 1080px; height: 1080px;
+  background: #0F1114;
+  display: flex; flex-direction: column;
+  padding: 56px;
+  position: relative;
+}
+
+.top-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 36px;
+}
+.postual-logo { display: flex; align-items: center; gap: 8px; }
+.postual-p { font-size: 24px; font-weight: 900; color: #fff; }
+.postual-dot { width: 7px; height: 7px; background: #8FA580; border-radius: 50%; margin-top: 4px; }
+.postual-name { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+.tag {
+  background: rgba(107,127,94,0.15); color: #8FA580;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 7px 16px; border-radius: 50px;
+}
+
+.title {
+  font-size: 38px; font-weight: 900; color: #fff;
+  letter-spacing: -1px; line-height: 1.2; margin-bottom: 6px;
+}
+.title span { color: #8FA580; }
+.subtitle {
+  font-size: 17px; color: #6B7280; margin-bottom: 36px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  flex: 1;
+}
+
+.sector {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 18px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.sector::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: #8FA580;
+  opacity: 0.5;
+}
+.sector-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+.sector-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.sector-desc {
+  font-size: 12px;
+  color: #6B7280;
+  line-height: 1.4;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.bottom-text { font-size: 17px; font-weight: 700; color: #fff; }
+.bottom-text span { color: #8FA580; }
+.bottom-cta {
+  background: #8FA580;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-bar">
+    <div class="postual-logo">
+      <span class="postual-p">p</span><span class="postual-dot"></span>
+      <span class="postual-name">postual</span>
+    </div>
+    <div class="tag">Todo o país</div>
+  </div>
+
+  <div class="title">Negócios locais em <span>todo Portugal</span></div>
+  <div class="subtitle">Especializamo-nos no que funciona para cada sector.</div>
+
+  <div class="grid">
+    <div class="sector">
+      <div class="sector-icon">🍽️</div>
+      <div class="sector-name">Restaurantes</div>
+      <div class="sector-desc">Menus que se tornam posts, reservas online</div>
+    </div>
+    <div class="sector">
+      <div class="sector-icon">🏠</div>
+      <div class="sector-name">Imobiliárias</div>
+      <div class="sector-desc">Imóveis publicados automaticamente</div>
+    </div>
+    <div class="sector">
+      <div class="sector-icon">🦷</div>
+      <div class="sector-name">Clínicas</div>
+      <div class="sector-desc">Conteúdo que gera confiança</div>
+    </div>
+    <div class="sector">
+      <div class="sector-icon">🚗</div>
+      <div class="sector-name">Stands Auto</div>
+      <div class="sector-desc">Stock online em horas</div>
+    </div>
+    <div class="sector">
+      <div class="sector-icon">✂️</div>
+      <div class="sector-name">Barbearias</div>
+      <div class="sector-desc">Reservas e presença digital</div>
+    </div>
+    <div class="sector">
+      <div class="sector-icon">💪</div>
+      <div class="sector-name">Ginásios</div>
+      <div class="sector-desc">Gestão de membros e redes</div>
+    </div>
+    <div class="sector">
+      <div class="sector-icon">⚖️</div>
+      <div class="sector-name">Advogados</div>
+      <div class="sector-desc">Credibilidade online</div>
+    </div>
+    <div class="sector">
+      <div class="sector-icon">🏨</div>
+      <div class="sector-name">Hotéis</div>
+      <div class="sector-desc">Mais reservas directas</div>
+    </div>
+    <div class="sector">
+      <div class="sector-icon">🛍️</div>
+      <div class="sector-name">Lojas</div>
+      <div class="sector-desc">Mais visitas, mais vendas</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom-text">O seu sector não está aqui? <span>Contacte-nos.</span></div>
+    <div class="bottom-cta">DM →</div>
+  </div>
+</div>
+</body>
+</html>

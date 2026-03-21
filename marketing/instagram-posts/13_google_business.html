@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post 13 — Google Business Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0F1114; }
+.card {
+  width: 1080px; height: 1080px;
+  background: #0F1114;
+  display: flex; flex-direction: column;
+  padding: 56px;
+  position: relative;
+}
+
+.top-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 36px;
+}
+.postual-logo { display: flex; align-items: center; gap: 8px; }
+.postual-p { font-size: 24px; font-weight: 900; color: #fff; }
+.postual-dot { width: 7px; height: 7px; background: #8FA580; border-radius: 50%; margin-top: 4px; }
+.postual-name { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+.tag {
+  background: rgba(107,127,94,0.15); color: #8FA580;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 7px 16px; border-radius: 50px;
+}
+
+.title {
+  font-size: 36px; font-weight: 900; color: #fff;
+  letter-spacing: -1px; line-height: 1.2; margin-bottom: 6px;
+}
+.title span { color: #8FA580; }
+.subtitle {
+  font-size: 17px; color: #6B7280; margin-bottom: 36px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  gap: 28px;
+}
+
+/* Left: Google mockup */
+.google-card {
+  width: 420px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.g-search {
+  background: #fff;
+  padding: 20px 20px 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.g-search-bar {
+  background: #fff;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.g-search-icon { font-size: 16px; }
+.g-search-text { font-size: 14px; color: #202124; }
+.g-result {
+  padding: 20px;
+}
+.g-biz {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.g-biz-img {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, #8FA580, #6B7F5E);
+  border-radius: 12px;
+}
+.g-biz-info { flex: 1; }
+.g-biz-name { font-size: 16px; font-weight: 700; color: #1a0dab; margin-bottom: 2px; }
+.g-biz-rating { font-size: 13px; color: #202124; margin-bottom: 2px; }
+.g-biz-rating span { color: #fbbc04; }
+.g-biz-type { font-size: 12px; color: #5f6368; }
+.g-biz-hours { font-size: 12px; color: #188038; }
+.g-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
+}
+.g-feat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #5f6368;
+}
+.g-feat-icon { font-size: 16px; }
+.g-feat b { color: #202124; }
+
+/* Right: benefits list */
+.benefits {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.benefit {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.benefit-icon { font-size: 28px; flex-shrink: 0; }
+.benefit-text { flex: 1; }
+.benefit-title { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+.benefit-desc { font-size: 13px; color: #6B7280; }
+.benefit-free {
+  background: rgba(107,127,94,0.1);
+  color: #8FA580;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+.callout {
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.12);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-top: auto;
+  text-align: center;
+}
+.callout-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #F87171;
+}
+.callout-sub {
+  font-size: 13px;
+  color: #6B7280;
+  margin-top: 4px;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.bottom-text { font-size: 16px; font-weight: 700; color: #fff; }
+.bottom-cta { font-size: 14px; color: #8FA580; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-bar">
+    <div class="postual-logo">
+      <span class="postual-p">p</span><span class="postual-dot"></span>
+      <span class="postual-name">postual</span>
+    </div>
+    <div class="tag">Dica gratuita</div>
+  </div>
+
+  <div class="title">O Google Business Profile é <span>grátis</span>.</div>
+  <div class="subtitle">Porque é que quase ninguém o usa bem?</div>
+
+  <div class="content">
+    <div class="google-card">
+      <div class="g-search">
+        <div class="g-search-bar">
+          <div class="g-search-icon">🔍</div>
+          <div class="g-search-text">restaurante perto de mim</div>
+        </div>
+      </div>
+      <div class="g-result">
+        <div class="g-biz">
+          <div class="g-biz-img"></div>
+          <div class="g-biz-info">
+            <div class="g-biz-name">O Seu Negócio</div>
+            <div class="g-biz-rating"><span>⭐⭐⭐⭐⭐</span> 4.8 (87)</div>
+            <div class="g-biz-type">Restaurante · $$</div>
+            <div class="g-biz-hours">Aberto · Fecha às 23:00</div>
+          </div>
+        </div>
+        <div class="g-features">
+          <div class="g-feat"><span class="g-feat-icon">📍</span> <b>Google Maps</b> — visível para todos</div>
+          <div class="g-feat"><span class="g-feat-icon">📸</span> <b>Fotos</b> — atualizadas semanalmente</div>
+          <div class="g-feat"><span class="g-feat-icon">📝</span> <b>Posts</b> — novidades e promoções</div>
+          <div class="g-feat"><span class="g-feat-icon">⭐</span> <b>Reviews</b> — todas respondidas</div>
+          <div class="g-feat"><span class="g-feat-icon">📞</span> <b>Contacto</b> — direto do Google</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-icon">📍</div>
+        <div class="benefit-text">
+          <div class="benefit-title">Aparecer no Maps</div>
+          <div class="benefit-desc">Clientes encontram-no quando pesquisam</div>
+        </div>
+        <div class="benefit-free">GRÁTIS</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">📣</div>
+        <div class="benefit-text">
+          <div class="benefit-title">Publicar promoções</div>
+          <div class="benefit-desc">Posts aparecem na pesquisa do Google</div>
+        </div>
+        <div class="benefit-free">GRÁTIS</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">⭐</div>
+        <div class="benefit-text">
+          <div class="benefit-title">Gerir reviews</div>
+          <div class="benefit-desc">Responder e pedir novas avaliações</div>
+        </div>
+        <div class="benefit-free">GRÁTIS</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">📊</div>
+        <div class="benefit-text">
+          <div class="benefit-title">Ver estatísticas</div>
+          <div class="benefit-desc">Quantas pessoas pesquisaram por si</div>
+        </div>
+        <div class="benefit-free">GRÁTIS</div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-text">90% dos negócios nunca publicam nada.</div>
+        <div class="callout-sub">Perdem posição para quem publica semanalmente.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom-text">Nós publicamos por si. Todas as semanas.</div>
+    <div class="bottom-cta">DM para saber mais →</div>
+  </div>
+</div>
+</body>
+</html>

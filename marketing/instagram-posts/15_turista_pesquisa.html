@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post 15 — 3 coisas que um cliente vê</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0F1114; }
+.card {
+  width: 1080px; height: 1080px;
+  background: #0F1114;
+  display: flex; flex-direction: column;
+  padding: 56px;
+  position: relative;
+}
+
+.top-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 36px;
+}
+.postual-logo { display: flex; align-items: center; gap: 8px; }
+.postual-p { font-size: 24px; font-weight: 900; color: #fff; }
+.postual-dot { width: 7px; height: 7px; background: #8FA580; border-radius: 50%; margin-top: 4px; }
+.postual-name { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+.tag {
+  background: rgba(107,127,94,0.15); color: #8FA580;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 7px 16px; border-radius: 50px;
+}
+
+.title {
+  font-size: 34px; font-weight: 900; color: #fff;
+  letter-spacing: -1px; line-height: 1.2; margin-bottom: 6px;
+}
+.title span { color: #F87171; }
+.subtitle {
+  font-size: 17px; color: #6B7280; margin-bottom: 36px;
+}
+
+.checks {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.check-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+}
+
+.check-num {
+  width: 64px; height: 64px;
+  background: rgba(248,113,113,0.08);
+  border: 2px solid rgba(248,113,113,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 900;
+  color: #F87171;
+  flex-shrink: 0;
+}
+
+.check-content { flex: 1; }
+.check-title {
+  font-size: 20px; font-weight: 800; color: #fff;
+  margin-bottom: 6px;
+}
+.check-desc {
+  font-size: 15px; color: #6B7280; line-height: 1.5;
+}
+
+.check-verdict {
+  background: rgba(248,113,113,0.06);
+  border: 1px solid rgba(248,113,113,0.1);
+  border-radius: 10px;
+  padding: 10px 18px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.verdict-text {
+  font-size: 13px;
+  font-weight: 800;
+  color: #F87171;
+}
+.verdict-sub {
+  font-size: 10px;
+  color: #6B7280;
+}
+
+.solution {
+  background: rgba(107,127,94,0.08);
+  border: 1px solid rgba(107,127,94,0.15);
+  border-radius: 16px;
+  padding: 24px 32px;
+  text-align: center;
+  margin-top: 8px;
+}
+.solution-title {
+  font-size: 18px; font-weight: 800; color: #8FA580;
+  margin-bottom: 4px;
+}
+.solution-desc {
+  font-size: 14px; color: #6B7280;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.bottom-text { font-size: 15px; color: #6B7280; }
+.bottom-text span { color: #8FA580; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-bar">
+    <div class="postual-logo">
+      <span class="postual-p">p</span><span class="postual-dot"></span>
+      <span class="postual-name">postual</span>
+    </div>
+    <div class="tag">Sabia que?</div>
+  </div>
+
+  <div class="title">3 coisas que um cliente vê <span>antes</span> de entrar no seu negócio</div>
+  <div class="subtitle">Se falhar numa delas, perde o cliente.</div>
+
+  <div class="checks">
+    <div class="check-card">
+      <div class="check-num">1</div>
+      <div class="check-content">
+        <div class="check-title">Rating no Google</div>
+        <div class="check-desc">Abaixo de 4.0 estrelas? O cliente passa ao próximo resultado sem pensar duas vezes.</div>
+      </div>
+      <div class="check-verdict">
+        <div class="verdict-text">< 4.0 ⭐</div>
+        <div class="verdict-sub">= próximo</div>
+      </div>
+    </div>
+
+    <div class="check-card">
+      <div class="check-num">2</div>
+      <div class="check-content">
+        <div class="check-title">Fotos recentes</div>
+        <div class="check-desc">Se as fotos parecem de 2019, o cliente assume que o negócio está desatualizado ou fechou.</div>
+      </div>
+      <div class="check-verdict">
+        <div class="verdict-text">📸 2019</div>
+        <div class="verdict-sub">= próximo</div>
+      </div>
+    </div>
+
+    <div class="check-card">
+      <div class="check-num">3</div>
+      <div class="check-content">
+        <div class="check-title">Comentários recentes</div>
+        <div class="check-desc">Se a última review é de há 6 meses, o cliente não confia. Quer ver opiniões atuais.</div>
+      </div>
+      <div class="check-verdict">
+        <div class="verdict-text">6 meses</div>
+        <div class="verdict-sub">= próximo</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="solution">
+    <div class="solution-title">Todas estas coisas são fáceis de melhorar.</div>
+    <div class="solution-desc">Com a estratégia certa, resolvem-se em semanas.</div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom-text">Nós tratamos de tudo. Primeiro mês <span>grátis</span> →</div>
+  </div>
+</div>
+</body>
+</html>

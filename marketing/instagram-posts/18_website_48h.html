@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post 18 — Website em 48h</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0F1114; }
+.card {
+  width: 1080px; height: 1080px;
+  background: #0F1114;
+  display: flex; flex-direction: column;
+  align-items: center;
+  padding: 56px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(107,127,94,0.06) 0%, transparent 60%);
+}
+
+.top-bar {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 36px;
+}
+.postual-logo { display: flex; align-items: center; gap: 8px; }
+.postual-p { font-size: 24px; font-weight: 900; color: #fff; }
+.postual-dot { width: 7px; height: 7px; background: #8FA580; border-radius: 50%; margin-top: 4px; }
+.postual-name { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+.tag {
+  background: rgba(107,127,94,0.15); color: #8FA580;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 7px 16px; border-radius: 50px;
+}
+
+.big-time {
+  font-size: 180px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 0.85;
+  letter-spacing: -8px;
+  margin-bottom: 0;
+  position: relative; z-index: 1;
+}
+.big-unit {
+  font-size: 36px;
+  font-weight: 700;
+  color: #8FA580;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  position: relative; z-index: 1;
+}
+.headline {
+  font-size: 26px;
+  font-weight: 700;
+  color: #6B7280;
+  margin-bottom: 40px;
+  position: relative; z-index: 1;
+}
+
+/* Timeline */
+.timeline {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 40px;
+  position: relative; z-index: 1;
+}
+.tl-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+.tl-step::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  right: -50%;
+  width: 100%;
+  height: 3px;
+  background: rgba(107,127,94,0.2);
+}
+.tl-step:last-child::after { display: none; }
+.tl-dot {
+  width: 48px; height: 48px;
+  background: rgba(107,127,94,0.12);
+  border: 2px solid rgba(107,127,94,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin: 0 auto 12px;
+  position: relative;
+  z-index: 1;
+}
+.tl-time {
+  font-size: 14px;
+  font-weight: 800;
+  color: #8FA580;
+  margin-bottom: 4px;
+}
+.tl-label {
+  font-size: 13px;
+  color: #6B7280;
+}
+
+/* What's included */
+.includes {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+  position: relative; z-index: 1;
+}
+.include {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.include-icon { font-size: 24px; }
+.include-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+.include-sub {
+  font-size: 11px;
+  color: #6B7280;
+}
+
+.bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  gap: 8px;
+}
+.bottom-text { font-size: 18px; font-weight: 700; color: #fff; }
+.bottom-text span { color: #8FA580; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-bar">
+    <div class="postual-logo">
+      <span class="postual-p">p</span><span class="postual-dot"></span>
+      <span class="postual-name">postual</span>
+    </div>
+    <div class="tag">Websites</div>
+  </div>
+
+  <div class="big-time">48h</div>
+  <div class="big-unit">horas</div>
+  <div class="headline">Do briefing ao site online.</div>
+
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-dot">💬</div>
+      <div class="tl-time">0h</div>
+      <div class="tl-label">Briefing</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">🎨</div>
+      <div class="tl-time">12h</div>
+      <div class="tl-label">Design</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">⚙️</div>
+      <div class="tl-time">24h</div>
+      <div class="tl-label">Desenvolvimento</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">✅</div>
+      <div class="tl-time">36h</div>
+      <div class="tl-label">Revisão</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">🚀</div>
+      <div class="tl-time">48h</div>
+      <div class="tl-label">Online!</div>
+    </div>
+  </div>
+
+  <div class="includes">
+    <div class="include">
+      <div class="include-icon">📱</div>
+      <div>
+        <div class="include-text">100% Responsivo</div>
+        <div class="include-sub">Perfeito em mobile e desktop</div>
+      </div>
+    </div>
+    <div class="include">
+      <div class="include-icon">🔍</div>
+      <div>
+        <div class="include-text">SEO Optimizado</div>
+        <div class="include-sub">Aparece no Google</div>
+      </div>
+    </div>
+    <div class="include">
+      <div class="include-icon">⚡</div>
+      <div>
+        <div class="include-text">Ultra Rápido</div>
+        <div class="include-sub">Carrega em menos de 2 segundos</div>
+      </div>
+    </div>
+    <div class="include">
+      <div class="include-icon">🔒</div>
+      <div>
+        <div class="include-text">SSL Incluído</div>
+        <div class="include-sub">Seguro e profissional</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom-text">Peça o seu. Primeiro mês <span>grátis</span> →</div>
+  </div>
+</div>
+</body>
+</html>

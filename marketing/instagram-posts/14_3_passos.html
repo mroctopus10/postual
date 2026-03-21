@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post 14 — Como funciona</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0F1114; }
+.card {
+  width: 1080px; height: 1080px;
+  background: #0F1114;
+  display: flex; flex-direction: column;
+  align-items: center;
+  padding: 56px 80px;
+  position: relative;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 40px;
+}
+.postual-logo { display: flex; align-items: center; gap: 8px; }
+.postual-p { font-size: 24px; font-weight: 900; color: #fff; }
+.postual-dot { width: 7px; height: 7px; background: #8FA580; border-radius: 50%; margin-top: 4px; }
+.postual-name { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+.tag {
+  background: rgba(107,127,94,0.15); color: #8FA580;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 7px 16px; border-radius: 50px;
+}
+
+.title {
+  font-size: 42px; font-weight: 900; color: #fff;
+  letter-spacing: -1px; line-height: 1.2; margin-bottom: 8px;
+  text-align: center;
+}
+.title span { color: #8FA580; }
+.subtitle {
+  font-size: 18px; color: #6B7280; margin-bottom: 48px;
+  text-align: center;
+}
+
+.steps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.step {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.step::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 5px; height: 100%;
+  background: #8FA580;
+  border-radius: 5px 0 0 5px;
+}
+
+.step-num {
+  width: 72px; height: 72px;
+  background: rgba(107,127,94,0.12);
+  border: 2px solid rgba(107,127,94,0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 900;
+  color: #8FA580;
+  flex-shrink: 0;
+}
+
+.step-content { flex: 1; }
+.step-title {
+  font-size: 22px; font-weight: 800; color: #fff;
+  margin-bottom: 4px;
+}
+.step-desc {
+  font-size: 16px; color: #6B7280;
+}
+.step-time {
+  background: rgba(107,127,94,0.1);
+  color: #8FA580;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* Connector lines */
+.connector {
+  width: 3px; height: 20px;
+  background: rgba(107,127,94,0.2);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  gap: 8px;
+}
+.bottom-text {
+  font-size: 20px; font-weight: 800; color: #fff;
+}
+.bottom-highlight {
+  background: #8FA580;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-bar">
+    <div class="postual-logo">
+      <span class="postual-p">p</span><span class="postual-dot"></span>
+      <span class="postual-name">postual</span>
+    </div>
+    <div class="tag">Como funciona</div>
+  </div>
+
+  <div class="title">Começar é <span>simples</span></div>
+  <div class="subtitle">Sem contratos longos. Sem complicações.</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Conte-nos sobre o seu negócio</div>
+        <div class="step-desc">Uma conversa rápida para entender o que precisa</div>
+      </div>
+      <div class="step-time">5 min</div>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Criamos o conteúdo e a estratégia</div>
+        <div class="step-desc">Publicações, website, reviews — tudo incluído</div>
+      </div>
+      <div class="step-time">24-48h</div>
+    </div>
+
+    <div class="connector"></div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Aprova e nós publicamos</div>
+        <div class="step-desc">Você aprova, nós tratamos do resto</div>
+      </div>
+      <div class="step-time">Automático</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom-text">Primeiro mês</div>
+    <div class="bottom-highlight">GRÁTIS</div>
+  </div>
+</div>
+</body>
+</html>

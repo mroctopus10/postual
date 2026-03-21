@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post 1 — Titi Motor</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0F1114; }
+.card {
+  width: 1080px; height: 1080px;
+  background: #0F1114;
+  display: flex; flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 56px 24px;
+}
+.postual-logo {
+  display: flex; align-items: center; gap: 8px;
+}
+.postual-p { font-size: 24px; font-weight: 900; color: #fff; }
+.postual-dot { width: 7px; height: 7px; background: #8FA580; border-radius: 50%; margin-top: 4px; }
+.postual-name { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+.tag {
+  background: rgba(232,101,10,0.15);
+  color: #E8650A;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 50px;
+}
+
+/* Client info */
+.client-info {
+  padding: 0 56px 28px;
+}
+.client-name {
+  font-size: 48px;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -2px;
+  line-height: 1.1;
+}
+.client-name span { color: #E8650A; }
+.client-desc {
+  font-size: 17px;
+  color: #6B7280;
+  margin-top: 6px;
+}
+
+/* Laptop mockup */
+.laptop {
+  flex: 1;
+  margin: 0 40px;
+  position: relative;
+}
+.laptop-frame {
+  background: #1A1D20;
+  border-radius: 16px 16px 0 0;
+  border: 2px solid #2A2D30;
+  border-bottom: none;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.laptop-bar {
+  height: 36px;
+  background: #222528;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #FF5F57; }
+.dot-y { background: #FFBD2E; }
+.dot-g { background: #28C840; }
+.url {
+  flex: 1;
+  margin-left: 10px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 5px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: #6B7280;
+}
+.laptop-screen {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+.laptop-screen iframe {
+  width: 200%;
+  height: 200%;
+  border: none;
+  transform: scale(0.5);
+  transform-origin: top left;
+}
+.laptop-base {
+  height: 18px;
+  background: linear-gradient(180deg, #2A2D30 0%, #1A1D20 100%);
+  margin: 0 40px;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+}
+.laptop-base::before {
+  content: '';
+  position: absolute;
+  top: 4px; left: 50%; transform: translateX(-50%);
+  width: 60px; height: 4px;
+  background: #333;
+  border-radius: 2px;
+}
+
+/* Bottom stats */
+.bottom {
+  padding: 24px 56px 40px;
+  display: flex;
+  gap: 24px;
+}
+.stat {
+  flex: 1;
+  text-align: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 18px 12px;
+}
+.stat-num {
+  font-size: 28px;
+  font-weight: 900;
+  color: #E8650A;
+}
+.stat-label {
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 2px;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-bar">
+    <div class="postual-logo">
+      <span class="postual-p">p</span><span class="postual-dot"></span>
+      <span class="postual-name">postual</span>
+    </div>
+    <div class="tag">Stand Automóvel</div>
+  </div>
+
+  <div class="client-info">
+    <div class="client-name"><span>Titi</span>Motor.</div>
+    <div class="client-desc">Website com visualização 3D interativa de viaturas</div>
+  </div>
+
+  <div class="laptop">
+    <div class="laptop-frame">
+      <div class="laptop-bar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <div class="url">titi-motor.netlify.app</div>
+      </div>
+      <div class="laptop-screen">
+        <iframe src="https://titi-motor.netlify.app" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="laptop-base"></div>
+  </div>
+
+  <div class="bottom">
+    <div class="stat">
+      <div class="stat-num">+340%</div>
+      <div class="stat-label">Visitas ao site</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">+85</div>
+      <div class="stat-label">Leads / mês</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24h</div>
+      <div class="stat-label">Tempo de entrega</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

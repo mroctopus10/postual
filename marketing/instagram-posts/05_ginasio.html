@@ -7,12 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0A0A0A; }
 .card {
   width: 1080px; height: 1080px;
   background: #0A0A0A;
   display: flex; flex-direction: column;
-  padding: 64px;
   position: relative;
   overflow: hidden;
 }
@@ -21,230 +20,299 @@ body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sa
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #BFF549, #8BC34A, #6B7F5E);
+  background: linear-gradient(90deg, #BFF549, #8BC34A, transparent);
 }
-.card::before {
-  content: '';
-  position: absolute;
-  top: -150px; left: 50%;
-  transform: translateX(-50%);
-  width: 600px; height: 400px;
-  background: radial-gradient(circle, rgba(191,245,73,0.08) 0%, transparent 70%);
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 44px 56px 24px;
 }
+.postual-logo {
+  display: flex; align-items: center; gap: 8px;
+}
+.postual-p { font-size: 24px; font-weight: 900; color: #fff; }
+.postual-dot { width: 7px; height: 7px; background: #8FA580; border-radius: 50%; margin-top: 4px; }
+.postual-name { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1px; }
 .tag {
-  display: inline-block;
   background: rgba(191,245,73,0.12);
   color: #BFF549;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 10px 20px;
+  padding: 8px 18px;
   border-radius: 50px;
-  margin-bottom: 32px;
-  align-self: flex-start;
+}
+
+.client-info {
+  padding: 0 56px 28px;
 }
 .client-name {
-  font-size: 56px;
+  font-size: 48px;
   font-weight: 900;
   color: #FFFFFF;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   line-height: 1.1;
-  margin-bottom: 8px;
+  text-transform: uppercase;
 }
-.client-sub {
-  font-size: 20px;
+.client-desc {
+  font-size: 17px;
   color: #6B7280;
-  font-weight: 400;
-  margin-bottom: 40px;
+  margin-top: 6px;
 }
-.mockup {
+
+/* Two phones side by side for gym (mobile-first business) */
+.devices {
   flex: 1;
-  background: #111;
-  border-radius: 16px;
-  border: 1px solid rgba(191,245,73,0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.browser-bar {
-  height: 44px;
-  background: #161616;
   display: flex;
   align-items: center;
-  padding: 0 16px;
-  gap: 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  justify-content: center;
+  gap: 28px;
+  padding: 0 40px;
+  overflow: hidden;
 }
-.dot { width: 12px; height: 12px; border-radius: 50%; }
-.dot-r { background: #FF5F57; }
-.dot-y { background: #FFBD2E; }
-.dot-g { background: #28C840; }
-.url-bar {
-  flex: 1;
-  margin-left: 12px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 6px;
-  padding: 6px 14px;
+
+.phone {
+  width: 260px; height: 480px;
+  flex-shrink: 0;
+}
+.phone.tilted-left {
+  transform: perspective(800px) rotateY(8deg);
+}
+.phone.tilted-right {
+  transform: perspective(800px) rotateY(-8deg);
+}
+.phone-frame {
+  width: 100%; height: 100%;
+  background: #111;
+  border-radius: 32px;
+  border: 3px solid #2A2A2A;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  padding: 14px 0 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.phone-notch {
+  width: 80px; height: 6px;
+  background: #2A2A2A; border-radius: 3px;
+  margin: 0 auto 10px;
+}
+.phone-screen {
+  flex: 1; overflow: hidden;
+  margin: 0 3px 3px;
+  border-radius: 0 0 28px 28px;
+  background: #111;
+}
+.phone-screen iframe {
+  width: 400%; height: 400%;
+  border: none;
+  transform: scale(0.25);
+  transform-origin: top left;
+}
+.phone-label {
+  text-align: center;
+  margin-top: 12px;
   font-size: 13px;
-  color: #6B7280;
+  font-weight: 700;
+  color: #BFF549;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
-.mockup-content {
+
+/* Vault fitness content inside phone (no iframe, custom) */
+.vf-screen {
   flex: 1;
+  margin: 0 3px 3px;
+  border-radius: 0 0 28px 28px;
+  background: #0A0A0A;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
 }
-.mockup-icon {
-  font-size: 64px;
-  margin-bottom: 16px;
-}
-.mockup-title {
-  font-size: 34px;
+.vf-logo {
+  font-size: 22px;
   font-weight: 900;
   color: #fff;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.mockup-subtitle {
-  font-size: 14px;
-  color: #BFF549;
   letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 4px;
 }
-.mockup-cta {
-  padding: 12px 40px;
+.vf-sub {
+  font-size: 9px;
+  color: #BFF549;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.vf-hero {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+.vf-cta {
+  padding: 10px 28px;
   background: #BFF549;
   color: #000;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 20px;
 }
-.features {
-  display: flex;
-  gap: 16px;
-  margin-top: 40px;
+.vf-stats {
+  display: flex; gap: 16px;
 }
-.feature {
-  background: rgba(191,245,73,0.06);
-  border: 1px solid rgba(191,245,73,0.1);
-  border-radius: 12px;
-  padding: 20px 24px;
-  text-align: center;
+.vf-stat-num {
+  font-size: 18px; font-weight: 900; color: #BFF549;
+}
+.vf-stat-label {
+  font-size: 8px; color: #6B7280;
+}
+
+/* Instagram mockup */
+.ig-screen {
   flex: 1;
-}
-.feature-emoji { font-size: 28px; margin-bottom: 8px; }
-.feature-name {
-  font-size: 14px;
-  font-weight: 700;
-  color: #FFFFFF;
-  margin-bottom: 4px;
-}
-.feature-detail {
-  font-size: 11px;
-  color: #6B7280;
-}
-.stats-row {
+  margin: 0 3px 3px;
+  border-radius: 0 0 28px 28px;
+  background: #fff;
   display: flex;
-  gap: 24px;
-  margin-top: 36px;
+  flex-direction: column;
+  overflow: hidden;
+}
+.ig-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+}
+.ig-avatar {
+  width: 28px; height: 28px;
+  background: #0A0A0A;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900; color: #BFF549;
+}
+.ig-name { font-size: 11px; font-weight: 700; color: #000; }
+.ig-post-img {
+  flex: 1;
+  background: linear-gradient(135deg, #0A0A0A 0%, #1a1a1a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ig-post-text {
+  font-size: 14px; font-weight: 900; color: #fff;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.ig-post-accent {
+  font-size: 10px; color: #BFF549;
+  letter-spacing: 1px; margin-top: 4px;
+}
+.ig-actions {
+  display: flex; gap: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+.ig-likes {
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #000;
+}
+
+.bottom {
+  padding: 24px 56px 40px;
+  display: flex; gap: 24px;
 }
 .stat {
-  text-align: center;
-  flex: 1;
+  flex: 1; text-align: center;
+  background: rgba(191,245,73,0.04);
+  border: 1px solid rgba(191,245,73,0.1);
+  border-radius: 14px;
+  padding: 18px 12px;
 }
 .stat-num {
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 900;
   color: #BFF549;
 }
 .stat-label {
-  font-size: 13px;
+  font-size: 12px;
   color: #6B7280;
-  margin-top: 4px;
-}
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 36px;
-}
-.postual-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.postual-p {
-  font-size: 28px;
-  font-weight: 900;
-  color: #fff;
-}
-.postual-dot {
-  width: 8px; height: 8px;
-  background: #8FA580;
-  border-radius: 50%;
-  margin-top: 6px;
-}
-.postual-text {
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 1px;
-}
-.footer-right {
-  font-size: 14px;
-  color: #4B5563;
+  margin-top: 2px;
 }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="tag">Ginásio & Fitness</div>
-  <div class="client-name">Vault Fitness</div>
-  <div class="client-sub">Website + gestão de membros + Instagram</div>
-
-  <div class="mockup">
-    <div class="browser-bar">
-      <div class="dot dot-r"></div>
-      <div class="dot dot-y"></div>
-      <div class="dot dot-g"></div>
-      <div class="url-bar">vaultfitness.pt</div>
+  <div class="top-bar">
+    <div class="postual-logo">
+      <span class="postual-p">p</span><span class="postual-dot"></span>
+      <span class="postual-name">postual</span>
     </div>
-    <div class="mockup-content">
-      <div class="mockup-icon">💪</div>
-      <div class="mockup-title">Vault Fitness</div>
-      <div class="mockup-subtitle">Train • Transform • Transcend</div>
-      <div class="mockup-cta">Começar Agora</div>
+    <div class="tag">Ginásio & Fitness</div>
+  </div>
+
+  <div class="client-info">
+    <div class="client-name">Vault Fitness</div>
+    <div class="client-desc">Website + Instagram + gestão de membros</div>
+  </div>
+
+  <div class="devices">
+    <div class="phone tilted-left">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="vf-screen">
+          <div class="vf-logo">Vault Fitness</div>
+          <div class="vf-sub">Train • Transform • Transcend</div>
+          <div class="vf-hero">🏋️</div>
+          <div class="vf-cta">Começar Agora</div>
+          <div class="vf-stats">
+            <div>
+              <div class="vf-stat-num">+95</div>
+              <div class="vf-stat-label">Membros</div>
+            </div>
+            <div>
+              <div class="vf-stat-num">12</div>
+              <div class="vf-stat-label">Aulas</div>
+            </div>
+            <div>
+              <div class="vf-stat-num">4.8★</div>
+              <div class="vf-stat-label">Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone-label">Website</div>
+    </div>
+
+    <div class="phone tilted-right">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="ig-screen">
+          <div class="ig-header">
+            <div class="ig-avatar">VF</div>
+            <div class="ig-name">vaultfitness.pt</div>
+          </div>
+          <div class="ig-post-img">
+            <div class="ig-post-text">Novo horário</div>
+            <div class="ig-post-accent">Segunda a Sábado — 6h às 22h</div>
+          </div>
+          <div class="ig-actions">❤️ 💬 📤</div>
+          <div class="ig-likes">127 gostos</div>
+        </div>
+      </div>
+      <div class="phone-label">Instagram</div>
     </div>
   </div>
 
-  <div class="features">
-    <div class="feature">
-      <div class="feature-emoji">🌐</div>
-      <div class="feature-name">Website</div>
-      <div class="feature-detail">Landing page</div>
-    </div>
-    <div class="feature">
-      <div class="feature-emoji">📸</div>
-      <div class="feature-name">Instagram</div>
-      <div class="feature-detail">Conteúdo mensal</div>
-    </div>
-    <div class="feature">
-      <div class="feature-emoji">👥</div>
-      <div class="feature-name">CRM</div>
-      <div class="feature-detail">Gestão clientes</div>
-    </div>
-  </div>
-
-  <div class="stats-row">
+  <div class="bottom">
     <div class="stat">
       <div class="stat-num">+95</div>
       <div class="stat-label">Novos membros</div>
@@ -257,14 +325,6 @@ body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sa
       <div class="stat-num">36h</div>
       <div class="stat-label">Tudo entregue</div>
     </div>
-  </div>
-
-  <div class="footer">
-    <div class="postual-logo">
-      <span class="postual-p">p</span><span class="postual-dot"></span>
-      <span class="postual-text">postual</span>
-    </div>
-    <div class="footer-right">postual.pt</div>
   </div>
 </div>
 </body>

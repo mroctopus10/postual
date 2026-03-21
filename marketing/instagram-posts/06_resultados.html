@@ -7,12 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0F1114; }
 .card {
   width: 1080px; height: 1080px;
   background: #0F1114;
   display: flex; flex-direction: column;
-  padding: 64px;
+  padding: 56px;
   position: relative;
   overflow: hidden;
 }
@@ -21,61 +21,65 @@ body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sa
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(107,127,94,0.08) 0%, transparent 60%);
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(107,127,94,0.06) 0%, transparent 60%);
 }
+
 .header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
+  position: relative; z-index: 1;
 }
 .logo-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 32px;
+  gap: 10px;
+  margin-bottom: 28px;
 }
-.logo-p {
-  font-size: 36px;
-  font-weight: 900;
-  color: #fff;
-}
-.logo-dot {
-  width: 10px; height: 10px;
-  background: #8FA580;
-  border-radius: 50%;
-  margin-top: 8px;
-}
-.logo-name {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 2px;
-}
+.logo-p { font-size: 32px; font-weight: 900; color: #fff; }
+.logo-dot { width: 9px; height: 9px; background: #8FA580; border-radius: 50%; margin-top: 6px; }
+.logo-name { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 2px; }
 .title {
-  font-size: 44px;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -1px;
-  line-height: 1.2;
-  margin-bottom: 12px;
+  font-size: 42px; font-weight: 900;
+  color: #fff; letter-spacing: -1px;
+  line-height: 1.2; margin-bottom: 8px;
 }
 .title span { color: #8FA580; }
-.subtitle {
-  font-size: 18px;
-  color: #6B7280;
+.subtitle { font-size: 17px; color: #6B7280; }
+
+/* Client showcase row */
+.clients-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  position: relative; z-index: 1;
 }
-.grid {
+.client-card {
+  flex: 1;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+}
+.client-icon { font-size: 28px; margin-bottom: 8px; }
+.client-name { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+.client-type { font-size: 11px; color: #6B7280; }
+
+/* Big metrics */
+.metrics {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 16px;
   flex: 1;
+  position: relative; z-index: 1;
 }
 .metric {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 20px;
-  padding: 36px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,60 +93,39 @@ body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sa
   width: 100%; height: 3px;
   background: linear-gradient(90deg, #8FA580, transparent);
 }
-.metric-icon {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
 .metric-num {
-  font-size: 48px;
+  font-size: 44px;
   font-weight: 900;
   color: #8FA580;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 .metric-label {
-  font-size: 16px;
+  font-size: 15px;
   color: #fff;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .metric-desc {
-  font-size: 13px;
+  font-size: 12px;
   color: #6B7280;
 }
-.bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 48px;
-}
-.client-logos {
-  display: flex;
-  gap: 24px;
-}
-.client-badge {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #9CA3AF;
-}
+
 .cta {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 32px;
+  position: relative; z-index: 1;
 }
 .cta-text {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   color: #fff;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .cta-sub {
-  font-size: 15px;
+  font-size: 16px;
   color: #8FA580;
+  font-weight: 600;
 }
 </style>
 </head>
@@ -157,40 +140,54 @@ body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sa
     <div class="subtitle">O que entregamos aos nossos clientes</div>
   </div>
 
-  <div class="grid">
+  <div class="clients-row">
+    <div class="client-card">
+      <div class="client-icon">🚗</div>
+      <div class="client-name">Titi Motor</div>
+      <div class="client-type">Stand Automóvel</div>
+    </div>
+    <div class="client-card">
+      <div class="client-icon">✂️</div>
+      <div class="client-name">Corte & Navalha</div>
+      <div class="client-type">Barbearia</div>
+    </div>
+    <div class="client-card">
+      <div class="client-icon">🍷</div>
+      <div class="client-name">A Mesa do Algarve</div>
+      <div class="client-type">Restaurante</div>
+    </div>
+    <div class="client-card">
+      <div class="client-icon">🏠</div>
+      <div class="client-name">Horizonte</div>
+      <div class="client-type">Imobiliária</div>
+    </div>
+    <div class="client-card">
+      <div class="client-icon">💪</div>
+      <div class="client-name">Vault Fitness</div>
+      <div class="client-type">Ginásio</div>
+    </div>
+  </div>
+
+  <div class="metrics">
     <div class="metric">
-      <div class="metric-icon">📈</div>
       <div class="metric-num">+340%</div>
       <div class="metric-label">Aumento de visitas</div>
       <div class="metric-desc">Média nos primeiros 30 dias</div>
     </div>
     <div class="metric">
-      <div class="metric-icon">💬</div>
       <div class="metric-num">+85</div>
       <div class="metric-label">Leads por mês</div>
       <div class="metric-desc">Contactos qualificados via site</div>
     </div>
     <div class="metric">
-      <div class="metric-icon">⭐</div>
-      <div class="metric-num">4.9</div>
+      <div class="metric-num">4.9★</div>
       <div class="metric-label">Avaliação média</div>
       <div class="metric-desc">Satisfação dos nossos clientes</div>
     </div>
     <div class="metric">
-      <div class="metric-icon">⚡</div>
       <div class="metric-num">48h</div>
       <div class="metric-label">Tempo de entrega</div>
       <div class="metric-desc">Do briefing ao site online</div>
-    </div>
-  </div>
-
-  <div class="bottom">
-    <div class="client-logos">
-      <div class="client-badge">Titi Motor</div>
-      <div class="client-badge">Corte & Navalha</div>
-      <div class="client-badge">A Mesa do Algarve</div>
-      <div class="client-badge">Horizonte</div>
-      <div class="client-badge">Vault Fitness</div>
     </div>
   </div>
 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post 7 — 82% Reviews</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0F1114; }
+.card {
+  width: 1080px; height: 1080px;
+  background: #0F1114;
+  display: flex; flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(107,127,94,0.1) 0%, transparent 60%);
+}
+.top-bar {
+  position: absolute;
+  top: 40px; left: 56px; right: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.postual-logo { display: flex; align-items: center; gap: 8px; }
+.postual-p { font-size: 24px; font-weight: 900; color: #fff; }
+.postual-dot { width: 7px; height: 7px; background: #8FA580; border-radius: 50%; margin-top: 4px; }
+.postual-name { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+.tag {
+  background: rgba(107,127,94,0.15);
+  color: #8FA580;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 7px 16px; border-radius: 50px;
+}
+
+.big-number {
+  font-size: 220px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 0.9;
+  letter-spacing: -10px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+}
+.big-number span {
+  color: #8FA580;
+}
+.headline {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  max-width: 700px;
+  line-height: 1.3;
+  margin-bottom: 32px;
+  position: relative; z-index: 1;
+}
+.subtext {
+  font-size: 18px;
+  color: #6B7280;
+  max-width: 600px;
+  line-height: 1.5;
+  position: relative; z-index: 1;
+  margin-bottom: 40px;
+}
+.question-box {
+  background: rgba(107,127,94,0.1);
+  border: 1px solid rgba(107,127,94,0.2);
+  border-radius: 16px;
+  padding: 24px 40px;
+  position: relative; z-index: 1;
+}
+.question {
+  font-size: 20px;
+  font-weight: 700;
+  color: #8FA580;
+}
+.question-sub {
+  font-size: 14px;
+  color: #6B7280;
+  margin-top: 4px;
+}
+
+.bottom-bar {
+  position: absolute;
+  bottom: 40px; left: 56px; right: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta {
+  font-size: 15px;
+  color: #6B7280;
+}
+.cta span { color: #8FA580; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-bar">
+    <div class="postual-logo">
+      <span class="postual-p">p</span><span class="postual-dot"></span>
+      <span class="postual-name">postual</span>
+    </div>
+    <div class="tag">Sabia que?</div>
+  </div>
+
+  <div class="big-number">82<span>%</span></div>
+  <div class="headline">dos clientes lêem reviews antes de escolher um negócio local</div>
+  <div class="subtext">Se o seu negócio tem poucas reviews ou um rating abaixo de 4.0, está a perder clientes todos os dias para a concorrência.</div>
+
+  <div class="question-box">
+    <div class="question">Quantas reviews tem no Google?</div>
+    <div class="question-sub">Se a resposta é "poucas" — nós resolvemos isso.</div>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="cta">Primeiro mês <span>grátis</span> → DM</div>
+  </div>
+</div>
+</body>
+</html>

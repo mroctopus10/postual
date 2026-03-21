@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post 11 — Quanto custa NÃO estar online</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; background: #0F1114; }
+.card {
+  width: 1080px; height: 1080px;
+  background: #0F1114;
+  display: flex; flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px;
+  position: relative;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 30%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 600px;
+  background: radial-gradient(circle, rgba(107,127,94,0.08) 0%, transparent 60%);
+}
+
+.top-bar {
+  position: absolute;
+  top: 40px; left: 56px; right: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.postual-logo { display: flex; align-items: center; gap: 8px; }
+.postual-p { font-size: 24px; font-weight: 900; color: #fff; }
+.postual-dot { width: 7px; height: 7px; background: #8FA580; border-radius: 50%; margin-top: 4px; }
+.postual-name { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: 1px; }
+.tag {
+  background: rgba(107,127,94,0.15); color: #8FA580;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 7px 16px; border-radius: 50px;
+}
+
+.question {
+  font-size: 28px;
+  font-weight: 600;
+  color: #6B7280;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+
+.big-number {
+  font-size: 160px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 0.9;
+  letter-spacing: -6px;
+  margin-bottom: 4px;
+  position: relative; z-index: 1;
+}
+.big-unit {
+  font-size: 32px;
+  font-weight: 700;
+  color: #8FA580;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  position: relative; z-index: 1;
+}
+
+.fact-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 28px 40px;
+  max-width: 700px;
+  position: relative; z-index: 1;
+  margin-bottom: 32px;
+}
+.fact {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.fact span { color: #8FA580; font-weight: 800; }
+
+.calc {
+  display: flex;
+  gap: 32px;
+  position: relative; z-index: 1;
+  margin-bottom: 16px;
+}
+.calc-item {
+  text-align: center;
+}
+.calc-num {
+  font-size: 40px;
+  font-weight: 900;
+  color: #8FA580;
+}
+.calc-label {
+  font-size: 13px;
+  color: #6B7280;
+  margin-top: 4px;
+}
+.calc-x {
+  font-size: 32px;
+  font-weight: 900;
+  color: #4B5563;
+  display: flex;
+  align-items: center;
+}
+
+.punchline {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  max-width: 600px;
+  line-height: 1.4;
+  position: relative; z-index: 1;
+  margin-top: 24px;
+}
+.punchline span { color: #F87171; }
+
+.bottom-bar {
+  position: absolute;
+  bottom: 40px;
+  font-size: 15px; color: #6B7280;
+}
+.bottom-bar span { color: #8FA580; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-bar">
+    <div class="postual-logo">
+      <span class="postual-p">p</span><span class="postual-dot"></span>
+      <span class="postual-name">postual</span>
+    </div>
+    <div class="tag">Vamos fazer as contas</div>
+  </div>
+
+  <div class="question">O Algarve recebeu</div>
+  <div class="big-number">5.2M</div>
+  <div class="big-unit">turistas em 2024</div>
+
+  <div class="fact-box">
+    <div class="fact"><span>73%</span> pesquisam restaurantes, hotéis e serviços <span>online</span> antes de ir.</div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-item">
+      <div class="calc-num">€50</div>
+      <div class="calc-label">valor médio / cliente</div>
+    </div>
+    <div class="calc-x">×</div>
+    <div class="calc-item">
+      <div class="calc-num">10</div>
+      <div class="calc-label">clientes perdidos / semana</div>
+    </div>
+    <div class="calc-x">=</div>
+    <div class="calc-item">
+      <div class="calc-num">€2K</div>
+      <div class="calc-label">perdidos / mês</div>
+    </div>
+  </div>
+
+  <div class="punchline">Quanto está a <span>perder</span> por não estar online?</div>
+
+  <div class="bottom-bar">Nós resolvemos isso. Primeiro mês <span>grátis</span> →</div>
+</div>
+</body>
+</html>

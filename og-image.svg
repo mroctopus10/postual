@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1D21"/>
+      <stop offset="100%" style="stop-color:#2A2D31"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03">
+    <line x1="0" y1="0" x2="1200" y2="630" stroke="#F5F3EE" stroke-width="1"/>
+    <line x1="400" y1="0" x2="1200" y2="420" stroke="#F5F3EE" stroke-width="1"/>
+    <line x1="800" y1="0" x2="1200" y2="210" stroke="#F5F3EE" stroke-width="1"/>
+    <line x1="0" y1="210" x2="800" y2="630" stroke="#F5F3EE" stroke-width="1"/>
+    <line x1="0" y1="420" x2="400" y2="630" stroke="#F5F3EE" stroke-width="1"/>
+  </g>
+
+  <!-- Logo: p. -->
+  <text x="100" y="340" font-family="Inter, -apple-system, system-ui, Arial, sans-serif" font-size="180" font-weight="900" fill="#F5F3EE" letter-spacing="-5">postual</text>
+  <text x="787" y="340" font-family="Inter, -apple-system, system-ui, Arial, sans-serif" font-size="180" font-weight="900" fill="#8FA580" letter-spacing="-5">.</text>
+
+  <!-- Tagline -->
+  <text x="105" y="410" font-family="Inter, -apple-system, system-ui, Arial, sans-serif" font-size="36" font-weight="400" fill="#F5F3EE" opacity="0.7">Marketing digital para negócios locais</text>
+
+  <!-- Services line -->
+  <text x="105" y="460" font-family="Inter, -apple-system, system-ui, Arial, sans-serif" font-size="24" font-weight="400" fill="#8FA580" opacity="0.9">Redes Sociais  ·  Websites  ·  Google Reviews</text>
+
+  <!-- URL -->
+  <text x="105" y="550" font-family="Inter, -apple-system, system-ui, Arial, sans-serif" font-size="22" font-weight="500" fill="#F5F3EE" opacity="0.4">postual.com</text>
+</svg>

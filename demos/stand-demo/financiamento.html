@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financiamento — Atlântico Automóveis (exemplo)</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/stand.css">
+</head>
+<body>
+    <div class="demo-ribbon"><strong>Demonstração fictícia criada pela Postual</strong> — formulário de exemplo, não envia dados reais. <a href="/stands">Quero algo assim para o meu stand →</a></div>
+
+    <nav class="d-nav">
+        <a href="index.html" class="d-logo"><span class="mark"><svg viewBox="0 0 24 24"><path d="M5 13l1.5-4.5A2 2 0 018.4 7h7.2a2 2 0 011.9 1.5L19 13M5 13h14v4a1 1 0 01-1 1h-1a1 1 0 01-1-1v-1H8v1a1 1 0 01-1 1H6a1 1 0 01-1-1v-4z"/></svg></span>Atlântico<span>Automóveis</span></a>
+        <div class="d-nav-links">
+            <a href="index.html">Início</a>
+            <a href="inventario.html">Viaturas</a>
+            <a href="financiamento.html" class="active">Financiamento</a>
+            <a href="https://wa.me/351912730964" class="d-phone" target="_blank">WhatsApp</a>
+        </div>
+    </nav>
+
+    <section class="d-section">
+        <div class="d-wrap" style="max-width:720px;">
+            <div class="d-eyebrow">Financiamento</div>
+            <h1 class="d-h2">Simule o seu financiamento</h1>
+            <p class="d-sub" style="margin-bottom:28px;">Preencha os dados e entramos em contacto com uma proposta sem compromisso. Trabalhamos com várias entidades financeiras.</p>
+
+            <form class="d-form two" id="finForm" novalidate>
+                <div class="fg"><label for="fnome">Nome</label><input id="fnome" name="nome" type="text" placeholder="O seu nome" required></div>
+                <div class="fg"><label for="ftel">Telefone</label><input id="ftel" name="telefone" type="tel" placeholder="+351 900 000 000" required></div>
+                <div class="fg full"><label for="femail">Email</label><input id="femail" name="email" type="email" placeholder="email@exemplo.com" required></div>
+                <div class="fg"><label for="fviatura">Viatura de interesse</label><input id="fviatura" name="viatura" type="text" placeholder="Ex.: Volkswagen Golf 1.6 TDI" value="Volkswagen Golf 1.6 TDI"></div>
+                <div class="fg"><label for="fpreco">Preço da viatura</label><input id="fpreco" name="preco" type="text" placeholder="€18.900" value="€18.900"></div>
+                <div class="fg"><label for="fentrada">Entrada inicial</label><input id="fentrada" name="entrada" type="text" placeholder="Ex.: €3.000"></div>
+                <div class="fg"><label for="fprazo">Prazo</label>
+                    <select id="fprazo" name="prazo">
+                        <option value="">Seleccione o prazo</option>
+                        <option>24 meses</option>
+                        <option>36 meses</option>
+                        <option>48 meses</option>
+                        <option>60 meses</option>
+                        <option>72 meses</option>
+                    </select>
+                </div>
+                <div class="fg full"><label for="fmsg">Mensagem (opcional)</label><textarea id="fmsg" name="mensagem" placeholder="Alguma questão ou informação adicional?"></textarea></div>
+                <label class="d-consent full">
+                    <input type="checkbox" id="fconsent" required>
+                    <span>Autorizo o contacto e o tratamento dos meus dados para efeitos desta simulação de financiamento, nos termos da Política de Privacidade.</span>
+                </label>
+                <div class="fg full"><button type="submit" class="d-btn d-btn-primary" style="width:100%;justify-content:center;">Pedir simulação</button></div>
+            </form>
+
+            <div id="finOk" class="d-note" style="display:none;margin-top:20px;">✓ Pedido de simulação recebido (demonstração). Num stand real, este formulário enviaria o pedido para a equipa comercial.</div>
+            <p style="font-size:0.76rem;color:var(--d-muted);margin-top:16px;">TAEG e condições sujeitas a aprovação da entidade financeira. Valores meramente indicativos. Exemplo fictício.</p>
+        </div>
+    </section>
+
+    <footer class="d-footer">
+        <div class="d-wrap">
+            <p>© 2026 Atlântico Automóveis — EN125, Faro (morada fictícia) · +351 912 730 964</p>
+            <p class="made">Demonstração fictícia criada pela <a href="/stands">Postual</a>.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/351912730964" class="d-wa-float" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+    document.getElementById('finForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        if(!this.checkValidity()){ this.reportValidity(); return; }
+        this.style.display='none';
+        document.getElementById('finOk').style.display='block';
+        document.getElementById('finOk').scrollIntoView({behavior:'smooth', block:'center'});
+    });
+    </script>
+</body>
+</html>

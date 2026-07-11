@@ -1,0 +1,45 @@
+/* Shared styles for Atlântico Automóveis demo social posts (1:1).
+   Fills a square iframe in the /stands gallery; centred square when opened standalone. */
+:root{
+    --p-bg1:#0d1420; --p-bg2:#0a0e15;
+    --p-accent:#2f9fe0; --p-accent2:#1f6fb2;
+    --p-gold:#e6b566; --p-green:#3fbf7f; --p-text:#eef3f9; --p-muted:#9fb0c4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+    font-family:'Inter',-apple-system,sans-serif;
+    background:#06090e; display:flex; align-items:center; justify-content:center;
+    -webkit-font-smoothing:antialiased;
+}
+.post{
+    position:relative; width:min(100vw,100vh); height:min(100vw,100vh);
+    background:radial-gradient(120% 90% at 80% 0%, rgba(47,159,224,0.22), transparent 55%), linear-gradient(160deg,var(--p-bg1),var(--p-bg2));
+    color:var(--p-text); overflow:hidden;
+    display:flex; flex-direction:column; justify-content:space-between;
+    padding:8.5% 8%;
+}
+.post::after{ /* subtle car silhouette watermark */
+    content:''; position:absolute; right:-6%; bottom:-6%; width:70%; height:55%;
+    background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Cpath d='M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44' fill='none' stroke='%232f9fe0' stroke-width='1.2'/%3E%3C/svg%3E");
+    opacity:0.14; pointer-events:none;
+}
+.brand{ display:flex; align-items:center; gap:2.4%; font-weight:800; font-size:4.2vmin; letter-spacing:-0.01em; z-index:2; }
+.brand .m{ width:8vmin; height:8vmin; border-radius:2vmin; background:linear-gradient(135deg,var(--p-accent),var(--p-accent2)); display:flex; align-items:center; justify-content:center; }
+.brand .m svg{ width:5vmin; height:5vmin; stroke:#fff; fill:none; stroke-width:2; }
+.brand span{ color:var(--p-accent); }
+.body{ z-index:2; }
+.kicker{ display:inline-block; font-size:3vmin; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#04121d; background:var(--p-accent); padding:1.4vmin 3vmin; border-radius:50px; margin-bottom:5vmin; }
+.kicker.gold{ background:var(--p-gold); }
+.kicker.green{ background:var(--p-green); color:#04210f; }
+.headline{ font-size:8.6vmin; font-weight:900; line-height:1.02; letter-spacing:-0.03em; margin-bottom:3vmin; }
+.headline em{ font-style:normal; color:var(--p-accent); }
+.sub{ font-size:4vmin; color:var(--p-muted); line-height:1.4; max-width:82%; }
+.meta{ display:flex; gap:2.4vmin; flex-wrap:wrap; margin-top:5vmin; }
+.meta span{ font-size:3vmin; color:var(--p-muted); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:1.4vmin 3vmin; border-radius:50px; }
+.price{ font-size:11vmin; font-weight:900; color:var(--p-accent); letter-spacing:-0.04em; line-height:1; margin-top:3vmin; }
+.foot{ display:flex; align-items:center; justify-content:space-between; z-index:2; font-size:3vmin; color:var(--p-muted); }
+.foot .tag{ color:var(--p-text); font-weight:600; }
+.foot .ex{ font-size:2.4vmin; color:rgba(255,255,255,0.35); }
+.big-stat{ font-size:16vmin; font-weight:900; color:var(--p-gold); letter-spacing:-0.04em; line-height:0.95; }
+.big-stat.green{ color:var(--p-green); }

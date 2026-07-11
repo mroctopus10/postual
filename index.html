@@ -8,6 +8,8 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-CXT5083C0T');
+      // Lightweight event helper used across the site (WhatsApp / form / package / demo clicks)
+      function track(action, label){ try { if (typeof gtag === 'function') { gtag('event', action, { event_category: 'engagement', event_label: label }); } } catch(e){} }
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +20,11 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.svg">
 
-    <meta name="description" content="Marketing digital para restaurantes, imobiliárias, clínicas e negócios locais em Portugal. Gestão de redes sociais, publicidade paga e criação de conteúdo.">
+    <meta name="description" content="Gestão de website, redes sociais e Meta Ads para negócios locais em Portugal. Solução dedicada para stands de automóveis. Sem contrato de longa duração.">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Postual — Agência de Marketing Digital">
-    <meta property="og:description" content="Marketing digital para negócios locais em Portugal. Redes sociais, websites, Google Reviews.">
+    <meta property="og:description" content="Gestão de website, redes sociais e Meta Ads para negócios locais em Portugal. Solução dedicada para stands de automóveis.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://postual.com">
     <meta property="og:locale" content="pt_PT">
@@ -43,13 +45,13 @@
       "@context": "https://schema.org",
       "@type": "MarketingAgency",
       "name": "Postual",
-      "description": "Agência de marketing digital para negócios locais em Portugal. Gestão de redes sociais, websites, Google Reviews e publicidade.",
+      "description": "Gestão de website, redes sociais e Meta Ads para negócios locais em Portugal. Solução dedicada para stands de automóveis.",
       "url": "https://postual.com",
       "areaServed": {
         "@type": "Country",
         "name": "Portugal"
       },
-      "serviceType": ["Marketing Digital", "Gestão de Redes Sociais", "Criação de Websites", "Google Reviews", "Publicidade Digital"],
+      "serviceType": ["Gestão de Website", "Gestão de Redes Sociais", "Meta Ads", "Marketing Digital"],
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+351912730964",
@@ -65,312 +67,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231A1D1E'/%3E%3Ctext x='3' y='24' font-family='Inter,Arial,sans-serif' font-weight='800' font-size='22' fill='%23FAFAF8'%3Ep%3C/text%3E%3Ccircle cx='22' cy='22' r='3.5' fill='%236B7F5E'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #F5F7FA;
-            --bg-dark: #1A1D1E;
-            --sage: #6B7F5E;
-            --sage-light: #8FA580;
-            --charcoal: #1A1D1E;
-            --white: #FFFFFF;
-            --text: #1A1D1E;
-            --text-light: rgba(26,29,30,0.6);
-            --text-secondary: #4A4F51;
-            --text-on-dark: rgba(255,255,255,0.9);
-            --text-on-dark-muted: rgba(255,255,255,0.5);
-            --cream: #F5F7FA;
-            --radius: 12px;
-            --radius-lg: 20px;
-            --border: #E6E4DF;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
-            --shadow-lg: 0 10px 32px rgba(0,0,0,0.08);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #ddd; }
-        ::-webkit-scrollbar-thumb { background: #999; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--sage); }
-
-        /* ===== NAV ===== */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            padding: 20px 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.4s ease;
-        }
-        .nav.scrolled {
-            background: rgba(245,245,245,0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 14px 32px;
-        }
-        .nav-logo { font-size: 1.2rem; font-weight: 800; color: var(--charcoal); text-decoration: none; letter-spacing: -0.03em; }
-        .nav-logo span { color: var(--sage); }
-        .nav-links { display: flex; gap: 32px; list-style: none; }
-        .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-light); text-decoration: none; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--charcoal); }
-        .nav-cta { padding: 10px 24px; background: var(--charcoal); color: var(--white) !important; border-radius: 50px; font-size: 0.8rem !important; font-weight: 600 !important; }
-        .nav-cta:hover { background: #2D3436 !important; }
-
-        /* ===== HERO TEXT ===== */
-        .hero-section {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 32px;
-            position: relative;
-        }
-        .hero-section h1 {
-            font-size: clamp(2.8rem, 8vw, 5.5rem);
-            font-weight: 900;
-            letter-spacing: -0.05em;
-            line-height: 0.95;
-            color: var(--charcoal);
-            margin-bottom: 20px;
-        }
-        .hero-section h1 em { font-style: normal; color: var(--sage); }
-        .hero-section p {
-            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-            color: var(--text-light);
-            max-width: 460px;
-            line-height: 1.65;
-        }
-        .scroll-hint {
-            position: absolute;
-            bottom: 36px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            opacity: 0.45;
-        }
-        .scroll-hint span { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); }
-        .scroll-mouse { width: 24px; height: 38px; border: 2px solid var(--text-light); border-radius: 12px; position: relative; }
-        .scroll-mouse::after {
-            content: '';
-            position: absolute;
-            top: 6px; left: 50%;
-            transform: translateX(-50%);
-            width: 3px; height: 8px;
-            background: var(--sage);
-            border-radius: 2px;
-            animation: scrollPulse 1.5s ease-in-out infinite;
-        }
-        @keyframes scrollPulse {
-            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-            50% { transform: translateX(-50%) translateY(8px); opacity: 0.3; }
-        }
-
-        /* ===== SCROLL SEQUENCE (skill pattern: tall wrapper + sticky canvas) ===== */
-        .scroll-wrapper {
-            height: 250vh;
-            position: relative;
-        }
-        .scroll-sticky {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: var(--bg);
-        }
-        #seqCanvas { display: block; }
-
-        /* ===== CONTENT SECTIONS ===== */
-        .section { padding: 120px 32px; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .section-dark { background: var(--bg-dark); color: var(--text-on-dark); }
-        .section-dark .section-label { color: var(--sage-light); }
-        .section-dark .section-title { color: var(--text-on-dark); }
-        .section-dark .section-subtitle { color: var(--text-on-dark-muted); }
-        .section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 14px; }
-        .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 16px; }
-        .section-subtitle { font-size: 1rem; color: var(--text-light); max-width: 500px; line-height: 1.7; }
-        .section-header-center { text-align: center; margin-bottom: 64px; }
-        .section-header-center .section-subtitle { margin: 0 auto; }
-
-        /* ===== SERVICES ===== */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-        .service-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 20px;
-            padding: 36px 28px;
-            transition: all 0.4s ease;
-            opacity: 0; transform: translateY(24px);
-        }
-        .service-card.visible { opacity: 1; transform: translateY(0); }
-        .service-card.fade-in { opacity: 0; transform: translateY(24px); }
-        .service-card.fade-in.visible { opacity: 1; transform: translateY(0); }
-        .service-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(107,127,94,0.2); transform: translateY(-4px); }
-        .service-icon { width: 44px; height: 44px; background: rgba(107,127,94,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-        .service-icon svg { width: 22px; height: 22px; stroke: var(--sage-light); fill: none; stroke-width: 2; }
-        .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--text-on-dark); }
-        .service-card p { font-size: 0.85rem; color: var(--text-on-dark-muted); line-height: 1.65; }
-
-        /* ===== RESULTS ===== */
-        .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .results-visual { position: relative; }
-        .results-img-main { width: 100%; border-radius: 16px; }
-        .results-img-float { position: absolute; width: 280px; bottom: -40px; right: -40px; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-        .results-content h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 20px; }
-        .results-content h2 em { font-style: normal; color: var(--sage); }
-        .results-content p { font-size: 1rem; color: var(--text-light); line-height: 1.7; margin-bottom: 40px; }
-        .results-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .result-stat h4 { font-size: 2.2rem; font-weight: 800; color: var(--sage); margin-bottom: 6px; }
-        .result-stat p { font-size: 0.9rem; color: var(--text-light); }
-
-        /* ===== PROCESS ===== */
-        .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
-        .process-step { opacity: 0; transform: translateY(24px); transition: all 0.5s ease; }
-        .process-step.visible { opacity: 1; transform: translateY(0); }
-        .process-step.fade-in { opacity: 0; transform: translateY(24px); }
-        .process-step.fade-in.visible { opacity: 1; transform: translateY(0); }
-        .step-number { font-size: 2.4rem; font-weight: 800; color: var(--sage); margin-bottom: 16px; }
-        .process-step h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: var(--charcoal); }
-        .process-step p { font-size: 0.95rem; color: var(--text-light); line-height: 1.7; }
-
-        /* ===== TRUST CARDS ===== */
-        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .testimonial-card { background: var(--white); border-radius: 16px; padding: 32px 28px; border: 1px solid var(--border); opacity: 0; transform: translateY(24px); transition: all 0.5s ease; }
-        .testimonial-card.visible { opacity: 1; transform: translateY(0); }
-        .testimonial-card.fade-in { opacity: 0; transform: translateY(24px); }
-        .testimonial-card.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        /* ===== PRICING ===== */
-        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-        .pricing-card {
-            background: var(--white); border-radius: 20px; padding: 36px 28px;
-            border: 1px solid rgba(0,0,0,0.06); position: relative;
-            opacity: 0; transform: translateY(24px); transition: all 0.5s ease;
-        }
-        .pricing-card.visible { opacity: 1; transform: translateY(0); }
-        .pricing-card.fade-in { opacity: 0; transform: translateY(24px); }
-        .pricing-card.fade-in.visible { opacity: 1; transform: translateY(0); }
-        .pricing-card.featured { border: 2px solid var(--sage); box-shadow: 0 16px 48px rgba(107,127,94,0.12); }
-        .pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--sage); color: var(--white); padding: 4px 16px; border-radius: 50px; font-size: 0.68rem; font-weight: 700; }
-        .pricing-tier { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage); margin-bottom: 8px; }
-        .pricing-card h3 { font-size: 2.4rem; font-weight: 900; letter-spacing: -0.04em; color: var(--charcoal); }
-        .pricing-card h3 span { font-size: 0.9rem; font-weight: 500; color: var(--text-light); }
-        .pricing-desc { font-size: 0.82rem; color: var(--text-light); margin-bottom: 20px; }
-        .pricing-trial { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 600; color: var(--sage); margin-bottom: 20px; }
-        .pricing-trial-note { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--sage); margin-bottom: 20px; }
-        .pricing-features { list-style: none; margin-bottom: 24px; }
-        .pricing-features li { font-size: 0.82rem; color: var(--text-light); padding: 8px 0; display: flex; align-items: center; gap: 8px; }
-        .pricing-features li svg { width: 16px; height: 16px; stroke: var(--sage); flex-shrink: 0; }
-        .pricing-features li::before { content: ''; }
-        .pricing-btn { display: block; width: 100%; padding: 14px; text-align: center; border-radius: 50px; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
-        .pricing-btn-outline { border: 2px solid var(--charcoal); color: var(--charcoal); }
-        .pricing-btn-outline:hover { background: var(--charcoal); color: var(--white); }
-        .pricing-btn-sage { background: var(--sage); color: var(--white); }
-        .pricing-btn-sage:hover { background: var(--sage-light); }
-        .btn { display: inline-block; padding: 14px 32px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
-        .btn-outline { border: 2px solid var(--charcoal); color: var(--charcoal); }
-        .btn-outline:hover { background: var(--charcoal); color: var(--white); }
-        .btn-sage { background: var(--sage); color: var(--white); }
-        .btn-sage:hover { background: var(--sage-light); }
-        .website-callout { background: rgba(107,127,94,0.08); border-radius: 16px; padding: 48px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 48px; }
-        .website-callout-content h3 { font-size: 1.25rem; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
-        .website-callout-content p { font-size: 0.95rem; color: var(--text-light); }
-
-        /* ===== CTA ===== */
-        .cta-section { background: var(--bg-dark); padding: 100px 32px; text-align: center; }
-        .cta-section .section-label { color: var(--sage-light); }
-        .cta-section .section-title { color: var(--text-on-dark); max-width: 600px; margin: 0 auto 16px; }
-        .cta-section p { color: var(--text-on-dark-muted); font-size: 1rem; margin-bottom: 32px; }
-        .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-        .btn-sage { padding: 16px 36px; background: var(--sage); color: var(--white); border-radius: 50px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
-        .btn-sage:hover { background: var(--sage-light); transform: translateY(-2px); }
-        .btn-ghost { padding: 16px 36px; background: rgba(255,255,255,0.06); color: var(--text-on-dark); border: 1px solid rgba(255,255,255,0.12); border-radius: 50px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
-        .btn-ghost:hover { background: rgba(255,255,255,0.1); }
-
-        /* ===== CONTACT ===== */
-        .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: flex-start; }
-        .contact-info h3 { font-size: 1.3rem; font-weight: 700; color: var(--charcoal); margin-bottom: 12px; }
-        .contact-info p { font-size: 1rem; color: var(--text-light); margin-bottom: 32px; }
-        .contact-detail { display: flex; gap: 16px; margin-bottom: 24px; }
-        .contact-detail-icon { width: 48px; height: 48px; background: var(--bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .contact-detail-icon svg { width: 24px; height: 24px; stroke: var(--sage); stroke-width: 1.5; fill: none; }
-        .contact-detail-text .label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); margin-bottom: 4px; }
-        .contact-detail-text span { font-size: 1rem; font-weight: 600; color: var(--charcoal); }
-        .contact-form { display: flex; flex-direction: column; gap: 16px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .form-group { display: flex; flex-direction: column; }
-        .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--charcoal); margin-bottom: 8px; }
-        .contact-form input, .contact-form select, .contact-form textarea { padding: 14px 18px; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; font-family: inherit; font-size: 0.88rem; background: var(--white); transition: border-color 0.3s; }
-        .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline: none; border-color: var(--sage); }
-        .contact-form textarea { min-height: 120px; resize: vertical; }
-        .btn-primary { display: block; width: 100%; padding: 16px; background: var(--charcoal); color: var(--white); border: none; border-radius: 50px; font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-        .btn-primary:hover { background: #2D3436; }
-
-        /* ===== FOOTER ===== */
-        .footer { background: var(--bg-dark); padding: 64px 32px 32px; border-top: 1px solid rgba(255,255,255,0.06); }
-        .footer .container { max-width: 1100px; margin: 0 auto; }
-        .footer-inner { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; margin-bottom: 48px; }
-        .footer-brand { flex: 1; }
-        .footer-logo { font-size: 1.1rem; font-weight: 800; color: var(--text-on-dark); text-decoration: none; }
-        .footer-logo span { color: var(--sage); }
-        .footer-brand p { font-size: 0.85rem; color: var(--text-on-dark-muted); margin-top: 12px; line-height: 1.6; max-width: 360px; }
-        .footer-links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; }
-        .footer-col h4 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-on-dark); margin-bottom: 16px; letter-spacing: 0.05em; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col a { font-size: 0.82rem; color: var(--text-on-dark-muted); text-decoration: none; transition: color 0.3s; }
-        .footer-col a:hover { color: var(--sage-light); }
-        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
-        .footer-bottom span { font-size: 0.75rem; color: var(--text-on-dark-muted); }
-        .footer-social { display: flex; gap: 16px; }
-        .footer-social a { font-size: 0.82rem; color: var(--text-on-dark-muted); text-decoration: none; transition: color 0.3s; }
-        .footer-social a:hover { color: var(--sage-light); }
-
-        /* ===== WHATSAPP FLOAT ===== */
-        .whatsapp-float { position: fixed; bottom: 28px; right: 28px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.3); z-index: 100; transition: transform 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-section { height: 75vh; }
-            .scroll-wrapper { height: 180vh; }
-            .scroll-hint { bottom: 20px; }
-            .section { padding: 80px 20px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .results-grid { grid-template-columns: 1fr; }
-            .results-img-float { position: static; margin-top: 20px; }
-            .process-steps { grid-template-columns: 1fr; }
-            .testimonials-grid { grid-template-columns: 1fr; }
-            .contact-wrapper { grid-template-columns: 1fr; }
-            .footer-inner { grid-template-columns: 1fr; }
-            .footer-links-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-            .website-callout { flex-direction: column; text-align: center; }
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/postual.css">
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
     <!-- Vercel Speed Insights -->
@@ -383,7 +80,7 @@
         <a href="#" class="nav-logo" translate="no">postual<span>.</span></a>
         <ul class="nav-links">
             <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#quem-servimos">Sectores</a></li>
+            <li><a href="/stands">Para Stands</a></li>
             <li><a href="#precos">Preços</a></li>
             <li><a href="#contacto" class="nav-cta">Fale Connosco</a></li>
         </ul>
@@ -391,8 +88,13 @@
 
     <!-- SECTION 1: HERO TEXT -->
     <section class="hero-section">
-        <h1>O seu negócio.<br><em>Sem limites.</em></h1>
-        <p>Gerimos as suas redes sociais e trazemos clientes reais ao seu negócio.</p>
+        <h1>O seu site e redes sociais,<br><em>geridos por nós.</em></h1>
+        <p>Mantemos o seu negócio atualizado online, publicamos conteúdo consistente e gerimos campanhas para gerar mais contactos.</p>
+        <div class="hero-cta">
+            <a href="#contacto" class="btn-sage" onclick="track('cta_click','hero_auditoria')">Auditoria gratuita</a>
+            <a href="/stands" class="btn btn-outline" onclick="track('demo_click','hero_para_stands')">Para stands →</a>
+        </div>
+        <div class="hero-trust"><span>Sem contrato de longa duração</span> · Cancelamento com 30 dias de aviso</div>
         <div class="scroll-hint">
             <span>Scroll</span>
             <div class="scroll-mouse"></div>
@@ -411,29 +113,24 @@
         <div class="container">
             <div class="section-header-center">
                 <div class="section-label">Serviços</div>
-                <div class="section-title">Tudo o que precisa para crescer online</div>
-                <div class="section-subtitle">Das redes sociais à criação de websites, tratamos de tudo com um único objectivo: trazer mais clientes.</div>
+                <div class="section-title">O que fazemos por si</div>
+                <div class="section-subtitle">Três serviços essenciais para manter o seu negócio visível online — geridos por nós, do início ao fim.</div>
             </div>
             <div class="services-grid">
                 <div class="service-card fade-in">
+                    <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+                    <h3>Gestão de Website</h3>
+                    <p>Criamos e mantemos o seu site sempre atualizado — novos produtos, serviços e informação publicados por si, sem trabalho da sua parte.</p>
+                </div>
+                <div class="service-card fade-in">
                     <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
                     <h3>Gestão de Redes Sociais</h3>
-                    <p>Publicações semanais para Instagram e Facebook. Legendas, hashtags e estratégia — sem esforço da sua parte.</p>
+                    <p>Publicações consistentes para Instagram e Facebook: conteúdo, fotografias, legendas e hashtags. Sem esforço da sua parte.</p>
                 </div>
                 <div class="service-card fade-in">
                     <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                    <h3>Publicidade Paga</h3>
-                    <p>Campanhas Meta Ads segmentadas para a sua zona e público-alvo. Relatórios claros com métricas reais.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
-                    <h3>Criação de Conteúdo</h3>
-                    <p>Fotografias editadas, gráficos, descrições e copy profissional. Conteúdo que atrai e converte.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                    <h3>Gestão de Reviews Google</h3>
-                    <p>Mais avaliações positivas no Google, respostas automáticas e profissionais. 82% dos clientes lêem reviews antes de escolher — nós tratamos disso por si.</p>
+                    <h3>Meta Ads</h3>
+                    <p>Campanhas de publicidade paga no Facebook e Instagram, segmentadas para a sua zona e público-alvo. Relatórios claros com métricas reais.</p>
                 </div>
             </div>
         </div>
@@ -447,21 +144,21 @@
                     <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="Resultados digitais" style="width: 100%; border-radius: 16px;">
                 </div>
                 <div class="results-content">
-                    <div class="section-label">Resultados</div>
-                    <h2>Mais visibilidade. Mais clientes. <em>Mais vendas.</em></h2>
-                    <p>Não prometemos, entregamos. Conteúdo profissional, campanhas que convertem e uma estratégia feita à medida — tudo para fazer o seu telefone tocar e a sua porta abrir.</p>
+                    <div class="section-label">Como trabalhamos</div>
+                    <h2>Consistência, sem o trabalho <em>do dia-a-dia.</em></h2>
+                    <p>Você envia-nos o essencial. Nós tratamos do resto — site atualizado, conteúdo publicado e campanhas geridas, de forma consistente e profissional.</p>
                     <div class="results-stats">
                         <div class="result-stat">
-                            <h4>+340%</h4>
-                            <p>Aumento de visitas</p>
+                            <h4>Publicações<br>semanais</h4>
+                            <p>Conteúdo consistente</p>
                         </div>
                         <div class="result-stat">
-                            <h4>3x</h4>
-                            <p>Mais contactos</p>
+                            <h4>Sem trabalho<br>da sua parte</h4>
+                            <p>Nós tratamos de tudo</p>
                         </div>
                         <div class="result-stat">
-                            <h4>24h</h4>
-                            <p>Tempo de resposta</p>
+                            <h4>Resposta<br>em 24h</h4>
+                            <p>Suporte dedicado</p>
                         </div>
                     </div>
                 </div>
@@ -500,40 +197,20 @@
     <section class="section section-dark" id="quem-servimos">
         <div class="container">
             <div class="section-header-center">
-                <div class="section-label">Quem Servimos</div>
-                <div class="section-title">Ajudamos negócios locais a crescer</div>
-                <div class="section-subtitle">Qualquer que seja o seu sector, criamos conteúdo que atrai clientes e aumenta a sua presença online.</div>
+                <div class="section-label">Quem servimos</div>
+                <div class="section-title">Feito para negócios locais</div>
+                <div class="section-subtitle">Trabalhamos com negócios locais em Portugal. E temos uma solução dedicada para stands de automóveis.</div>
             </div>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
-                    <h3>Restaurantes & Cafés</h3>
-                    <p>Menus, pratos do dia e promoções transformados em publicações que fazem os clientes reservar mesa.</p>
+            <div class="sector-strip">Restaurantes · Imobiliárias · Clínicas · Comércio local · <strong>Stands de automóveis</strong></div>
+            <div class="dealer-callout fade-in">
+                <div>
+                    <span class="tag">Solução dedicada</span>
+                    <h3>Tem um stand de automóveis?</h3>
+                    <p>Envie-nos cada viatura uma vez. Nós atualizamos o seu site, Instagram e Facebook — com preço, fotos e detalhes.</p>
+                    <p>Planos, regras e um exemplo real na página dedicada a stands.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-                    <h3>Imobiliárias</h3>
-                    <p>Imóveis novos publicados automaticamente com descrições profissionais e destaque para as melhores características.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-                    <h3>Clínicas & Consultórios</h3>
-                    <p>Conteúdo educativo sobre tratamentos, dicas de saúde e presença online que gera confiança e novos pacientes.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h3>Advogados & Escritórios</h3>
-                    <p>Artigos, credibilidade e visibilidade online para atrair clientes que procuram serviços jurídicos.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-                    <h3>Stands de Automóveis</h3>
-                    <p>Carros novos no stock publicados automaticamente com preço, detalhes e copy que vende.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
-                    <h3>Lojas & Comércio Local</h3>
-                    <p>Novidades, promoções e produtos em destaque — para que os clientes encontrem a sua loja online.</p>
+                <div class="cta-wrap">
+                    <a href="/stands" class="btn-sage" onclick="track('demo_click','sectores_para_stands')">Ver Postual para stands →</a>
                 </div>
             </div>
         </div>
@@ -566,78 +243,28 @@
         <div class="container">
             <div class="section-header-center">
                 <div class="section-label">Preços</div>
-                <div class="section-title">Planos claros, sem surpresas</div>
-                <div class="section-subtitle">Todos os planos incluem suporte dedicado.</div>
+                <div class="section-title">Planos simples, sem surpresas</div>
+                <div class="section-subtitle">Escolha só o que precisa: gestão de website, redes sociais, ou os dois. Cada sector tem os seus planos.</div>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card fade-in">
-                    <div class="pricing-tier">Essencial</div>
-                    <h3>€199 <span>/mês</span></h3>
-                    <div class="pricing-desc">Redes sociais para pequenos negócios</div>
-                    <ul class="pricing-features">
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Publicações semanais no Instagram</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Legendas e hashtags optimizadas</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Conteúdo baseado no seu negócio</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Suporte por email</li>
-                    </ul>
-                    <a href="#contacto" class="pricing-btn pricing-btn-outline">Começar</a>
+            <div class="pricing-simple fade-in">
+                <div class="from"><small>Planos desde</small>€149<span style="font-size:1.1rem;font-weight:600;color:var(--text-light);">/mês</span></div>
+                <p>Gestão de redes sociais desde €149/mês e gestão de website desde €120/mês. A criação do website tem uma taxa de setup única, à parte. Sem contrato de longa duração — cancelamento com 30 dias de aviso.</p>
+                <div class="cta-buttons">
+                    <a href="/stands" class="btn-sage" onclick="track('package_click','home_ver_planos_stands')">Ver planos para stands →</a>
+                    <a href="#contacto" class="btn btn-outline" onclick="track('cta_click','home_falar_connosco')">Falar connosco</a>
                 </div>
-                <div class="pricing-card featured fade-in">
-                    <div class="pricing-badge">Mais Popular</div>
-                    <div class="pricing-tier">Profissional</div>
-                    <h3>€349 <span>/mês</span></h3>
-                    <div class="pricing-desc">Redes sociais + publicidade paga</div>
-                    <ul class="pricing-features">
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tudo do plano Essencial</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Copy para anúncios Meta Ads</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Publicações diárias</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Relatórios de desempenho</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Suporte prioritário</li>
-                    </ul>
-                    <a href="#contacto" class="pricing-btn pricing-btn-sage">Pedir Orçamento</a>
-                </div>
-                <div class="pricing-card fade-in">
-                    <div class="pricing-tier">Premium</div>
-                    <h3>€599 <span>/mês</span></h3>
-                    <div class="pricing-desc">Solução completa para negócios maiores</div>
-                    <ul class="pricing-features">
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tudo do plano Profissional</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gestão completa de campanhas Ads</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Estratégia de conteúdo personalizada</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Reunião mensal de acompanhamento</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gestor de conta dedicado</li>
-                    </ul>
-                    <a href="#contacto" class="pricing-btn pricing-btn-outline">Pedir Orçamento</a>
-                </div>
-            </div>
-            <div class="website-callout fade-in" style="margin-top:24px;">
-                <div class="website-callout-content">
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
-                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="#6B7F5E" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <h3>Gestão de Reviews Google — <span style="color:var(--sage);">€59/mês</span></h3>
-                    </div>
-                    <p>Adicione a qualquer plano. Pedidos automáticos de avaliação aos seus clientes, respostas profissionais e monitorização contínua da sua reputação online.</p>
-                </div>
-                <a href="#contacto" class="btn btn-sage">Adicionar ao Plano</a>
-            </div>
-            <div class="website-callout fade-in">
-                <div class="website-callout-content">
-                    <h3>Também criamos websites à medida</h3>
-                    <p>Precisa de um website profissional para o seu negócio? Criamos e mantemos o seu site — peça um orçamento personalizado.</p>
-                </div>
-                <a href="#contacto" class="btn btn-sage">Pedir Orçamento</a>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
     <div class="cta-section">
-        <div class="section-label">Pare de perder clientes</div>
-        <div class="section-title">Enquanto lê isto, alguém está a encontrar a concorrência online</div>
-        <p>Fale connosco hoje. Sem compromisso. O orçamento é grátis.</p>
+        <div class="section-label">Vamos começar</div>
+        <div class="section-title">Peça uma auditoria gratuita ao seu negócio online</div>
+        <p>Vemos o que já tem, o que falta, e enviamos uma proposta — sem compromisso.</p>
         <div class="cta-buttons">
-            <a href="#contacto" class="btn-sage">Quero Mais Clientes</a>
-            <a href="https://wa.me/351912730964" class="btn-ghost" target="_blank">WhatsApp</a>
+            <a href="#contacto" class="btn-sage" onclick="track('cta_click','cta_auditoria')">Auditoria gratuita</a>
+            <a href="https://wa.me/351912730964" class="btn-ghost" target="_blank" onclick="track('whatsapp_click','cta_section')">WhatsApp</a>
         </div>
     </div>
 
@@ -652,7 +279,7 @@
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <h3>Vamos conversar sobre o seu projecto</h3>
-                    <p>Conte-nos sobre o seu negócio e o que pretende. Sem compromisso — o orçamento é grátis.</p>
+                    <p>Conte-nos sobre o seu negócio e o que pretende. Fazemos uma auditoria gratuita e enviamos uma proposta — sem compromisso.</p>
                     <div class="contact-detail">
                         <div class="contact-detail-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -681,7 +308,7 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" action="https://formsubmit.co/agency@postual.com" method="POST">
+                <form class="contact-form" action="https://formsubmit.co/agency@postual.com" method="POST" onsubmit="track('form_submit','home_contacto')">
                     <input type="hidden" name="_subject" value="Novo contacto — postual.com">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://postual.com">
@@ -703,17 +330,21 @@
                         <label for="service">Serviço pretendido</label>
                         <select id="service" name="service">
                             <option value="">Seleccione um serviço</option>
+                            <option value="website">Gestão de Website</option>
                             <option value="redes-sociais">Gestão de Redes Sociais</option>
-                            <option value="publicidade">Publicidade Paga (Meta Ads)</option>
-                            <option value="conteudo">Criação de Conteúdo</option>
-                            <option value="website">Criação de Website</option>
-                            <option value="pacote">Pacote Completo</option>
+                            <option value="meta-ads">Meta Ads</option>
+                            <option value="stand">Sou um stand de automóveis</option>
+                            <option value="pacote">Pacote completo</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="message">Mensagem</label>
                         <textarea id="message" name="message" placeholder="Conte-nos sobre o seu negócio..."></textarea>
                     </div>
+                    <label class="consent">
+                        <input type="checkbox" name="consentimento" value="sim" required>
+                        <span>Autorizo a Postual a contactar-me e a tratar os meus dados para responder a este pedido. Consulte a <a href="/privacidade">Política de Privacidade</a>.</span>
+                    </label>
                     <button type="submit" class="btn-primary">Enviar Mensagem</button>
                 </form>
             </div>
@@ -726,23 +357,24 @@
             <div class="footer-inner">
                 <div class="footer-brand">
                     <a href="#" class="footer-logo" translate="no">postual<span>.</span></a>
-                    <p>Agência de marketing digital para restaurantes, imobiliárias, clínicas e negócios locais no Algarve.</p>
+                    <p>Gestão de website, redes sociais e Meta Ads para negócios locais em Portugal. Solução dedicada para stands de automóveis.</p>
                 </div>
                 <div class="footer-links-grid">
                     <div class="footer-col">
                         <h4>Serviços</h4>
                         <ul>
+                            <li><a href="#servicos">Gestão de Website</a></li>
                             <li><a href="#servicos">Gestão de Redes Sociais</a></li>
-                            <li><a href="#servicos">Publicidade Paga</a></li>
-                            <li><a href="#servicos">Criação de Conteúdo</a></li>
+                            <li><a href="#servicos">Meta Ads</a></li>
+                            <li><a href="/stands">Para Stands</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
                         <h4>Empresa</h4>
                         <ul>
-                            <li><a href="#como-funciona">Como Funciona</a></li>
                             <li><a href="#precos">Preços</a></li>
                             <li><a href="#contacto">Contacto</a></li>
+                            <li><a href="/privacidade">Privacidade</a></li>
                         </ul>
                     </div>
                 </div>
@@ -757,7 +389,7 @@
     </footer>
 
     <!-- WHATSAPP -->
-    <a href="https://wa.me/351912730964" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <a href="https://wa.me/351912730964" class="whatsapp-float" target="_blank" aria-label="WhatsApp" onclick="track('whatsapp_click','float_home')">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 

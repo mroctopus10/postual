@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaturas — Atlântico Automóveis (exemplo)</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/stand.css">
+</head>
+<body>
+    <div class="demo-ribbon"><strong>Demonstração fictícia criada pela Postual</strong> — este stand não existe. <a href="/stands">Quero algo assim para o meu stand →</a></div>
+
+    <nav class="d-nav">
+        <a href="index.html" class="d-logo"><span class="mark"><svg viewBox="0 0 24 24"><path d="M5 13l1.5-4.5A2 2 0 018.4 7h7.2a2 2 0 011.9 1.5L19 13M5 13h14v4a1 1 0 01-1 1h-1a1 1 0 01-1-1v-1H8v1a1 1 0 01-1 1H6a1 1 0 01-1-1v-4z"/></svg></span>Atlântico<span>Automóveis</span></a>
+        <div class="d-nav-links">
+            <a href="index.html">Início</a>
+            <a href="inventario.html" class="active">Viaturas</a>
+            <a href="financiamento.html">Financiamento</a>
+            <a href="https://wa.me/351912730964" class="d-phone" target="_blank">WhatsApp</a>
+        </div>
+    </nav>
+
+    <section class="d-section">
+        <div class="d-wrap">
+            <div class="d-eyebrow">O nosso stock</div>
+            <h1 class="d-h2">Viaturas disponíveis</h1>
+            <p class="d-sub" style="margin-bottom:26px;">8 viaturas de exemplo. Num stand real, todo o stock é publicado e mantido atualizado pela Postual.</p>
+
+            <div class="filter-bar" id="filterBar">
+                <button class="active" data-f="all">Todas</button>
+                <button data-f="diesel">Diesel</button>
+                <button data-f="gasolina">Gasolina</button>
+                <button data-f="hibrido">Híbrido</button>
+                <button data-f="automatico">Automático</button>
+            </div>
+
+            <div class="inv-grid" id="invGrid">
+                <div class="car-card" data-tags="diesel">
+                    <div class="car-photo"><span class="ph-tag">Foto ilustrativa</span><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44"/></svg><span class="price-tag">€18.900</span></div>
+                    <div class="car-body"><h3>Volkswagen Golf 1.6 TDI</h3><div class="car-price">€18.900</div><div class="car-specs"><span>2019</span><span>92.000 km</span><span>Diesel</span><span>Manual</span></div><a href="viatura.html" class="d-btn d-btn-ghost">Ver detalhes</a></div>
+                </div>
+                <div class="car-card" data-tags="diesel">
+                    <div class="car-photo"><span class="ph-tag">Foto ilustrativa</span><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44"/></svg><span class="price-tag">€14.500</span></div>
+                    <div class="car-body"><h3>Renault Clio 1.5 dCi</h3><div class="car-price">€14.500</div><div class="car-specs"><span>2020</span><span>68.000 km</span><span>Diesel</span><span>Manual</span></div><a href="viatura.html" class="d-btn d-btn-ghost">Ver detalhes</a></div>
+                </div>
+                <div class="car-card" data-tags="diesel automatico">
+                    <div class="car-photo"><span class="ph-tag">Foto ilustrativa</span><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44"/></svg><span class="price-tag">€23.900</span></div>
+                    <div class="car-body"><h3>BMW Série 3 320d</h3><div class="car-price">€23.900</div><div class="car-specs"><span>2018</span><span>120.000 km</span><span>Diesel</span><span>Automático</span></div><a href="viatura.html" class="d-btn d-btn-ghost">Ver detalhes</a></div>
+                </div>
+                <div class="car-card" data-tags="diesel automatico">
+                    <div class="car-photo"><span class="ph-tag">Foto ilustrativa</span><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44"/></svg><span class="price-tag">€22.500</span></div>
+                    <div class="car-body"><h3>Mercedes-Benz Classe A 180d</h3><div class="car-price">€22.500</div><div class="car-specs"><span>2019</span><span>85.000 km</span><span>Diesel</span><span>Automático</span></div><a href="viatura.html" class="d-btn d-btn-ghost">Ver detalhes</a></div>
+                </div>
+                <div class="car-card" data-tags="diesel automatico">
+                    <div class="car-photo"><span class="ph-tag">Foto ilustrativa</span><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44"/></svg><span class="price-tag">€24.900</span></div>
+                    <div class="car-body"><h3>Peugeot 3008 1.5 BlueHDi</h3><div class="car-price">€24.900</div><div class="car-specs"><span>2020</span><span>74.000 km</span><span>Diesel</span><span>Automático</span></div><a href="viatura.html" class="d-btn d-btn-ghost">Ver detalhes</a></div>
+                </div>
+                <div class="car-card" data-tags="diesel">
+                    <div class="car-photo"><span class="ph-tag">Foto ilustrativa</span><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44"/></svg><span class="price-tag">€19.900</span></div>
+                    <div class="car-body"><h3>Audi A4 2.0 TDI</h3><div class="car-price">€19.900</div><div class="car-specs"><span>2017</span><span>140.000 km</span><span>Diesel</span><span>Manual</span></div><a href="viatura.html" class="d-btn d-btn-ghost">Ver detalhes</a></div>
+                </div>
+                <div class="car-card" data-tags="hibrido automatico">
+                    <div class="car-photo"><span class="ph-tag">Foto ilustrativa</span><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44"/></svg><span class="price-tag">€23.500</span></div>
+                    <div class="car-body"><h3>Toyota Corolla 1.8 Hybrid</h3><div class="car-price">€23.500</div><div class="car-specs"><span>2021</span><span>45.000 km</span><span>Híbrido</span><span>Automático</span></div><a href="viatura.html" class="d-btn d-btn-ghost">Ver detalhes</a></div>
+                </div>
+                <div class="car-card" data-tags="gasolina">
+                    <div class="car-photo"><span class="ph-tag">Foto ilustrativa</span><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44"/></svg><span class="price-tag">€15.900</span></div>
+                    <div class="car-body"><h3>Ford Focus 1.0 EcoBoost</h3><div class="car-price">€15.900</div><div class="car-specs"><span>2019</span><span>78.000 km</span><span>Gasolina</span><span>Manual</span></div><a href="viatura.html" class="d-btn d-btn-ghost">Ver detalhes</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="d-footer">
+        <div class="d-wrap">
+            <p>© 2026 Atlântico Automóveis — EN125, Faro (morada fictícia) · +351 912 730 964</p>
+            <p class="made">Demonstração fictícia criada pela <a href="/stands">Postual</a>.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/351912730964" class="d-wa-float" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+    (function(){
+        var bar=document.getElementById('filterBar');
+        var cards=[].slice.call(document.querySelectorAll('#invGrid .car-card'));
+        bar.addEventListener('click',function(e){
+            var b=e.target.closest('button'); if(!b) return;
+            bar.querySelectorAll('button').forEach(function(x){x.classList.remove('active');});
+            b.classList.add('active');
+            var f=b.dataset.f;
+            cards.forEach(function(c){
+                c.style.display=(f==='all'||(' '+c.dataset.tags+' ').indexOf(' '+f+' ')>-1)?'':'none';
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

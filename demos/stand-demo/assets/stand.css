@@ -49,7 +49,11 @@ img { max-width:100%; display:block; }
 .d-nav-links a { font-size:0.85rem; color:var(--d-muted); font-weight:500; }
 .d-nav-links a:hover, .d-nav-links a.active { color:var(--d-text); }
 .d-nav-links .d-phone { color:var(--d-accent); font-weight:700; }
-@media(max-width:760px){ .d-nav-links a:not(.d-phone){ display:none; } }
+@media(max-width:760px){
+    .d-nav { flex-wrap:wrap; padding:12px 18px; row-gap:10px; }
+    .d-nav-links { width:100%; order:2; justify-content:space-between; gap:6px; }
+    .d-nav-links a { font-size:0.8rem; }
+}
 
 /* ===== BUTTONS ===== */
 .d-btn { display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:50px; font-size:0.88rem; font-weight:700; cursor:pointer; border:none; transition:all .25s; }
@@ -84,8 +88,10 @@ img { max-width:100%; display:block; }
     background:linear-gradient(135deg,#1b2430,#10151d); display:flex; align-items:center; justify-content:center; border:1px solid var(--d-line); }
 .car-photo.big { aspect-ratio:16/10; }
 .car-photo svg { width:60%; height:60%; opacity:0.22; stroke:var(--d-accent); fill:none; stroke-width:1; }
-.car-photo .ph-tag { position:absolute; top:10px; left:10px; font-size:0.62rem; font-weight:600; color:var(--d-muted); background:rgba(0,0,0,0.4); padding:3px 8px; border-radius:20px; letter-spacing:0.03em; }
-.car-photo .price-tag { position:absolute; bottom:12px; right:12px; background:var(--d-accent); color:#04121d; font-weight:800; font-size:1rem; padding:6px 14px; border-radius:8px; }
+/* Real photo sits on top of the SVG fallback: if the image fails to load, the SVG shows through. */
+.car-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+.car-photo .ph-tag { position:absolute; z-index:2; top:10px; left:10px; font-size:0.62rem; font-weight:600; color:#eaf2fb; background:rgba(0,0,0,0.5); padding:3px 9px; border-radius:20px; letter-spacing:0.03em; }
+.car-photo .price-tag { position:absolute; z-index:2; bottom:12px; right:12px; background:var(--d-accent); color:#04121d; font-weight:800; font-size:1rem; padding:6px 14px; border-radius:8px; box-shadow:0 4px 14px rgba(0,0,0,0.35); }
 
 /* ===== INVENTORY GRID ===== */
 .inv-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:22px; }

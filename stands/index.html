@@ -30,6 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/postual.css">
+    <script defer src="/assets/postual.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
@@ -37,13 +38,16 @@
     <!-- NAV -->
     <nav class="nav scrolled" id="nav">
         <a href="/" class="nav-logo" translate="no">postual<span>.</span></a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="/">Início</a></li>
             <li><a href="#planos">Planos</a></li>
             <li><a href="#exemplo">Exemplo</a></li>
             <li><a href="#faq">Perguntas</a></li>
             <li><a href="#contacto" class="nav-cta">Falar Connosco</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </nav>
 
     <!-- HERO -->

@@ -68,6 +68,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/postual.css">
+    <script defer src="/assets/postual.js"></script>
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
     <!-- Vercel Speed Insights -->
@@ -78,12 +79,15 @@
     <!-- NAV -->
     <nav class="nav" id="nav">
         <a href="#" class="nav-logo" translate="no">postual<span>.</span></a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="/stands">Para Stands</a></li>
             <li><a href="#precos">Preços</a></li>
             <li><a href="#contacto" class="nav-cta">Fale Connosco</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </nav>
 
     <!-- SECTION 1: HERO TEXT -->
@@ -141,7 +145,7 @@
         <div class="container">
             <div class="results-grid">
                 <div class="results-visual fade-in">
-                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="Resultados digitais" style="width: 100%; border-radius: 16px;">
+                    <img src="/assets/como-trabalhamos.jpg" alt="Equipa a gerir presença online de negócios" loading="lazy" style="width: 100%; border-radius: 16px;">
                 </div>
                 <div class="results-content">
                     <div class="section-label">Como trabalhamos</div>

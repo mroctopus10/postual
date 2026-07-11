@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/postual.css">
+    <script defer src="/assets/postual.js"></script>
     <style>
         .legal { max-width: 760px; margin: 0 auto; }
         .legal h2 { font-size: 1.15rem; font-weight: 700; color: var(--charcoal); margin: 32px 0 10px; }
@@ -19,13 +20,16 @@
     </style>
 </head>
 <body>
-    <nav class="nav scrolled">
+    <nav class="nav scrolled" id="nav">
         <a href="/" class="nav-logo" translate="no">postual<span>.</span></a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="/">Início</a></li>
             <li><a href="/stands">Para Stands</a></li>
             <li><a href="/#contacto" class="nav-cta">Falar Connosco</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </nav>
 
     <section class="section" style="padding-top:140px;">

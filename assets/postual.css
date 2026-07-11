@@ -62,6 +62,9 @@ body {
 .nav-links a:hover { color: var(--charcoal); }
 .nav-cta { padding: 10px 24px; background: var(--charcoal); color: var(--white) !important; border-radius: 50px; font-size: 0.8rem !important; font-weight: 600 !important; }
 .nav-cta:hover { background: #2D3436 !important; }
+/* Mobile hamburger (hidden on desktop) */
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; margin: -8px; color: var(--charcoal); }
+.nav-toggle svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; display: block; }
 
 /* ===== HERO TEXT ===== */
 .hero-section {
@@ -75,18 +78,21 @@ body {
     position: relative;
 }
 .hero-section h1 {
-    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-size: clamp(2.6rem, 7.4vw, 5rem);
     font-weight: 900;
-    letter-spacing: -0.05em;
-    line-height: 0.95;
+    letter-spacing: -0.035em;
+    line-height: 1.0;
     color: var(--charcoal);
     margin-bottom: 20px;
+    text-wrap: balance;
 }
 .hero-section h1 em { font-style: normal; color: var(--sage); }
+/* Prevent shrink-wrapped flex children from forcing horizontal overflow on narrow screens */
+.hero-section h1, .hero-section p, .hero-trust, .hero-cta { max-width: 100%; }
 .hero-section p {
     font-size: clamp(0.95rem, 1.5vw, 1.15rem);
     color: var(--text-light);
-    max-width: 520px;
+    max-width: min(520px, 100%);
     line-height: 1.65;
 }
 .scroll-hint {
@@ -351,8 +357,23 @@ body {
 .page-hero p { font-size: 1.05rem; color: var(--text-on-dark-muted); max-width: 620px; margin: 0 auto 28px; line-height: 1.7; }
 
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero-section { height: 82vh; }
+    .nav-toggle { display: block; }
+    .nav-links {
+        display: none; position: absolute; top: calc(100% + 6px); right: 16px; left: 16px;
+        flex-direction: column; gap: 2px; background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(20px); border: 1px solid var(--border); border-radius: 16px;
+        padding: 10px; box-shadow: var(--shadow-lg);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; list-style: none; }
+    .nav-links a { display: block; padding: 13px 16px; font-size: 0.95rem; border-radius: 10px; }
+    .nav-links a:hover { background: rgba(0,0,0,0.04); }
+    .nav-links .nav-cta { text-align: center; margin-top: 4px; }
+    .hero-section { height: 82vh; padding: 0 22px; }
+    .hero-section h1 { font-size: clamp(1.9rem, 8.2vw, 2.6rem); letter-spacing: -0.02em; line-height: 1.08; }
+    .hero-section p { font-size: 0.95rem; }
+    .hero-cta { width: 100%; }
+    .hero-cta .btn-sage, .hero-cta .btn { flex: 1 1 auto; text-align: center; }
     .scroll-wrapper { height: 180vh; }
     .scroll-hint { bottom: 20px; }
     .section { padding: 80px 20px; }

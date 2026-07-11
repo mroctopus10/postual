@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volkswagen Golf 1.6 TDI — Atlântico Automóveis (exemplo)</title>
+    <title>Viatura — Atlântico Automóveis (exemplo)</title>
     <meta name="robots" content="noindex">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,12 +13,12 @@
     <div class="demo-ribbon"><strong>Demonstração fictícia criada pela Postual</strong> — esta viatura não existe. <a href="/stands">Quero algo assim para o meu stand →</a></div>
 
     <nav class="d-nav">
-        <a href="index.html" class="d-logo"><span class="mark"><svg viewBox="0 0 24 24"><path d="M5 13l1.5-4.5A2 2 0 018.4 7h7.2a2 2 0 011.9 1.5L19 13M5 13h14v4a1 1 0 01-1 1h-1a1 1 0 01-1-1v-1H8v1a1 1 0 01-1 1H6a1 1 0 01-1-1v-4z"/></svg></span>Atlântico<span>Automóveis</span></a>
+        <a href="index.html" class="d-logo"><span class="mark"><svg viewBox="0 0 24 24"><path d="M5 13l1.5-4.5A2 2 0 018.4 7h7.2a2 2 0 011.9 1.5L19 13M5 13h14v4a1 1 0 01-1 1h-1a1 1 0 01-1-1v-1H8v1a1 1 0 01-1 1H6a1 1 0 01-1-1v-4z"/></svg></span>Atlântico <span>Automóveis</span></a>
         <div class="d-nav-links">
             <a href="index.html">Início</a>
             <a href="inventario.html">Viaturas</a>
             <a href="financiamento.html">Financiamento</a>
-            <a href="https://wa.me/351912730964" class="d-phone" target="_blank">WhatsApp</a>
+            <a href="https://wa.me/351912730964" class="d-phone" target="_blank" rel="noopener">WhatsApp</a>
         </div>
     </nav>
 
@@ -27,29 +27,27 @@
             <p style="font-size:0.82rem;color:var(--d-muted);margin-bottom:18px;"><a href="inventario.html" style="color:var(--d-accent);">← Voltar às viaturas</a></p>
             <div class="veh-grid">
                 <div>
-                    <div class="car-photo big"><span class="ph-tag">Foto ilustrativa</span><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0M30 26h44"/></svg></div>
-                    <div class="veh-thumbs">
-                        <div class="car-photo"><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0"/></svg></div>
-                        <div class="car-photo"><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0"/></svg></div>
-                        <div class="car-photo"><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0"/></svg></div>
-                        <div class="car-photo"><svg viewBox="0 0 120 60"><path d="M12 42h96M20 42l6-16a8 8 0 017.5-5h33a8 8 0 017 4l9 17M30 42a7 7 0 1114 0M76 42a7 7 0 1114 0"/></svg></div>
+                    <div class="car-photo big">
+                        <img id="vImg" src="assets/cars/golf.jpg" alt="Viatura — foto ilustrativa">
+                        <span class="ph-tag">Foto ilustrativa</span>
                     </div>
+                    <div class="veh-thumbs" id="vThumbs"></div>
                 </div>
                 <div class="veh-info">
-                    <div class="d-eyebrow">Ref. AT-0192</div>
-                    <h1>Volkswagen Golf 1.6 TDI</h1>
-                    <div class="veh-price">€18.900</div>
+                    <div class="d-eyebrow" id="vRef">Ref. —</div>
+                    <h1 id="vTitle">Viatura</h1>
+                    <div class="veh-price" id="vPrice">—</div>
                     <table class="spec-table">
-                        <tr><td>Ano</td><td>2019</td></tr>
-                        <tr><td>Quilómetros</td><td>92.000 km</td></tr>
-                        <tr><td>Combustível</td><td>Diesel</td></tr>
-                        <tr><td>Caixa</td><td>Manual (6 velocidades)</td></tr>
-                        <tr><td>Potência</td><td>115 cv</td></tr>
-                        <tr><td>Portas</td><td>5 portas</td></tr>
+                        <tr><td>Ano</td><td id="vYear">—</td></tr>
+                        <tr><td>Quilómetros</td><td id="vKm">—</td></tr>
+                        <tr><td>Combustível</td><td id="vFuel">—</td></tr>
+                        <tr><td>Caixa</td><td id="vGear">—</td></tr>
+                        <tr><td>Potência</td><td id="vPower">—</td></tr>
+                        <tr><td>Portas</td><td id="vDoors">—</td></tr>
                         <tr><td>Garantia</td><td>12 meses incluída</td></tr>
                     </table>
                     <div class="veh-cta">
-                        <a href="https://wa.me/351912730964?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Volkswagen%20Golf%201.6%20TDI%20(Ref.%20AT-0192)%20por%20%E2%82%AC18.900" class="d-btn d-btn-wa" target="_blank">Tenho interesse — WhatsApp</a>
+                        <a id="vWa" href="https://wa.me/351912730964" class="d-btn d-btn-wa" target="_blank" rel="noopener">Tenho interesse — WhatsApp</a>
                         <a href="financiamento.html" class="d-btn d-btn-primary">Simular financiamento</a>
                         <a href="tel:+351912730964" class="d-btn d-btn-ghost">Ligar ao stand</a>
                     </div>
@@ -59,7 +57,7 @@
 
             <div style="margin-top:44px;max-width:760px;">
                 <h2 class="d-h2" style="font-size:1.3rem;">Descrição</h2>
-                <p style="color:var(--d-muted);line-height:1.8;">Volkswagen Golf 1.6 TDI em excelente estado, sempre revisto e com histórico de manutenção. Equipado com sensores de estacionamento, controlo de velocidade, sistema multimédia com Android Auto e Apple CarPlay, climatização automática e jantes em liga leve. Aceitamos retoma e tratamos de todo o financiamento por si. Contacte-nos para agendar um test drive.</p>
+                <p id="vDesc" style="color:var(--d-muted);line-height:1.8;"></p>
             </div>
         </div>
     </section>
@@ -71,8 +69,43 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/351912730964?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Volkswagen%20Golf%20(Ref.%20AT-0192)" class="d-wa-float" target="_blank" aria-label="WhatsApp">
+    <a id="vWaFloat" href="https://wa.me/351912730964" class="d-wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
+
+    <script>
+    (function(){
+        var CARS = {
+            golf:        {t:'Volkswagen Golf 1.6 TDI', p:'€18.900', ref:'AT-0192', year:'2019', km:'92.000 km', fuel:'Diesel',   gear:'Manual (6 velocidades)',    power:'115 cv', doors:'5 portas', img:'golf',        desc:'Volkswagen Golf 1.6 TDI em excelente estado, sempre revisto e com histórico de manutenção. Sensores de estacionamento, cruise control, multimédia com Android Auto e Apple CarPlay, climatização automática e jantes em liga leve.'},
+            clio:        {t:'Renault Clio 1.5 dCi',   p:'€14.500', ref:'AT-0207', year:'2020', km:'68.000 km', fuel:'Diesel',   gear:'Manual (5 velocidades)',    power:'90 cv',  doors:'5 portas', img:'clio',        desc:'Renault Clio 1.5 dCi económico e citadino, ideal para o dia-a-dia. Baixo consumo, ecrã táctil, sensores traseiros e muito bom estado geral. Óptima primeira viatura.'},
+            bmw320:      {t:'BMW Série 3 320d',       p:'€23.900', ref:'AT-0155', year:'2018', km:'120.000 km',fuel:'Diesel',   gear:'Automático',                power:'190 cv', doors:'4 portas', img:'bmw320',      desc:'BMW Série 3 320d automático, pack desportivo, sempre revisto em marca. Bancos em pele, navegação, faróis LED e uma condução que não vai querer largar. Aceitamos retoma.'},
+            classea:     {t:'Mercedes-Benz Classe A 180d', p:'€22.500', ref:'AT-0168', year:'2019', km:'85.000 km', fuel:'Diesel', gear:'Automático', power:'116 cv', doors:'5 portas', img:'classea', desc:'Mercedes-Benz Classe A 180d com caixa automática, ecrã panorâmico MBUX, câmara de estacionamento e acabamento premium. Um dos compactos mais desejados do segmento.'},
+            peugeot3008: {t:'Peugeot 3008 1.5 BlueHDi',p:'€24.900', ref:'AT-0181', year:'2020', km:'74.000 km', fuel:'Diesel',   gear:'Automático',                power:'130 cv', doors:'5 portas', img:'peugeot3008', desc:'SUV Peugeot 3008 1.5 BlueHDi com i-Cockpit digital, muito espaço e conforto. Ideal para família, com baixo consumo e excelente equipamento. Garantia incluída.'},
+            audia4:      {t:'Audi A4 2.0 TDI',        p:'€19.900', ref:'AT-0143', year:'2017', km:'140.000 km',fuel:'Diesel',   gear:'Manual (6 velocidades)',    power:'150 cv', doors:'4 portas', img:'audia4',      desc:'Audi A4 2.0 TDI elegante e robusto, sempre revisto. Bancos desportivos, sensores dianteiros e traseiros, navegação e jantes em liga. Excelente relação qualidade/preço.'},
+            corolla:     {t:'Toyota Corolla 1.8 Hybrid',p:'€23.500', ref:'AT-0219', year:'2021', km:'45.000 km', fuel:'Híbrido',  gear:'Automático',                power:'122 cv', doors:'5 portas', img:'corolla',     desc:'Toyota Corolla 1.8 Hybrid com pouquíssimos quilómetros e baixíssimo consumo. Fiável, confortável e com toda a tecnologia de segurança Toyota Safety Sense. Como novo.'},
+            focus:       {t:'Ford Focus 1.0 EcoBoost',p:'€15.900', ref:'AT-0176', year:'2019', km:'78.000 km', fuel:'Gasolina', gear:'Manual (6 velocidades)',    power:'125 cv', doors:'5 portas', img:'focus',       desc:'Ford Focus 1.0 EcoBoost ágil e económico, com motor gasolina premiado. Ecrã SYNC, sensores de estacionamento e óptimo comportamento em estrada. Muito bem cuidado.'}
+        };
+        function qs(k){ return new URLSearchParams(location.search).get(k); }
+        var ref = qs('ref');
+        var c = CARS[ref] || CARS.golf;
+        function set(id,v){ var el=document.getElementById(id); if(el) el.textContent=v; }
+        document.title = c.t + ' — Atlântico Automóveis (exemplo)';
+        set('vTitle', c.t); set('vPrice', c.p); set('vRef', 'Ref. '+c.ref);
+        set('vYear', c.year); set('vKm', c.km); set('vFuel', c.fuel);
+        set('vGear', c.gear); set('vPower', c.power); set('vDoors', c.doors); set('vDesc', c.desc);
+        var img = document.getElementById('vImg');
+        img.src = 'assets/cars/'+c.img+'.jpg';
+        img.alt = c.t + ' — foto ilustrativa';
+        // Gallery thumbs: same photo framed differently (demo)
+        var positions = ['center','left','right','bottom'];
+        var tw = document.getElementById('vThumbs');
+        tw.innerHTML = positions.map(function(pos){
+            return '<div class="car-photo"><img src="assets/cars/'+c.img+'.jpg" alt="'+c.t+' — foto ilustrativa" style="object-position:'+pos+'"></div>';
+        }).join('');
+        var msg = encodeURIComponent('Olá, tenho interesse no '+c.t+' (Ref. '+c.ref+') por '+c.p);
+        document.getElementById('vWa').href = 'https://wa.me/351912730964?text='+msg;
+        document.getElementById('vWaFloat').href = 'https://wa.me/351912730964?text='+msg;
+    })();
+    </script>
 </body>
 </html>
